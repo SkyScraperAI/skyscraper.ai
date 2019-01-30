@@ -1,78 +1,88 @@
 <template>
-  <div class="app">
-    <hello-world class="app__hello"
-      title="Welcome to your Vue MDC Adapter App"
-      :vmaLinks="vmaLinks"
-      :mdcLinks="mdcLinks">
-    </hello-world>
-  </div>
+  <v-app id="inspire">
+    <v-toolbar fixed app>
+      <v-toolbar-title>
+        <span class="red--text darken-4">Sibyl Vision</span>
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-toolbar-items id="toolbar-menu">
+        <v-btn flat data-menuanchor="skyscraper">SkyScraper</v-btn>
+        <v-btn flat data-menuanchor="rfCapture">RF Capture</v-btn>
+        <v-btn flat data-menuanchor="industries">Applications</v-btn>
+        <v-btn flat data-menuanchor="pricing">Pricing</v-btn>
+        <v-btn flat data-menuanchor="about">About</v-btn>
+      </v-toolbar-items>
+    </v-toolbar>
+    <v-content>
+      <div id="fullpage">
+        <div class="section">
+          <h3>Intro to SDR & SkyScraper</h3>
+        </div>
+        <div class="section" id="heroWrapper">
+          <Hero></Hero>
+        </div>
+        <div class="section">
+          <v-container fill-height color="pink">
+            <v-layout fill-height color="pink">
+              <h3>Applications</h3>
+            </v-layout>
+          </v-container>
+        </div>
+        <div class="section">
+          <v-container fill-height color="pink">
+            <v-layout fill-height color="pink">
+              <h3>Pricing</h3>
+            </v-layout>
+          </v-container>
+        </div>
+        <div class="section">
+          <v-container fill-height color="pink">
+            <v-layout fill-height color="pink">
+              <h3>About Us</h3>
+            </v-layout>
+          </v-container>
+        </div>
+      </div>
+    </v-content>
+  </v-app>
 </template>
 
-<script>
-  import HelloWorld from './components/HelloWorld.vue'
+<script lang="ts">
+import Vue from "vue";
+import Component from "vue-class-component";
+import Hero from "./views/Hero.vue";
+import Box from "./components/Box.vue";
 
-  export default {
-    data () {
-      return {
-        vmaLinks: [
-          {
-            title: 'Documentation',
-            url: 'https://stasson.github.io/vue-mdc-adapter'
-          },
-          {
-            title: 'GitHub',
-            url: 'https://github.com/stasson/vue-mdc-adapter'
-          },
-          {
-            title: 'Twitter',
-            url: 'https://twitter.com/vuemdc'
-          },
-          {
-            title: 'Chat',
-            url: 'https://gitter.im/vue-mdc-adapter/Lobby'
-          }
-        ],
-        mdcLinks: [
-          {
-            title: 'Documentation',
-            url: 'https://material.io/components/web/'
-          },
-          {
-            title: 'GitHub',
-            url: 'https://github.com/material-components/material-components-web'
-          },
-          {
-            title: 'Guidelines',
-            url: 'https://material.io/guidelines'
-          },
-          {
-            title: 'Awesome Material Components',
-            url: 'https://github.com/webdenim/awesome-material-components'
-          }
-        ]
-      }
-    },
-    components: { HelloWorld }
+@Component({
+  data: () => ({
+    drawer: null
+  }),
+  components: {
+    Hero
   }
+})
+export default class App extends Vue {
+  private mounted() {
+    const a = new this.fullpage("#fullpage", {
+      navigation: true,
+      menu: "#toolbar-menu",
+      anchors: ["skyscraper", "rfCapture", "industries", "pricing", "about"]
+    });
+  }
+
+  get fullpage(): any {
+    return (window as any).fullpage;
+  }
+}
 </script>
 
 <style lang="scss">
-  // First, set the value for variable
-  $mdc-typography-font-family: "Roboto Mono", monospace;
-
-  // Then, import required files
-  @import "@material/typography/mixins";
-
-  html {
-    width: 100%;
-    height: 100%;
-  }
-
-  body {
-    @include mdc-typography(body2);
-
-    width: 100%;
-    min-height: 100%;
-    margin: 0;
+#toolbar-menu {
+  .active {
+    position: relative;
+    &::before {
+      background-color: currentColor;
+    }
   }
 </style>
+
