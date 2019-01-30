@@ -839,6 +839,11 @@
     "@types/express-serve-static-core" "*"
     "@types/serve-static" "*"
 
+"@types/lodash@^4.14.120":
+  version "4.14.120"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.120.tgz#cf265d06f6c7a710db087ed07523ab8c1a24047b"
+  integrity sha512-jQ21kQ120mo+IrDs1nFNVm/AsdFxIx2+vZ347DbogHJPd/JzKNMOqU6HCYin1W6v8l5R9XSO2/e9cxmn7HAnVw==
+
 "@types/long@^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@types/long/-/long-4.0.0.tgz#719551d2352d301ac8b81db732acb6bdc28dbdef"
@@ -4448,6 +4453,11 @@ fswin@^2.17.1227:
   resolved "https://registry.yarnpkg.com/fswin/-/fswin-2.17.1227.tgz#c598061e1ac1e7110e2e6ce884296efa27dc2507"
   integrity sha512-xNDktvwzSsXT8Xqnpz59VbuFwGHhtn1w+dS7QQ+wAu5cbH0p3WMGKU9Duf7cPna+nubhR+5ZG1MTl6/V6xgRgw==
 
+fullpage.js@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/fullpage.js/-/fullpage.js-3.0.4.tgz#bb3eb1af7ecb5706866abf64ffc7b2535cec39b7"
+  integrity sha512-GWpud0Gvr8i4k3QySoajFevO18UBKMJ9znU3o4uaXZkKYqLtS8d1BSQoAARmYwYgBLOw3YrKAG+4LoaIokO1UA==
+
 function-bind@^1.0.2, function-bind@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
@@ -4770,6 +4780,11 @@ gzip-size@^5.0.0:
   dependencies:
     duplexer "^0.1.1"
     pify "^3.0.0"
+
+hammerjs@^2.0.8:
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/hammerjs/-/hammerjs-2.0.8.tgz#04ef77862cff2bb79d30f7692095930222bf60f1"
+  integrity sha1-BO93hiz/K7edMPdpIJWTAiK/YPE=
 
 handle-thing@^2.0.0:
   version "2.0.0"
@@ -5802,6 +5817,11 @@ jsonify@~0.0.0:
   resolved "https://registry.yarnpkg.com/jsonify/-/jsonify-0.0.0.tgz#2c74b6ee41d93ca51b7b5aaee8f503631d252a73"
   integrity sha1-LHS27kHZPKUbe1qu6PUDYx0lKnM=
 
+jsplumb@^2.9.0:
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/jsplumb/-/jsplumb-2.9.0.tgz#4e79cbb06f3657e1515e7d2beb6e226afe050956"
+  integrity sha512-oq0vBcANpeMa3F7ABzm8uZe5rx2BJjMdEl2fI686tVwMfGKB5ZoStKClZCWu0UHIm73Iyt2Fg+hrv/eP1Qf/iw==
+
 jsprim@^1.2.2:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/jsprim/-/jsprim-1.4.1.tgz#313e66bc1e5cc06e438bc1b7499c2e5c56acb6a2"
@@ -5840,6 +5860,14 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.2.tgz#01146b36a6218e64e58f3a8d66de5d7fc6f6d051"
   integrity sha512-s5kLOcnH0XqDO+FvuaLX8DDjZ18CGFk7VygH40QoKPUQhW4e2rvM0rwUq0t8IQDOwYSeLK01U90OjzBTme2QqA==
+
+ks-vue-fullpage@^1.2.8:
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/ks-vue-fullpage/-/ks-vue-fullpage-1.2.8.tgz#a1f76148e14b3388437650287e6156befd5f89ca"
+  integrity sha1-ofdhSOFLM4hDdlAofmFWvv1fico=
+  dependencies:
+    hammerjs "^2.0.8"
+    velocity-animate "^1.5.0"
 
 latest-version@^3.0.0:
   version "3.1.0"
@@ -9726,6 +9754,11 @@ vary@^1, vary@~1.1.2:
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
 
+velocity-animate@^1.5.0:
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/velocity-animate/-/velocity-animate-1.5.2.tgz#5a351d75fca2a92756f5c3867548b873f6c32105"
+  integrity sha512-m6EXlCAMetKztO1ppBhGU1/1MR3IiEevO6ESq6rcrSQ3Q77xYSW13jkfXW88o4xMrkXJhy/U7j4wFR/twMB0Eg==
+
 vendors@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/vendors/-/vendors-1.0.2.tgz#7fcb5eef9f5623b156bcea89ec37d63676f21801"
@@ -9782,6 +9815,13 @@ vue-cli-plugin-vuetify@^0.4.6:
   version "0.4.6"
   resolved "https://registry.yarnpkg.com/vue-cli-plugin-vuetify/-/vue-cli-plugin-vuetify-0.4.6.tgz#91c4534d17bc04bbd6f41eacdb6ff49be0f59f2b"
   integrity sha512-vkai2B3XqanmscUYSioIjJkU7bzBZGl9mCuIISEZtaDy3qWEkF143UGdJ72u/rGuOytLxpV+9B+FNoV93qlnag==
+
+vue-fullpage.js@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/vue-fullpage.js/-/vue-fullpage.js-0.1.1.tgz#79fb92a078000c51803c42144eea458e47f963ce"
+  integrity sha512-Ll8zvXHisHZ3ZeqpJeYt4pnN5ucku9ETa5hEqeCXq6RVFiFsTlvPVqzQnfGqxpmkeDwx+AoW/rFZOQC1CAy8Ow==
+  dependencies:
+    fullpage.js "^3.0.4"
 
 vue-hot-reload-api@^2.3.0:
   version "2.3.1"
