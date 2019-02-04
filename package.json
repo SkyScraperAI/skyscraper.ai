@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "pages": "yarn run build && rimraf docs && cp -a dist docs && echo beta.sibylvision.com > docs/CNAME"
   },
   "dependencies": {
     "jsplumb": "^2.9.0",
@@ -25,9 +26,9 @@
     "vuex": "^3.0.1"
   },
   "devDependencies": {
-    "@types/vue-scrollto": "^2.7.2",
     "@types/lodash": "^4.14.120",
     "@types/three": "^0.93.19",
+    "@types/vue-scrollto": "^2.7.2",
     "@vue/cli": "^3.3.0",
     "@vue/cli-plugin-babel": "^3.3.0",
     "@vue/cli-plugin-pwa": "^3.3.0",
@@ -35,6 +36,7 @@
     "@vue/cli-service": "^3.3.0",
     "lint-staged": "^8.1.0",
     "node-sass": "^4.9.0",
+    "rimraf": "^2.6.3",
     "sass-loader": "^7.0.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
