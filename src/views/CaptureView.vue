@@ -1,5 +1,5 @@
 <template>
-  <v-container dark fill-height fluid class="pt-0 px-0 pb-5 black lighten-3">
+  <v-container dark fill-height fluid class="pa-0 grey darken-4 home-slide" id="rf-capture">
     <v-layout wrap column justify-space-between>
       <v-flex>
         <v-tabs dark grow icons-and-text slider-color="white" v-model="servicesModel">
@@ -9,6 +9,7 @@
             :key="'cat' + idx"
             :id="'cat'+idx"
             :href="'#cat' + idx"
+            v-scroll-to="'#rf-capture'"
           >
             <span class="hidden-sm-and-down">{{ category.title }}</span>
             <v-icon>{{ category.icon }}</v-icon>
@@ -20,7 +21,7 @@
           <v-tabs-items v-model="servicesModel">
             <v-tab-item v-for="(cat, i) in capture" :value="`cat${i}`" :key="'cat-detail'+i">
               <v-card v-if="cat.detail" dark style="z-index: 1;">
-                <v-card-title class="red darken-3 headline">{{cat.detail.title || ''}}</v-card-title>
+                <v-card-title class="red darken-3 headline">{{cat.detail.title || ""}}</v-card-title>
                 <v-layout wrap>
                   <v-flex md8 xs12>
                     <v-card-text v-if="cat.detail.subtitle" color="primary">
@@ -28,7 +29,7 @@
                     </v-card-text>
                   </v-flex>
                   <v-flex md4 xs12 v-if="cat.detail.list">
-                    <v-list subheader dense>
+                    <v-list subheader dense class="mt-2">
                       <v-subheader>{{cat.detail.list.title}}</v-subheader>
                       <v-list-tile
                         v-for="(item, i) in cat.detail.list.items"
@@ -47,19 +48,19 @@
           </v-tabs-items>
         </v-flex>
       </v-layout>
-      <v-flex xs1 class="text-xs-center" id="box">
+      <div id="box">
         <Box></Box>
-      </v-flex>
+      </div>
     </v-layout>
   </v-container>
 </template>
 
 <script lang="ts">
+import { jsPlumbInstance } from "jsplumb";
+import { throttle } from "lodash";
 import Vue from "vue";
 import Component from "vue-class-component";
 import Box from "../components/Box.vue";
-import jsPlumb, { jsPlumbInstance } from "jsplumb";
-import { throttle } from "lodash";
 
 require("jsplumb");
 
@@ -129,13 +130,13 @@ require("jsplumb");
     };
   }
 })
-export default class Hero extends Vue {
+export default class CaptureView extends Vue {
   private capture: any[] = [];
   private plumb = (window as any).jsPlumb as jsPlumbInstance;
 
   protected mounted() {
     this.plumb.ready(() => {
-      this.plumb.setContainer("heroWrapper");
+      this.plumb.setContainer("inspire");
       this.connectPlumbing();
     });
     window.addEventListener(
@@ -152,7 +153,9 @@ export default class Hero extends Vue {
         source: "cat" + i,
         target: "box-target",
         connector:
-          Math.floor(a.length / 2) === i ? ["Straight", {}] : ["Bezier", {}],
+          Math.floor(a.length / 2) === i
+            ? ["Straight", {}]
+            : ["Bezier", { curviness: 190 }],
         anchors: [["BottomCenter", []], ["Continuous", [0.5, 0, 0, -1]]],
         endpoint: "Blank"
       });
@@ -165,6 +168,7 @@ export default class Hero extends Vue {
 .jtk-connector {
   path {
     stroke: #fff;
+    stroke-width: 3px;
   }
 }
 </style>
