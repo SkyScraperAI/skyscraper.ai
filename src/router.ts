@@ -3,26 +3,14 @@ import Router from "vue-router";
 
 Vue.use(Router);
 
-const IntroView = () => import("./views/IntroView.vue");
-const CaptureView = () => import("./views/CaptureView.vue");
-import ApplicationsView from "./views/ApplicationsView.vue";
+import HomeView from "@/views/HomeView.vue";
 
 export default new Router({
-    routes: [
-        {
-            path: "/",
-            component: IntroView,
-            name: "intro"
-        },
-        {
-            path: "/rf-capture",
-            component: CaptureView,
-            name: "capture"
-        },
-        {
-            path: "/applications",
-            component: ApplicationsView,
-            name: "applications"
-        }
-    ],
+  routes: [
+    {
+      path: "/",
+      component: HomeView,
+      name: "home",
+    },
+  ],
 });

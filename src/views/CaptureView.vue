@@ -1,8 +1,15 @@
 <template>
-  <v-container dark fill-height fluid class="pa-0 primary home-slide" id="rf-capture">
-    <v-layout wrap column justify-space-between>
-      <v-flex>
-        <v-tabs dark grow icons-and-text slider-color="white" color="grey darken-3" v-model="servicesModel">
+  <v-container dark fill-height fluid class="pa-0 primary" id="rf-capture">
+    <v-layout wrap fill-height>
+      <v-flex xs12>
+        <v-tabs
+          dark
+          grow
+          icons-and-text
+          slider-color="white"
+          color="grey darken-3"
+          v-model="servicesModel"
+        >
           <v-tab
             v-for="(category, idx) in capture"
             active-class="error--text"
@@ -17,41 +24,53 @@
           </v-tab>
         </v-tabs>
       </v-flex>
-      <v-layout>
-        <v-flex md10 offset-md1 lg8 offset-lg2 xl6 offset-xl3 xs12>
-          <v-tabs-items v-model="servicesModel">
-            <v-tab-item v-for="(cat, i) in capture" :value="`cat${i}`" :key="'cat-detail'+i">
-              <v-card v-if="cat.detail" dark style="z-index: 1;">
-                <v-card-title class="red darken-3 headline">{{cat.detail.title || ""}}</v-card-title>
-                <v-layout wrap>
-                  <v-flex md8 xs12>
-                    <v-card-text v-if="cat.detail.subtitle" color="primary">
-                      <p>{{cat.detail.subtitle}}</p>
-                    </v-card-text>
-                  </v-flex>
-                  <v-flex md4 xs12 v-if="cat.detail.list">
-                    <v-list subheader dense class="mt-2">
-                      <v-subheader>{{cat.detail.list.title}}</v-subheader>
-                      <v-list-tile
-                        v-for="(item, i) in cat.detail.list.items"
-                        :key="cat + i + item.title"
-                      >
-                        <v-list-tile-title v-text="item.text"></v-list-tile-title>
-                        <v-btn :href="item.link" target="_blank" flat icon>
-                          <v-icon small>mdi-open-in-new</v-icon>
-                        </v-btn>
-                      </v-list-tile>
-                    </v-list>
-                  </v-flex>
-                </v-layout>
-              </v-card>
-            </v-tab-item>
-          </v-tabs-items>
-        </v-flex>
-      </v-layout>
-      <div id="box">
+      <v-flex
+        md10
+        offset-md1
+        lg8
+        offset-lg2
+        xl6
+        offset-xl3
+        xs12
+        :class="{'my-0': $vuetify.breakpoint.smAndDown, 'my-5': $vuetify.breakpoint.mdAndUp}"
+      >
+        <v-tabs-items v-model="servicesModel">
+          <v-tab-item v-for="(cat, i) in capture" :value="`cat${i}`" :key="'cat-detail'+i">
+            <v-card
+              v-if="cat.detail"
+              tile
+              :class="{'ma-0': $vuetify.breakpoint.smAndDown, 'ma-5': $vuetify.breakpoint.mdAndUp}"
+              style="z-index: 1;"
+            >
+              <v-card-title class="red darken-2 headline white--text">{{cat.detail.title || ""}}</v-card-title>
+              <v-layout wrap>
+                <v-flex md8 xs12>
+                  <v-card-text v-if="cat.detail.subtitle" color="primary">
+                    <p>{{cat.detail.subtitle}}</p>
+                  </v-card-text>
+                </v-flex>
+                <v-flex md4 xs12 v-if="cat.detail.list">
+                  <v-list subheader dense class="mt-2">
+                    <v-subheader>{{cat.detail.list.title}}</v-subheader>
+                    <v-list-tile
+                      v-for="(item, i) in cat.detail.list.items"
+                      :key="cat + i + item.title"
+                    >
+                      <v-list-tile-title v-text="item.text"></v-list-tile-title>
+                      <v-btn :href="item.link" target="_blank" flat icon>
+                        <v-icon small>mdi-open-in-new</v-icon>
+                      </v-btn>
+                    </v-list-tile>
+                  </v-list>
+                </v-flex>
+              </v-layout>
+            </v-card>
+          </v-tab-item>
+        </v-tabs-items>
+      </v-flex>
+      <v-flex hidden-sm-and-down ref="box" xs12 id="box">
         <Box></Box>
-      </div>
+      </v-flex>
     </v-layout>
   </v-container>
 </template>
@@ -62,8 +81,6 @@ import { throttle } from "lodash";
 import Vue from "vue";
 import Component from "vue-class-component";
 import Box from "../components/Box.vue";
-
-require("jsplumb");
 
 @Component({
   components: {
@@ -134,33 +151,34 @@ require("jsplumb");
 export default class CaptureView extends Vue {
   private capture: any[] = [];
   private plumb = (window as any).jsPlumb as jsPlumbInstance;
+  private boxVisible = true;
 
-  protected mounted() {
+  public mounted() {
     this.plumb.ready(() => {
-      this.plumb.setContainer("inspire");
+      this.plumb.setContainer("sibyl");
       this.connectPlumbing();
     });
-    window.addEventListener(
-      "resize",
-      throttle(this.connectPlumbing, 100, { leading: true, trailing: true })
-    );
+    window.addEventListener("resize", () => {
+      window.requestAnimationFrame(() => {
+        this.connectPlumbing();
+      });
+    });
   }
 
   private connectPlumbing() {
     this.plumb.deleteEveryEndpoint();
 
-    this.capture.forEach((v, i, a) => {
-      this.plumb.connect({
-        source: "cat" + i,
-        target: "box-target",
-        connector:
-          Math.floor(a.length / 2) === i
-            ? ["Straight", {}]
-            : ["Bezier", { curviness: 190 }],
-        anchors: [["BottomCenter", []], ["Continuous", [0.5, 0, 0, -1]]],
-        endpoint: "Blank"
+    if ((this.$refs.box as Element).clientHeight > 0) {
+      this.capture.forEach((v, i, a) => {
+        this.plumb.connect({
+          source: "cat" + i,
+          target: "box-target",
+          connector: ["Bezier", { curviness: 190 }],
+          anchors: [["BottomCenter", []], ["Continuous", [0.5, 0, 0, -1]]],
+          endpoint: "Blank"
+        });
       });
-    });
+    }
   }
 }
 </script>
