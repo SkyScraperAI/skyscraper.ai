@@ -10,6 +10,7 @@
             :id="'cat'+idx"
             :href="'#cat' + idx"
             v-scroll-to="'#rf-capture'"
+            :disabled="idx > 0"
           >
             <span class="hidden-sm-and-down">{{ category.title }}</span>
             <v-icon>{{ category.icon }}</v-icon>

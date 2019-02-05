@@ -1,9 +1,7 @@
 <template>
     <v-container dark class="primary white--text fluid text-xs-center" id="team">
-
-        <h1 class="mb-4">Our Team</h1>
         <v-layout row wrap>
-            <v-flex xs12 sm4 class="text-xs-center mt-5" v-for="member in team">
+            <v-flex xs12 sm4 class="text-xs-center mt-3 mb-2" v-for="member in team" :key="member.name">
                 <v-avatar class="accent mb-4" size="150" style="display: block; margin: 0 auto;">
                     <img :alt="member.name" :src="'/img/profiles/' + member.image"/>
                 </v-avatar>
@@ -11,7 +9,7 @@
                 <span class="subheading" v-text="member.subtitle"></span>
                 <v-flex class="mt-2">
                     <v-btn fab flat dark :href="link.url" target="_blank" small :color="link.color"
-                           v-for="link in member.links">
+                           v-for="link in member.links" :key="member.name+link.icon">
                         <v-icon dark>{{link.icon}}</v-icon>
                     </v-btn>
                 </v-flex>

@@ -1,16 +1,16 @@
 <template>
-    <v-container fluid grid-list-md dark class="primary darken-1" id="analyze">
+    <v-container fluid grid-list-md dark class="primary darken-1" id="analyze" pb-5>
         <div id="building-top-container" style="z-index: 10;">
             <img id="building-top" src="../../public/img/skyscraper-top.svg">
         </div>
         <v-layout row wrap id="applications-wrapper" style="max-width: 1500px; margin: 0 auto;">
             <v-flex v-for="app in applications" :key="app.name" md4 sm12 xs12 px-4>
-                <v-card color="red darken-2" style="z-index: 1;" :id="app.id">
-                    <v-card-title>
+                <v-card class="grey lighten-3" style="z-index: 1; height: 100%;" :id="app.id">
+                    <v-card-title class="red darken-2">
                         <span class="white--text subheading mx-auto" v-text="app.name"></span>
                     </v-card-title>
-                    <v-card-text class="grey lighten-3">
-                        <p v-text="app.description"></p>
+                    <v-card-text>
+                        <p v-html="app.description"></p>
                         <v-list v-if="app.list" subheader dense class="mt-2 px-0 mx-0 transparent">
                             <v-subheader class="px-0">{{app.list.title}}</v-subheader>
                             <v-list-tile
@@ -78,8 +78,9 @@
                     {
                         name: "Extend",
                         id: "ml",
-                        description: "Unleash the power of your new dataset by passing it to your existing systems, " +
-                            "IBM Watson or any other API."
+                        description: `Unleash the power of your new dataset by passing it to your existing systems,
+                            IBM Watson or any other system using
+                            <a target="_blank" href="https://flows.nodered.org/?sort=downloads">Node-Red</a> flows.`
                     },
                 ],
             };
