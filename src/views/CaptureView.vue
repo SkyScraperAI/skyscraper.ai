@@ -1,8 +1,8 @@
 <template>
-  <v-container dark fill-height fluid class="pa-0 grey darken-4 home-slide" id="rf-capture">
+  <v-container dark fill-height fluid class="pa-0 primary home-slide" id="rf-capture">
     <v-layout wrap column justify-space-between>
       <v-flex>
-        <v-tabs dark grow icons-and-text slider-color="white" v-model="servicesModel">
+        <v-tabs dark grow icons-and-text slider-color="white" color="grey darken-3" v-model="servicesModel">
           <v-tab
             v-for="(category, idx) in capture"
             active-class="error--text"
@@ -73,7 +73,7 @@ require("jsplumb");
       servicesModel: "cat0",
       capture: [
         {
-          title: "Voice Systems",
+          title: "Voice",
           selected: true,
           icon: "mdi-radio-handheld",
           detail: {

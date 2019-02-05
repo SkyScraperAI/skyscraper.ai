@@ -1,6 +1,6 @@
 <template>
-  <v-app id="inspire">
-    <v-toolbar fixed app>
+  <v-app id="inspire" class=" grey lighten-3">
+    <v-toolbar fixed app class="grey lighten-4">
       <v-toolbar-title>
         <span class="red--text darken-4">Sibyl Vision</span>
       </v-toolbar-title>
@@ -12,7 +12,6 @@
           :href="'#' + slide.id"
           v-scroll-to="'#' + slide.id"
           :key="'nav' + slide.id"
-          :input-value="slide.active && isActiveSlide(slide)"
         >{{slide.name}}</v-btn>
       </v-toolbar-items>
     </v-toolbar>
@@ -31,6 +30,7 @@ import Footer from "@/components/Footer.vue";
 import AboutView from "@/views/AboutView.vue";
 import ApplicationsView from "@/views/ApplicationsView.vue";
 import IntroView from "@/views/IntroView.vue";
+import LearnVue from "@/views/LearnVue.vue";
 import PricingView from "@/views/PricingView.vue";
 import Vue from "vue";
 import Component from "vue-class-component";
@@ -56,28 +56,21 @@ interface ISlide {
       },
       {
         component: CaptureView,
-        name: "RF Capture",
+        name: "Capture",
         id: "rf-capture",
         visible: false,
         active: false
       },
       {
         component: ApplicationsView,
-        name: "Applications",
-        id: "applications",
-        visible: false,
-        active: false
-      },
-      {
-        component: PricingView,
-        name: "Pricing",
-        id: "pricing",
+        name: "Analyze",
+        id: "analyze",
         visible: false,
         active: false
       },
       {
         component: AboutView,
-        id: "about",
+        id: "team",
         name: "About",
         visible: false,
         active: false
@@ -95,28 +88,6 @@ interface ISlide {
 })
 export default class App extends Vue {
   public slides: ISlide[] = [];
-
-  private isActiveSlide(slide: ISlide) {
-    const active = this.slides.filter((s) => {
-      return s.active;
-    });
-    if (active.length === 1) {
-      return true;
-    } else {
-      return active[1].id === slide.id;
-    }
-  }
-
-  private visibilityChanged(isVisible: boolean, entry: { target: Element }) {
-    const slide = this.slides.find((value, index) => {
-      return entry.target.id === value.id;
-    });
-    if (slide) {
-      slide.visible = isVisible;
-
-      slide.active = isVisible;
-    }
-  }
 }
 </script>
 

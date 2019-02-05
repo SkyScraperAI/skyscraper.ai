@@ -1,7 +1,6 @@
 import Vue from "vue";
 import App from "./App.vue";
 import "./plugins/scrollto";
-import "./plugins/visibility";
 import { socketAndStore } from "./plugins/socketio";
 
 import "./plugins/vuetify";
