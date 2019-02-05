@@ -1,6 +1,10 @@
 <template>
-    <v-container fluid grid-list-md dark class="white--text primary lighten-2" id="pricing">
+    <v-container fluid grid-list-md dark class="white--text primary lighten-2" id="hardware">
         <v-layout wrap fill-height style="max-width: 1500px; margin: 0 auto;" px-4>
+            <v-flex xs12>
+                <h4 class="text-xs-center headline">Join the wait list.</h4>
+                <h3 class="text-xs-center title py-3">Ships Summer 2019.</h3>
+            </v-flex>
             <v-flex v-for="(l, idx) in priceLevels" :key="l.name" px-0 md4>
                 <v-card style="z-index: 1; height: 100%; display: flex; flex-direction: column;" flat tile
                         :class="l.bodyColor">
@@ -10,11 +14,9 @@
                     <v-card-title>
                         <span class="subheading mx-auto" v-text="l.subtitle"></span>
                     </v-card-title>
-                    <v-btn v-if="l.waitlist" class="mx-3 mb-4 red lighten-1 vrlps-trigger" outline>Join the waitlist</v-btn>
-                    <v-btn v-else class="clearbit-overlay mx-3 mb-4 red lighten-1" outline data-theme="default">
-                        Contact Sales
-                    </v-btn>
                     <v-card-text class="grow py-0">
+                        <v-subheader class="px-0" v-if="idx === 0">Features</v-subheader>
+                        <v-subheader v-else class="px-0">{{priceLevels[idx - 1].name + ', plus...'}}</v-subheader>
                         <p
                                 v-for="(item, i) in features"
                                 :key="'level-idx-feat-'+i"
@@ -24,9 +26,16 @@
                         >
                         </p>
                     </v-card-text>
+
                     <v-card-text class="px-3 pb-0">
                         <p class="caption" v-html="l.description"></p>
                     </v-card-text>
+                    <v-btn v-if="l.waitlist" class="mx-3 mb-4 red lighten-1 vrlps-trigger" outline>Join the waitlist
+                    </v-btn>
+                    <v-btn v-else class="clearbit-overlay mx-3 mb-4 red lighten-1"
+                           outline data-form-id="fe245108-fd5e-47a1-8ff7-c5fc27effedd" data-theme="default">
+                        Early Access
+                    </v-btn>
                     <v-divider></v-divider>
                     <v-card-actions style="display: block;" class="px-0 py-0">
                         <v-list dense class="transparent py-0">
@@ -205,7 +214,7 @@
                         levels: [false, false, true],
                     },
                     {
-                        text: "Full Device Encryption & Remote Wipe",
+                        text: "FDE & Remote Wipe",
                         enabled: true,
                         color: "primary",
                         levels: [false, false, true],
@@ -252,5 +261,37 @@
 
     #vl_popup > div.vlns.vl-modal-dialog > div > div.vlns.vl-modal-footer-classic > a {
         display: none;
+    }
+
+    .cb-overlay {
+        .forms-theme-default h2 {
+            margin: 0 auto 15px auto;
+        }
+        .cb-form {
+            h2 {
+                text-align: center ;
+            }
+        }
+        .cb-submission {
+            font-family: "Roboto Mono", monospace !important;
+        }
+
+        .cb-field.cb-focus {
+
+            label {
+                color: #f44336 !important;
+            }
+        }
+
+        button, input, select, textarea {
+            border-radius: 0 !important;
+        }
+
+        .cb-button {
+            background-image: none !important;
+            background-color: #ef5350 !important;
+            border-color: #ef5350 !important;
+            color: white;
+        }
     }
 </style>

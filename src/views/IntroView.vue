@@ -41,7 +41,7 @@
                             </v-list-tile>
                             <v-list-tile>
                                 <v-list-tile-content>
-                                    <span>Consume tomorrow's protocols, today.</span>
+                                    <span>Consume tomorrow's protocols today.</span>
                                 </v-list-tile-content>
                             </v-list-tile>
                         </v-list>

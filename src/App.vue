@@ -36,6 +36,8 @@
     import CaptureView from "./views/CaptureView.vue";
 
     require("../public/vendor/segment");
+    require("../public/vendor/chatlio");
+
 
     interface ISlide {
         component: Vue;
@@ -65,8 +67,8 @@
                 },
                 {
                     component: PricingView,
-                    name: "Pricing",
-                    id: "pricing",
+                    name: "Hardware",
+                    id: "hardware",
                 },
                 {
                     component: AboutView,
@@ -97,6 +99,13 @@
             &::before {
                 background-color: currentColor;
             }
+        }
+    }
+    .chatlio-widget.chatlio-closed .chatlio-title-bar.chatlio-title-bar-button {
+        background-image: url("../public/img/icons/chrome/chrome-installprocess-128-128.png") !important;
+        background-size: contain !important;
+        svg {
+
         }
     }
 </style>
