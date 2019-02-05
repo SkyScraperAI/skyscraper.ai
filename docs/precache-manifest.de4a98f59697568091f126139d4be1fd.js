@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "986ea863a3e79f5630bb02a96959d420",
-    "url": "/favicon-32x32.png"
+    "revision": "7361c0e61d963d20ca0a9a7d4782465c",
+    "url": "/favicon-16x16.png"
   },
   {
     "revision": "d99ac9c52a13461802ec62d5142133cc",
@@ -12,15 +12,15 @@ self.__precacheManifest = [
     "url": "/site.webmanifest"
   },
   {
-    "revision": "3af2a239e49a25e43ae2",
-    "url": "/js/chunk-vendors.fd46b230.js"
+    "revision": "f69617974e1c8481189c",
+    "url": "/js/chunk-vendors.229f7fca.js"
   },
   {
     "revision": "2579138d4206b9f361d72c01904e1f1c",
     "url": "/img/skyscraper-top.2579138d.svg"
   },
   {
-    "revision": "5f35eaa830a5bc927c9dd37b1629be63",
+    "revision": "3715af9382bf9e36fe0105004fcafa4f",
     "url": "/index.html"
   },
   {
@@ -32,8 +32,8 @@ self.__precacheManifest = [
     "url": "/vendor/segment.js"
   },
   {
-    "revision": "6e30ed84e5b221906e16",
-    "url": "/js/app.efc1e712.js"
+    "revision": "49a4871f05adb8bd421d",
+    "url": "/js/app.2c30cb30.js"
   },
   {
     "revision": "2579138d4206b9f361d72c01904e1f1c",
@@ -52,15 +52,15 @@ self.__precacheManifest = [
     "url": "/favicon.svg"
   },
   {
-    "revision": "7361c0e61d963d20ca0a9a7d4782465c",
-    "url": "/favicon-16x16.png"
+    "revision": "986ea863a3e79f5630bb02a96959d420",
+    "url": "/favicon-32x32.png"
   },
   {
-    "revision": "3af2a239e49a25e43ae2",
-    "url": "/css/chunk-vendors.ee8c0279.css"
+    "revision": "f69617974e1c8481189c",
+    "url": "/css/chunk-vendors.6a6ba0c8.css"
   },
   {
-    "revision": "6e30ed84e5b221906e16",
+    "revision": "49a4871f05adb8bd421d",
     "url": "/css/app.b49c32e7.css"
   },
   {
