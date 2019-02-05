@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "7361c0e61d963d20ca0a9a7d4782465c",
-    "url": "/favicon-16x16.png"
+    "revision": "1b9469fa3acfd6c8adaa35d243b72e61",
+    "url": "/browserconfig.xml"
   },
   {
     "revision": "d99ac9c52a13461802ec62d5142133cc",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/img/skyscraper-top.2579138d.svg"
   },
   {
-    "revision": "293623af4a3b4987114ed9688c2506a8",
+    "revision": "eb7ae66cc4cb87b4f99d7fdad20d6ec8",
     "url": "/index.html"
   },
   {
@@ -28,8 +28,8 @@ self.__precacheManifest = [
     "url": "/img/skyscraper-top.svg"
   },
   {
-    "revision": "cc93b2367f4a4600e773",
-    "url": "/js/app.be8a1225.js"
+    "revision": "052079b62f131d7c08b4",
+    "url": "/js/app.3d88a9eb.js"
   },
   {
     "revision": "dd72eaf0e5f190aa9342b55bc7989556",
@@ -48,15 +48,15 @@ self.__precacheManifest = [
     "url": "/favicon-32x32.png"
   },
   {
+    "revision": "7361c0e61d963d20ca0a9a7d4782465c",
+    "url": "/favicon-16x16.png"
+  },
+  {
     "revision": "340181fe39bcc23dd9df",
     "url": "/css/chunk-vendors.05a5ee54.css"
   },
   {
-    "revision": "cc93b2367f4a4600e773",
+    "revision": "052079b62f131d7c08b4",
     "url": "/css/app.b1f9bca2.css"
-  },
-  {
-    "revision": "1b9469fa3acfd6c8adaa35d243b72e61",
-    "url": "/browserconfig.xml"
   }
 ];

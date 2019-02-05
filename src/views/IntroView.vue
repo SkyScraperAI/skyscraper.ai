@@ -22,7 +22,7 @@
                     <strong>SkyScraper</strong> transforms static into priceless data.
                 </p>
             </v-flex>
-            <v-flex pt-2 md5 offset-md1>
+            <v-flex pt-2 md5 offset-md1 class="hidden-sm-and-down">
                 <v-card>
                     <v-card-title class="primary white--text" dark>
                         <span class="subheading mx-auto">One box. 15 protocols. 6GHz range.</span>

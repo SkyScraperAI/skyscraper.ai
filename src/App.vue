@@ -30,7 +30,6 @@ import Footer from "@/components/Footer.vue";
 import AboutView from "@/views/AboutView.vue";
 import ApplicationsView from "@/views/ApplicationsView.vue";
 import IntroView from "@/views/IntroView.vue";
-import LearnVue from "@/views/LearnVue.vue";
 import PricingView from "@/views/PricingView.vue";
 import Vue from "vue";
 import Component from "vue-class-component";

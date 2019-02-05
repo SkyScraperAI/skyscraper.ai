@@ -3,13 +3,13 @@
 
         <h1 class="mb-4">Our Team</h1>
         <v-layout row wrap>
-            <v-flex xs12 sm4 class="text-xs-center" v-for="member in team">
+            <v-flex xs12 sm4 class="text-xs-center mt-5" v-for="member in team">
                 <v-avatar class="accent mb-4" size="150" style="display: block; margin: 0 auto;">
                     <img :alt="member.name" :src="'/img/profiles/' + member.image"/>
                 </v-avatar>
                 <h3 class="headline mb-2" v-text="member.name"></h3>
                 <span class="subheading" v-text="member.subtitle"></span>
-                <v-flex class="mt-3">
+                <v-flex class="mt-2">
                     <v-btn fab flat dark :href="link.url" target="_blank" small :color="link.color"
                            v-for="link in member.links">
                         <v-icon dark>{{link.icon}}</v-icon>
