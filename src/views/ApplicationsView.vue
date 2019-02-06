@@ -93,7 +93,7 @@ export default class ApplicationsView extends Vue {
 
   protected mounted() {
     this.plumb.ready(() => {
-      this.plumb.setContainer("applications");
+      this.plumb.setContainer("applications-wrapper");
       this.connectPlumbing();
     });
     window.addEventListener("resize", () => {

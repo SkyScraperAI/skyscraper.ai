@@ -51,6 +51,11 @@ import { Component } from "vue-property-decorator";
               color: "blue-grey lighten-4"
             },
             {
+              icon: "mdi-linkedin",
+              url: "https://linkedin.com/in/kazazes",
+              color: "blue-grey lighten-4"
+            },
+            {
               icon: "mdi-twitter",
               url: "https://twitter.com/pkpolls",
               color: "blue"
@@ -66,6 +71,11 @@ import { Component } from "vue-property-decorator";
               icon: "mdi-email",
               url: "mailto:colin@sibylvision.com",
               color: "blue-grey lighten-3"
+            },
+            {
+              icon: "mdi-linkedin",
+              url: "https://linkedin.com/in/colinhsf/",
+              color: "blue-grey lighten-4"
             },
             {
               icon: "mdi-twitter",
@@ -90,6 +100,11 @@ import { Component } from "vue-property-decorator";
               color: "blue-grey lighten-4"
             },
             {
+              icon: "mdi-linkedin",
+              url: "https://www.linkedin.com/in/robotastic/",
+              color: "blue-grey lighten-4"
+            },
+            {
               icon: "mdi-twitter",
               url: "https://twitter.com/lukeberndt",
               color: "blue"
@@ -100,7 +115,7 @@ import { Component } from "vue-property-decorator";
     };
   }
 })
-export default class AboutView extends Vue {}
+export default class AboutView extends Vue { }
 </script>
 
 <style lang="scss">

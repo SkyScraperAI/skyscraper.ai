@@ -3,7 +3,8 @@ import Router from "vue-router";
 
 Vue.use(Router);
 
-import HomeView from "@/views/HomeView.vue";
+const HomeView = () => import("@/views/HomeView.vue");
+const NotFoundView = () => import("@/views/NotFoundView.vue");
 
 export default new Router({
   routes: [
@@ -12,5 +13,7 @@ export default new Router({
       component: HomeView,
       name: "home",
     },
+    { path: "/404", alias: "*", component: NotFoundView, name: "404" },
+    { path: "*", redirect: "/404" },
   ],
 });

@@ -13,11 +13,18 @@
           </v-toolbar-title>
         </v-flex>
         <v-flex md4 fill-height hidden-sm-and-down>
-          <v-toolbar-items id="toolbar-menu" class="d-flex" justify-end>
+          <v-toolbar-items id="toolbar-menu" class="d-flex" justify-end v-if="$route.path !== '/'">
             <v-btn
               v-for="slide in slides.filter((slide) => slide.name)"
               flat
-              :href="'#' + slide.id"
+              href="/"
+              :key="'nav' + slide.id"
+            >{{slide.name}}</v-btn>
+          </v-toolbar-items>
+          <v-toolbar-items v-else id="toolbar-menu" class="d-flex" justify-end>
+            <v-btn
+              v-for="slide in slides.filter((slide) => slide.name)"
+              flat
               v-scroll-to="'#' + slide.id"
               :key="'nav' + slide.id"
             >{{slide.name}}</v-btn>
