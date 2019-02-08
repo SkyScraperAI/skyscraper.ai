@@ -6,7 +6,7 @@ import Vuex, { StoreOptions } from "vuex";
 
 import VuexPersistence from "vuex-persist";
 
-const MAX_STORED_TX = 3;
+const MAX_STORED_TX = 4;
 
 Vue.use(Vuex);
 

@@ -1,7 +1,7 @@
 <template>
   <v-container
     dark
-    class="primary lighten-2"
+    class="primary lighten-2 pb-5"
     id="analyze"
     fluid
   >
@@ -126,7 +126,7 @@ export default class ApplicationsView extends Vue {
   #building-top {
     position: relative;
     height: 200px;
-    top: -35px;
+    top: -55px;
     display: block;
     margin: 0 auto;
   }

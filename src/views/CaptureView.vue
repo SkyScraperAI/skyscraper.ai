@@ -1,6 +1,6 @@
 <template>
-    <v-container dark fill-height fluid class="px-0 py-0  home-slide" id="rf-capture">
-        <v-layout wrap fill-height id="cap" class="primary">
+    <v-container dark fluid class="px-0 py-0  home-slide" id="rf-capture">
+        <v-layout wrap align-end id="cap" class="primary pb-3">
             <v-flex xs12>
                 <v-tabs
                         dark
@@ -34,7 +34,7 @@
                             <v-layout align-start wrap v-if="cat.detail">
                                 <v-flex fill-height sm12 md4 xs12>
                                     <v-layout column fill-height>
-                                        <v-flex d-flex xs12>
+                                        <v-flex xs12>
                                             <v-card>
                                                 <v-card-title class="red darken-2 white--text">
                                                     <h1 class="headline">
@@ -47,8 +47,8 @@
                                                 </v-card-text>
                                             </v-card>
                                         </v-flex>
-                                        <v-flex d-flex xs12>
-                                            <v-card class="hidden-sm-and-down">
+                                        <v-flex xs12 class="hidden-sm-and-down">
+                                            <v-card>
                                                 <v-card-title class="red darken-2 white--text">
                                                     <h2 class="subheading">{{cat.detail.list.title}}</h2>
                                                 </v-card-title>

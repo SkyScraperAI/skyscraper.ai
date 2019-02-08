@@ -23,7 +23,7 @@
                     </v-flex>
                     <v-flex pt-2 md5 offset-md1 class="hidden-sm-and-down">
                         <v-card>
-                            <v-card-title class="red darken-3 white--text" dark>
+                            <v-card-title class="red darken-1 white--text" dark>
                                 <span class="subheading mx-auto">One box. 15 protocols. 6GHz range.</span>
                             </v-card-title>
                             <v-card-text class="body-2">

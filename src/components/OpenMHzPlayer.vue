@@ -1,18 +1,24 @@
 <template>
     <v-card style="max-height: 480px !important;">
         <v-card-title class="red darken-2 white--text subheading" id="player-title">
-            <v-btn fab small flat class="mr-4 white" @click="playToggleClicked()">
-                <v-icon v-if="!isPlaying">mdi-play</v-icon>
-                <v-icon v-else>mdi-pause</v-icon>
-            </v-btn>
-            <v-layout column>
-                <v-flex class="my-1 py-0"><span class="subheading">{{ systemName }}</span></v-flex>
-                <v-flex class="my-0 pb-3 pt-0"><span class="body-1">{{ systemType }}</span></v-flex>
+            <v-layout align-center>
+                <v-flex shrink>
+                    <v-btn fab small class="mr-4 white" :disabled="!activeTx" @click="playToggleClicked()">
+                        <v-icon v-if="!isPlaying">mdi-play</v-icon>
+                        <v-icon v-else>mdi-pause</v-icon>
+                    </v-btn>
+                </v-flex>
+                <v-flex pa-0>
+                    <v-layout column class="pt-2">
+                        <v-flex class="my-1 py-0"><span class="subheading">{{ systemName }}</span></v-flex>
+                        <v-flex class="my-0 pb-3 pt-0"><span class="body-1">{{ systemType }}</span></v-flex>
+                    </v-layout>
+                </v-flex>
             </v-layout>
         </v-card-title>
-        <v-flex>
-            <v-layout row>
-                <v-flex md4 v-if="activeTx">
+        <v-flex class="pa-0">
+            <v-layout row pl-3 pt-3>
+                <v-flex md4 xs6 v-if="activeTx">
                     <span class="caption font-weight-light" v-text="timeAgo(activeTx.time)"></span>
                     <h3 class="mt-1" v-text="activeTx.talkgroup.alpha"></h3>
                     <span style="display: block" class="body-2 ellipsis" v-text="activeTx.talkgroup.description"></span>
@@ -20,7 +26,7 @@
                         <span class="monospaced subheading" v-text="formatFrequency(activeTx.freq)"></span>
                     </v-flex>
                 </v-flex>
-                <v-flex class="py-0 pl-2" md8>
+                <v-flex class="py-0 pl-2" md8 xs6>
                     <v-flex
                             :class="activeTx ? '' : 'd-none'"
                             id="waveform" class="px-0 py-1" style="height: 100%;"></v-flex>
@@ -49,6 +55,13 @@
                         </td>
                     </tr>
                 </template>
+                <template slot="footer">
+                    <tr v-if="messages.length < 4" v-for="_ in Array(4 - messages.length)">
+                        <td></td>
+                        <td></td>
+                        <td class="hidden-md-and-down"></td>
+                    </tr>
+                </template>
             </v-data-table>
         </v-flex>
     </v-card>
@@ -69,6 +82,7 @@
             text: "Transmit Time",
             sortable: false,
             value: false,
+            width: "160px",
           },
           {
             text: "Alpha Tag",

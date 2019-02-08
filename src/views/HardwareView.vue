@@ -1,5 +1,5 @@
 <template>
-    <v-container fluid grid-list-md dark class="white--text primary" id="hardware">
+    <v-container fluid grid-list-md dark class="white--text primary py-5" id="hardware">
         <v-layout wrap fill-height style="max-width: 1500px; margin: 0 auto;" px-4 pb-4>
             <v-flex xs12>
                 <h4 class="text-xs-center headline">Three tiers. Three new device classes.</h4>
@@ -42,24 +42,23 @@
                     </v-card-text>
                     <v-btn
                             v-if="l.waitlist"
-                            class="mx-3 mb-4 red lighten-1 clearbit-overlay"
+                            class="mx-3 mb-4 red lighten-2 white--text clearbit-overlay monospaced"
                             data-form-id="9782d888-335f-46ab-ba66-beca3d572ecf"
                             data-theme="default"
                             large
-                            outline
                     >Join the waiting list
                     </v-btn>
                     <v-btn
                             v-else
                             large
-                            class="clearbit-overlay mx-3 mb-4 blue-grey darken-1 white--text"
+                            class="clearbit-overlay mx-3 mb-4 blue-grey white--text monospaced"
                             data-form-id="fe245108-fd5e-47a1-8ff7-c5fc27effedd"
                             data-theme="default"
                     >Early Access Program
                     </v-btn>
                     <v-divider></v-divider>
-                    <v-card-actions style="display: block;" class="px-0 py-0">
-                        <v-list dense class="transparent py-0">
+                    <v-card-actions style="display: block;" class="white px-0 py-0">
+                        <v-list dense class="transparent pt-0 pb-2">
                             <v-list-tile
                                     v-for="(s, i) in specs"
                                     :key="l.name + s.name"

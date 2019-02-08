@@ -3,17 +3,17 @@
   <v-app id="sibyl" class="grey lighten-3">
     <v-toolbar absolute app clipped-right class="grey lighten-4 elevation-1" style="z-index: 100;" id="navbar">
       <v-layout align-center justify-space-between row fill-height>
-        <v-flex md4>
+        <v-flex grow>
           <v-toolbar-title>
             <h1 class="red--text darken-4 headline">Sibyl Vision</h1>
           </v-toolbar-title>
         </v-flex>
         <v-flex md4>
-          <v-toolbar-title class="text-md-center text-xs-right hidden-md-and-up">
-            <h1 class="primary--text" style="font-size: 1.8rem;">SkyScraper</h1>
+          <v-toolbar-title grow class="text-md-center text-xs-right hidden-md-and-up">
+            <h1 class="primary--text headline" style="font-size: 1.8rem;">SkyScraper</h1>
           </v-toolbar-title>
         </v-flex>
-        <v-flex md4 fill-height hidden-sm-and-down>
+        <v-flex shrink fill-height hidden-sm-and-down>
           <!--suppress XmlDuplicatedId -->
           <v-toolbar-items id="toolbar-menu" class="d-flex" justify-end v-if="$route.path !== '/'">
             <v-btn

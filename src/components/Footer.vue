@@ -4,7 +4,7 @@
     <v-footer class="primary" height="auto">
       <v-layout justify-center row wrap>
         <v-flex
-          class="red lighten-1"
+          class="red accent-2 monospaced"
           py-3
           text-xs-center
           white--text
