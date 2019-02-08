@@ -12,7 +12,7 @@
         </v-card-title>
         <v-flex>
             <v-layout row>
-                <v-flex md4>
+                <v-flex md4 v-if="activeTx">
                     <span class="caption font-weight-light" v-text="timeAgo(activeTx.time)"></span>
                     <h3 class="mt-1" v-text="activeTx.talkgroup.alpha"></h3>
                     <span style="display: block" class="body-2 ellipsis" v-text="activeTx.talkgroup.description"></span>
@@ -48,170 +48,170 @@
     </v-card>
 </template>
 <script lang="ts">
-import { IOpenMHzResponse } from "@/types/openmhz";
-import moment from "moment";
-import Vue from "vue";
-import { Component, Watch } from "vue-property-decorator";
-import WaveSurfer from "wavesurfer.js";
+  import { IOpenMHzResponse } from "@/types/openmhz";
+  import moment from "moment";
+  import Vue from "vue";
+  import { Component, Watch } from "vue-property-decorator";
+  import WaveSurfer from "wavesurfer.js";
 
-@Component({
-  data() {
-    return {
-      paused: true,
-      headers: [
-        {
-          text: "Transmit Time",
-          sortable: false,
-          value: false,
-        },
-        {
-          text: "Alpha Tag",
-          align: "left",
-          sortable: false,
-          value: false,
-          class: "hidden-md-and-down",
-        },
-        {
-          text: "Talkgroup",
-          sortable: false,
-          value: false,
-        },
-      ],
-    };
-  },
-  filters: {
-    moment(timestamp: string) {
-      const date = new Date(timestamp);
-      return moment(date).format("LTS").toString();
+  @Component({
+    data() {
+      return {
+        paused: true,
+        headers: [
+          {
+            text: "Transmit Time",
+            sortable: false,
+            value: false,
+          },
+          {
+            text: "Alpha Tag",
+            align: "left",
+            sortable: false,
+            value: false,
+            class: "hidden-md-and-down",
+          },
+          {
+            text: "Talkgroup",
+            sortable: false,
+            value: false,
+          },
+        ],
+      };
     },
-    talkgroupMode: (tgMode: string) => {
-      switch (tgMode) {
-        case "D":
-          return "Digital";
-        case "A":
-          return "Analog";
-        default:
-          return tgMode;
-      }
+    filters: {
+      moment(timestamp: string) {
+        const date = new Date(timestamp);
+        return moment(date).format("LTS").toString();
+      },
+      talkgroupMode: (tgMode: string) => {
+        switch (tgMode) {
+          case "D":
+            return "Digital";
+          case "A":
+            return "Analog";
+          default:
+            return tgMode;
+        }
+      },
     },
-  },
-})
-export default class OpenMHzPlayer extends Vue {
-  private isPlaying = false;
+  })
+  export default class OpenMHzPlayer extends Vue {
+    private isPlaying = false;
 
-  get activeTx() {
-    return this.$store.getters.ACTIVE_TX;
-  }
+    get activeTx() {
+      return this.$store.getters.ACTIVE_TX;
+    }
 
-  get player() {
-    return (this.$refs.radioAudio) as HTMLMediaElement;
-  }
+    get player() {
+      return (this.$refs.radioAudio) as HTMLMediaElement;
+    }
 
-  get haveTransmissions() {
-    return this.messages.length > 0;
-  }
+    get haveTransmissions() {
+      return this.messages.length > 0;
+    }
 
-  get messages(): IOpenMHzResponse[] {
-    return this.$store.getters.MESSAGES;
-  }
+    get messages(): IOpenMHzResponse[] {
+      return this.$store.getters.MESSAGES;
+    }
 
-  private shortName = this.$store.getters.SYSTEM;
-  private systemName = this.$store.getters.SYSTEM_NAME;
-  private systemType = this.$store.getters.SYSTEM_TYPE;
-  private wavesurfer: any;
+    private shortName = this.$store.getters.SYSTEM;
+    private systemName = this.$store.getters.SYSTEM_NAME;
+    private systemType = this.$store.getters.SYSTEM_TYPE;
+    private wavesurfer: any;
 
-  public playToggleClicked() {
-    this.wavesurfer.playPause();
-    this.$nextTick(() => {
-      this.$forceUpdate();
-    });
-  }
-
-  private timeAgo(d: string) {
-    return moment(d).fromNow();
-  }
-
-  private mounted() {
-    this.setupSocket();
-    this.startSocket();
-    this.fetchTalkgroups();
-    this.setupWaveSurfer();
-  }
-
-  private formatFrequency(hertz: number) {
-    return Number(hertz / 1000000).toFixed(4) + " MHz";
-  }
-
-  private setupWaveSurfer() {
-    this.$nextTick(() => {
-      this.wavesurfer = WaveSurfer.create({
-        container: "#waveform",
-        waveColor: "#424242",
-        progressColor: "transparent",
-        cursorColor: "#2d2d2d",
-        normalize: true,
-        responsive: true,
-        height: 120,
-      });
-      this.wavesurfer.on("ready", () => {
+    public playToggleClicked() {
+      this.wavesurfer.playPause();
+      this.$nextTick(() => {
         this.$forceUpdate();
-        (this.wavesurfer as WaveSurfer).play();
       });
-      this.wavesurfer.on("error", (e: any) => {
-        this.isPlaying = false;
-        this.$forceUpdate();
-        this.$store.dispatch("SHIFT_MESSAGES");
-      });
-      this.wavesurfer.on("finish", () => {
-        this.isPlaying = false;
-        this.$forceUpdate();
-        this.$store.dispatch("SHIFT_MESSAGES");
-      });
-      this.wavesurfer.on("play", () => {
-        this.isPlaying = true;
-      });
-      this.wavesurfer.on("pause", () => {
+    }
+
+    private timeAgo(d: string) {
+      return moment(d).fromNow();
+    }
+
+    private mounted() {
+      this.setupSocket();
+      this.startSocket();
+      this.fetchTalkgroups();
+      this.setupWaveSurfer();
+    }
+
+    private formatFrequency(hertz: number) {
+      return Number(hertz / 1000000).toFixed(4) + " MHz";
+    }
+
+    private setupWaveSurfer() {
+      this.$nextTick(() => {
+        this.wavesurfer = WaveSurfer.create({
+          container: "#waveform",
+          waveColor: "#424242",
+          progressColor: "transparent",
+          cursorColor: "#2d2d2d",
+          normalize: true,
+          responsive: true,
+          height: 120,
+        });
+        this.wavesurfer.on("ready", () => {
+          this.$forceUpdate();
+          (this.wavesurfer as WaveSurfer).play();
+        });
+        this.wavesurfer.on("error", (e: any) => {
           this.isPlaying = false;
+          this.$forceUpdate();
+          this.$store.dispatch("SHIFT_MESSAGES");
+        });
+        this.wavesurfer.on("finish", () => {
+          this.isPlaying = false;
+          this.$forceUpdate();
+          this.$store.dispatch("SHIFT_MESSAGES");
+        });
+        this.wavesurfer.on("audioprocess", () => {
+          this.isPlaying = true;
+        });
+        this.wavesurfer.on("pause", () => {
+          this.isPlaying = false;
+        });
+
+        if (this.activeTx) {
+          this.wavesurfer.load(this.activeTx.url);
+        }
+        this.$forceUpdate();
       });
+    }
 
-      if (this.activeTx) {
-        this.wavesurfer.load(this.activeTx.url);
+    @Watch("activeTx", { immediate: false })
+    private activeTxChanged(oldTx: IOpenMHzResponse, newTx: IOpenMHzResponse) {
+      if (!oldTx || !newTx || oldTx._id !== newTx._id) {
+        (this.wavesurfer as WaveSurfer).load(this.activeTx.url);
       }
-      this.$forceUpdate();
-    });
-  }
+    }
 
-  @Watch("activeTx", { immediate: false })
-  private activeTxChanged(oldTx: IOpenMHzResponse, newTx: IOpenMHzResponse) {
-    if (!oldTx || !newTx || oldTx._id !== newTx._id) {
-      (this.wavesurfer as WaveSurfer).load(this.activeTx.url);
+    private fetchTalkgroups() {
+      this.$store.dispatch("FETCH_TALKGROUPS");
+    }
+
+    private setupSocket() {
+      this.$socket.on("reconnect", (attempts) => {
+        // tslint:disable-next-line
+        this.startSocket();
+      });
+    }
+
+    private trackEnded() {
+      this.$store.dispatch("SHIFT_MESSAGES");
+    }
+
+    private startSocket() {
+      this.$socket.emit("start", {
+        filterCode: "",
+        filterType: "all",
+        filterName: "",
+        shortName: this.shortName,
+      });
     }
   }
-
-  private fetchTalkgroups() {
-    this.$store.dispatch("FETCH_TALKGROUPS");
-  }
-
-  private setupSocket() {
-    this.$socket.on("reconnect", (attempts) => {
-      // tslint:disable-next-line
-      this.startSocket();
-    });
-  }
-
-  private trackEnded() {
-    this.$store.dispatch("SHIFT_MESSAGES");
-  }
-
-  private startSocket() {
-    this.$socket.emit("start", {
-      filterCode: "",
-      filterType: "all",
-      filterName: "",
-      shortName: this.shortName,
-    });
-  }
-}
 </script>
 <style lang="scss">
     audio {
