@@ -1,10 +1,11 @@
+<!--suppress ALL -->
 <template>
   <v-app id="sibyl" class="grey lighten-3">
-    <v-toolbar fixed app clipped-right class="grey lighten-4">
+    <v-toolbar absolute app clipped-right class="grey lighten-4 elevation-1" style="z-index: 100;" id="navbar">
       <v-layout align-center justify-space-between row fill-height>
         <v-flex md4>
           <v-toolbar-title>
-            <span class="red--text darken-4">Sibyl Vision</span>
+            <h1 class="red--text darken-4 headline">Sibyl Vision</h1>
           </v-toolbar-title>
         </v-flex>
         <v-flex md4>
@@ -13,10 +14,10 @@
           </v-toolbar-title>
         </v-flex>
         <v-flex md4 fill-height hidden-sm-and-down>
+          <!--suppress XmlDuplicatedId -->
           <v-toolbar-items id="toolbar-menu" class="d-flex" justify-end v-if="$route.path !== '/'">
             <v-btn
               v-for="slide in slides.filter((slide) => slide.name)"
-              flat
               href="/"
               :key="'nav' + slide.id"
             >{{slide.name}}</v-btn>
@@ -38,10 +39,11 @@
 </template>
 
 <script lang="ts">
-import Footer from "@/components/Footer.vue";
+import Footer from "./components/Footer.vue";
 import Vue from "vue";
 import Component from "vue-class-component";
 require("jsplumb");
+
 interface ISlide {
   id: string;
   name?: string;
@@ -92,11 +94,6 @@ export default class App extends Vue {
       background-color: currentColor;
     }
   }
-}
-
-.chatlio-widget.chatlio-closed .chatlio-title-bar.chatlio-title-bar-button {
-  background-image: url("../public/img/icons/chrome/chrome-installprocess-128-128.png") !important;
-  background-size: contain !important;
 }
 </style>
 

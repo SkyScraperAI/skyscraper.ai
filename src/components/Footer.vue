@@ -1,3 +1,4 @@
+<!--suppress JSMethodCanBeStatic -->
 <template>
   <v-container fluid pa-0>
     <v-footer class="primary" height="auto">

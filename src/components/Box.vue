@@ -1,5 +1,5 @@
 <template>
-    <v-container>
+    <v-container class="py-0">
         <v-layout id="box-target">
             <h3 class="white--text mx-auto pt-2 pb-1">SkyScraper</h3>
         </v-layout>
