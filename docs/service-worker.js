@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.d6afaceab66491c9f152fcf7b8858f5a.js"
+  "/precache-manifest.131a896ac985b8d3f9daef767fc3500a.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "sibyl-web"});

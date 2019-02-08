@@ -16,10 +16,14 @@
                     <span class="caption font-weight-light" v-text="timeAgo(activeTx.time)"></span>
                     <h3 class="mt-1" v-text="activeTx.talkgroup.alpha"></h3>
                     <span style="display: block" class="body-2 ellipsis" v-text="activeTx.talkgroup.description"></span>
-                    <span class="monospaced subheading" v-text="formatFrequency(activeTx.freq)"></span>
+                    <v-flex class="px-0 pb-0 pt-1">
+                        <span class="monospaced subheading" v-text="formatFrequency(activeTx.freq)"></span>
+                    </v-flex>
                 </v-flex>
                 <v-flex class="py-0 pl-2" md8>
-                    <v-flex id="waveform" class="px-0 py-1" style="height: 100%;"></v-flex>
+                    <v-flex
+                            :class="activeTx ? '' : 'd-none'"
+                            id="waveform" class="px-0 py-1" style="height: 100%;"></v-flex>
                 </v-flex>
             </v-layout>
             <v-data-table
@@ -30,6 +34,8 @@
                     :headers="headers"
                     item-key="_id"
                     id="openmhz-table"
+                    no-data-text="Waiting for transmissions..."
+                    no-results-text="Waiting for transmissions..."
             >
                 <template slot="items" slot-scope="props" :selected="true">
                     <tr
@@ -184,7 +190,11 @@
     @Watch("activeTx", { immediate: false })
     private activeTxChanged(oldTx: IOpenMHzResponse, newTx: IOpenMHzResponse) {
       if (!oldTx || !newTx || oldTx._id !== newTx._id) {
-        (this.wavesurfer as WaveSurfer).load(this.activeTx.url);
+        this.$nextTick(() => {
+          if (this.activeTx && this.activeTx.url) {
+            (this.wavesurfer as WaveSurfer).load(this.activeTx.url);
+          }
+        });
       }
     }
 
