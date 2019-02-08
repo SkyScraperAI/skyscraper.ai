@@ -1,5 +1,5 @@
 <template>
-    <v-container dark fill-height fluid class="px-0 pb-5 pt-0  home-slide" id="rf-capture">
+    <v-container dark fill-height fluid class="px-0 py-0  home-slide" id="rf-capture">
         <v-layout wrap fill-height id="cap" class="primary">
             <v-flex xs12>
                 <v-tabs
@@ -211,23 +211,25 @@
 
 <!--suppress CssUnusedSymbol -->
 <style lang="scss">
-    .jtk-connector {
-        path {
-            stroke: #fff;
-            stroke-opacity: 0.75;
-            stroke-width: 3px;
+    #rf-capture {
+        .jtk-connector {
+            path {
+                stroke: #fff;
+                stroke-opacity: 0.75;
+                stroke-width: 3px;
+            }
         }
-    }
 
-    table.v-table thead td:not(:nth-child(1)), table.v-table tbody td:not(:nth-child(1)), table.v-table thead th:not(:nth-child(1)), table.v-table tbody th:not(:nth-child(1)), table.v-table thead td:first-child, table.v-table tbody td:first-child, table.v-table thead th:first-child, table.v-table tbody th:first-child {
-        padding: 15px;
-    }
+        table.v-table thead td:not(:nth-child(1)), table.v-table tbody td:not(:nth-child(1)), table.v-table thead th:not(:nth-child(1)), table.v-table tbody th:not(:nth-child(1)), table.v-table thead td:first-child, table.v-table tbody td:first-child, table.v-table thead th:first-child, table.v-table tbody th:first-child {
+            padding: 15px;
+        }
 
-    .container.grid-list-xl .layout .flex {
-        z-index: 10;
-    }
+        .container.grid-list-xl .layout .flex {
+            z-index: 10;
+        }
 
-    .theme--light.v-datatable .v-datatable__actions {
-        display: none;
+        .theme--light.v-datatable .v-datatable__actions {
+            display: none;
+        }
     }
 </style>

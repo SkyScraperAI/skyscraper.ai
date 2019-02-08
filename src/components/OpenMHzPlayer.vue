@@ -2,7 +2,7 @@
     <v-card style="max-height: 480px !important;">
         <v-card-title class="red darken-2 white--text subheading" id="player-title">
             <v-btn fab small flat class="mr-4 white" @click="playToggleClicked()">
-                <v-icon v-if="wavesurfer && !wavesurfer.isPlaying()">mdi-play</v-icon>
+                <v-icon v-if="!isPlaying">mdi-play</v-icon>
                 <v-icon v-else>mdi-pause</v-icon>
             </v-btn>
             <v-layout column>
@@ -97,10 +97,7 @@ import WaveSurfer from "wavesurfer.js";
   },
 })
 export default class OpenMHzPlayer extends Vue {
-
-  get isPlaying() {
-    return this.wavesurfer.isPlaying();
-  }
+  private isPlaying = false;
 
   get activeTx() {
     return this.$store.getters.ACTIVE_TX;
@@ -117,6 +114,7 @@ export default class OpenMHzPlayer extends Vue {
   get messages(): IOpenMHzResponse[] {
     return this.$store.getters.MESSAGES;
   }
+
   private shortName = this.$store.getters.SYSTEM;
   private systemName = this.$store.getters.SYSTEM_NAME;
   private systemType = this.$store.getters.SYSTEM_TYPE;
@@ -160,13 +158,22 @@ export default class OpenMHzPlayer extends Vue {
         (this.wavesurfer as WaveSurfer).play();
       });
       this.wavesurfer.on("error", (e: any) => {
+        this.isPlaying = false;
         this.$forceUpdate();
         this.$store.dispatch("SHIFT_MESSAGES");
       });
       this.wavesurfer.on("finish", () => {
+        this.isPlaying = false;
         this.$forceUpdate();
         this.$store.dispatch("SHIFT_MESSAGES");
       });
+      this.wavesurfer.on("play", () => {
+        this.isPlaying = true;
+      });
+      this.wavesurfer.on("pause", () => {
+          this.isPlaying = false;
+      });
+
       if (this.activeTx) {
         this.wavesurfer.load(this.activeTx.url);
       }
