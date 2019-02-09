@@ -121,6 +121,7 @@
   })
   export default class OpenMHzPlayer extends Vue {
     private isPlaying = false;
+    private userInteracted = false;
 
     get activeTx() {
       return this.$store.getters.ACTIVE_TX;
@@ -144,6 +145,7 @@
     private wavesurfer: any;
 
     public playToggleClicked() {
+      this.userInteracted = true;
       this.wavesurfer.playPause();
       this.$nextTick(() => {
         this.$forceUpdate();
@@ -177,7 +179,9 @@
           height: 120,
         });
         this.wavesurfer.on("ready", () => {
-          this.wavesurfer.play();
+          if (this.userInteracted) {
+            this.wavesurfer.play();
+          }
           this.$forceUpdate();
         });
         this.wavesurfer.on("error", (e: any) => {
