@@ -77,7 +77,8 @@ interface IApplication {
           id: "ml",
           description: `Unleash the power of your new dataset by passing it to your existing systems,
                             IBM Watson or any other system using
-                            <a target="_blank" href="https://flows.nodered.org/?sort=downloads">Node-Red</a> flows.`
+                            <a target="_blank" rel="noopener" href="https://flows.nodered.org/?sort=downloads">
+                            Node-Red</a> flows.`
         }
       ]
     };

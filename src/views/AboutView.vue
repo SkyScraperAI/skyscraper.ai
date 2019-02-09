@@ -18,6 +18,8 @@
             :color="link.color"
             v-for="link in member.links"
             :key="member.name+link.icon"
+            aria-hidden="true"
+            rel="noopener"
           >
             <v-icon dark>{{link.icon}}</v-icon>
           </v-btn>

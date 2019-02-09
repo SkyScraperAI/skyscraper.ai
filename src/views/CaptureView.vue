@@ -61,7 +61,7 @@
                                                                 :key="cat + i + item.title"
                                                         >
                                                             <v-list-tile-title v-text="item.text"></v-list-tile-title>
-                                                            <v-btn :href="item.link" target="_blank" flat icon>
+                                                            <v-btn :href="item.link" target="_blank" rel="noopener" flat icon>
                                                                 <v-icon small>mdi-open-in-new</v-icon>
                                                             </v-btn>
                                                         </v-list-tile>

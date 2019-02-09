@@ -3,7 +3,10 @@
         <v-card-title class="red darken-2 white--text subheading" id="player-title">
             <v-layout align-center>
                 <v-flex shrink>
-                    <v-btn fab small class="mr-4 white" :disabled="!activeTx" @click="playToggleClicked()">
+                    <v-btn fab small class="mr-4 white"
+                           :disabled="!activeTx"
+                           :aria-label="isPlaying ? 'Pause' : 'Play'"
+                           @click="playToggleClicked()">
                         <v-icon v-if="!isPlaying">mdi-play</v-icon>
                         <v-icon v-else>mdi-pause</v-icon>
                     </v-btn>
@@ -174,8 +177,8 @@
           height: 120,
         });
         this.wavesurfer.on("ready", () => {
+          this.wavesurfer.play();
           this.$forceUpdate();
-          (this.wavesurfer as WaveSurfer).play();
         });
         this.wavesurfer.on("error", (e: any) => {
           this.isPlaying = false;
