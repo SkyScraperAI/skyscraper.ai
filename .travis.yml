@@ -10,7 +10,7 @@ addons:
         packages:
             - g++-4.8
 install:
-    - yarn
+    - yarn install
 script:
     - yarn run pages
 cache:
@@ -22,8 +22,8 @@ deploy:
     provider: pages
     skip-cleanup: true
     local_dir: docs/
-    github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
-    repo: sibyl-vision/master
+    github-token: $GITHUB_TOKEN
+    repo: sibyl-vision/sibyl-web
     keep-history: true
     target-branch: master
     on:
