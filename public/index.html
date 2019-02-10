@@ -1,18 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <title>Sibyl Vision</title>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"
-    />
     <link
       rel="stylesheet"
       href="//cdn.materialdesignicons.com/3.3.92/css/materialdesignicons.min.css"
     />
+    <meta itemprop="name" content="Sibyl Vision"/>
+    <meta itemprop="url" content="https://sibylvision.com/"/>
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -41,25 +36,6 @@
     <meta name="application-name" content="SkyScraper" />
     <meta name="msapplication-TileColor" content="#2b5797" />
     <meta name="theme-color" content="#ffffff" />
-    <script
-      src="https://slack.clearbit.com/v1/notify.js"
-      data-cb-account="9adbfa75-1d68-4f93-8888-df365dc2085e"
-    ></script>
-    <script>
-      (function(w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({
-          "gtm.start": new Date().getTime(),
-          event: "gtm.js",
-        });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-W3F47T2");
-    </script>
   </head>
   <body>
     <noscript>
@@ -69,5 +45,73 @@
       >
     </noscript>
     <div id="app"></div>
+
+    <!--  START Clearbit and Slack notify  -->
+    <script type="text/javascript" src="https://clearbitjs.com/v1/x/forms.js"></script>
+    <script
+            src="https://slack.clearbit.com/v1/notify.js"
+            data-cb-account="9adbfa75-1d68-4f93-8888-df365dc2085e"
+    ></script>
+    <!--  END Clearbit form and Slack notify  -->
+
+    <!-- Start of HubSpot Embed Code -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/5439352.js"></script>
+    <!-- End of HubSpot Embed Code -->
+
+    <!-- START LogRocket -->
+    <script src="https://cdn.logrocket.io/LogRocket.min.js" crossorigin="anonymous"></script>
+    <script>window.LogRocket && window.LogRocket.init('oswcej/sibyl-landing');</script>
+    <!-- END LogRocket -->
+
+    <!-- START Segment -->
+    <script>
+      !function () {
+        var analytics = window.analytics = window.analytics || [];
+        if (!analytics.initialize) {
+          if (analytics.invoked) {
+            window.console && console.error && console.error("Segment snippet included twice.");
+          } else {
+            analytics.invoked = !0;
+            analytics.methods = ["trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset", "group", "track", "ready", "alias", "debug", "page", "once", "off", "on"];
+            analytics.factory = function (t) {
+              return function () {
+                var e = Array.prototype.slice.call(arguments);
+                e.unshift(t);
+                analytics.push(e);
+                return analytics;
+              };
+            };
+            for (var t = 0; t < analytics.methods.length; t++) {
+              var e = analytics.methods[t];
+              analytics[e] = analytics.factory(e);
+            }
+            analytics.load = function (t, e) {
+              var n = document.createElement("script");
+              n.type = "text/javascript";
+              n.async = !0;
+              n.src = "https://cdn.segment.com/analytics.js/v1/" + t + "/analytics.min.js";
+              var a = document.getElementsByTagName("script")[0];
+              a.parentNode.insertBefore(n, a);
+              analytics._loadOptions = e;
+            };
+            analytics.SNIPPET_VERSION = "4.1.0";
+            analytics.load("ez1moOZPgBWo9wEE7GNVIKZ4D4GJJ66m");
+            analytics.page();
+          }
+        }
+      }();
+    </script>
+    <!-- END Segment -->
+
+    <!-- START Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-133845977-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-133845977-1');
+    </script>
+    <!-- END Google Analytics -->
   </body>
 </html>
