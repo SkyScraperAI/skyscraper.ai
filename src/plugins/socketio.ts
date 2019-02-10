@@ -1,11 +1,10 @@
-import VueSocketIO from "vue-socket.io";
+const VueSocketIO = require("vue-socket.io");
 import Vue from "vue";
 import { Store } from "vuex";
 
 export const socketAndStore = (store: Store<any>) => {
     const socketIo = new VueSocketIO({
-        debug: true,
-        connection: "//api.openmhz.com",
+        connection: "https://api.openmhz.com",
         vuex: {
             store,
             actionPrefix: "SOCKET_",

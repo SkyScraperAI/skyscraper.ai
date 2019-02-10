@@ -127,7 +127,7 @@ export default class NotFoundView extends Vue {
 </script>
 <style lang="scss">
 #not-found {
-  position: absolte;
+  position: absolute;
   min-height: calc(100vh - 64px - 53px);
   margin-top: 10px;
 }

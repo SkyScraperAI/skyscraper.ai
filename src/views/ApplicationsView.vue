@@ -1,47 +1,44 @@
 <template>
   <v-container
-    fluid
-    grid-list-md
     dark
-    class="primary lighten-2"
+    class="primary lighten-2 pb-5"
     id="analyze"
-    px-0
-    :class="{'pb-0': $vuetify.breakpoint.smAndDown, 'pb-5': $vuetify.breakpoint.mdAndUp}"
+    fluid
   >
     <div id="building-top-container" style="z-index: 10;">
-      <img id="building-top" src="../../public/img/skyscraper-top.svg">
+      <img alt="SkyScraper Drawing" id="building-top" src="../../public/img/skyscraper-top.svg">
     </div>
+    <v-container grid-list-lg px-0>
     <v-layout row wrap id="applications-wrapper" style="max-width: 1500px; margin: 0 auto;">
       <v-flex
         v-for="app in applications"
         :key="app.name"
         md4
-        sm12
+        sm4
         xs12
-        :class="{'px-0 py-0': $vuetify.breakpoint.smAndDown, 'px-4': $vuetify.breakpoint.mdAndUp}"
       >
         <v-card class="grey lighten-3" tile style="z-index: 1; height: 100%;" :id="app.id">
           <v-card-title class="red darken-2">
-            <span class="white--text subheading mx-auto" v-text="app.name"></span>
+            <h3 class="white--text display-1 mx-auto" v-text="app.name"></h3>
           </v-card-title>
           <v-card-text>
-            <p v-html="app.description"></p>
-            <v-list v-if="app.list" subheader dense class="mt-2 px-0 mx-0 transparent">
-              <v-subheader class="px-0">{{app.list.title}}</v-subheader>
-              <v-list-tile v-for="(item, i) in app.list.items" :key="app + i + item" class="px-0">
-                <v-list-tile-title v-text="item" class="px-0 ma-0"></v-list-tile-title>
+            <p class="subheading" v-html="app.description"></p>
+            <v-list v-if="app.list" subheader dense class="transparent">
+              <v-subheader>{{app.list.title}}</v-subheader>
+              <v-list-tile v-for="(item, i) in app.list.items" :key="app + i + item">
+                <v-list-tile-title v-text="item" ></v-list-tile-title>
               </v-list-tile>
             </v-list>
           </v-card-text>
         </v-card>
       </v-flex>
     </v-layout>
+    </v-container>
   </v-container>
 </template>
 
 <script lang="ts">
 import { jsPlumbInstance } from "jsplumb";
-import { throttle } from "lodash";
 import Vue from "vue";
 import { Component } from "vue-property-decorator";
 
@@ -80,7 +77,8 @@ interface IApplication {
           id: "ml",
           description: `Unleash the power of your new dataset by passing it to your existing systems,
                             IBM Watson or any other system using
-                            <a target="_blank" href="https://flows.nodered.org/?sort=downloads">Node-Red</a> flows.`
+                            <a target="_blank" rel="noopener" href="https://flows.nodered.org/?sort=downloads">
+                            Node-Red</a> flows.`
         }
       ]
     };
@@ -106,7 +104,7 @@ export default class ApplicationsView extends Vue {
   private connectPlumbing() {
     this.plumb.deleteEveryEndpoint();
 
-    this.applications.forEach((v, i, a) => {
+    this.applications.forEach((v) => {
       this.plumb.connect({
         source: "building-top",
         target: v.id,
@@ -119,10 +117,8 @@ export default class ApplicationsView extends Vue {
 }
 </script>
 
+<!--suppress CssUnusedSymbol -->
 <style lang="scss">
-#applications {
-}
-
 #applications-wrapper {
   margin-top: 30px;
 }
@@ -131,7 +127,7 @@ export default class ApplicationsView extends Vue {
   #building-top {
     position: relative;
     height: 200px;
-    top: -35px;
+    top: -55px;
     display: block;
     margin: 0 auto;
   }
