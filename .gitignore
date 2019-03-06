@@ -197,3 +197,5 @@ src/assets/financials.json
 
 #Electron-builder output
 /dist_electron
+/compose/config/
+!/compose/config/nginx/
