@@ -1,4 +1,8 @@
-import { IOpenMHzResponse, IOpenMHzTalkgroupResponse, IOpenMHzTalkgroups } from "@/types/openmhz";
+import {
+  IOpenMHzResponse,
+  IOpenMHzTalkgroupResponse,
+  IOpenMHzTalkgroups,
+} from "@/types/openmhz";
 import axios from "axios";
 import { sortBy } from "lodash";
 import Vue from "vue";
@@ -18,6 +22,8 @@ export interface IRootState {
   systemType: string;
   systemVoice: string;
   systemLocation: string;
+  navVisible: true;
+  passphrase?: string;
 }
 
 const vuexLocal = new VuexPersistence({
@@ -33,12 +39,17 @@ const store: StoreOptions<IRootState> = {
     systemType: "Motorola Type II Smartnet",
     systemVoice: "Analog and APCO-25 Common Air Interface",
     systemLocation: "Washington, DC",
+    navVisible: true,
+    passphrase: undefined,
   },
   mutations: {
     ADD_MESSAGE: (state, payload) => {
       if (state.messages.length >= MAX_STORED_TX) {
         const oldestMessage = state.messages[0];
-        const sorted = sortBy(state.messages.slice(1, MAX_STORED_TX), (m) => new Date(m.time));
+        const sorted = sortBy(
+          state.messages.slice(1, MAX_STORED_TX),
+          (m) => new Date(m.time),
+        );
         sorted.shift();
         sorted.push(payload);
         state.messages = [oldestMessage, ...sorted];
@@ -46,9 +57,15 @@ const store: StoreOptions<IRootState> = {
         state.messages.push(payload);
       }
     },
-    SET_TALKGROUPS: ((state, payload) => {
+    SET_TALKGROUPS: (state, payload) => {
       state.talkgroups = payload;
-    }),
+    },
+    SET_NAV_VISIBLE: (state, payload) => {
+      state.navVisible = payload;
+    },
+    SET_PASSPHRASE: (state, payload) => {
+      state.passphrase = payload;
+    },
   },
   getters: {
     MESSAGES: (state) => {
@@ -61,6 +78,8 @@ const store: StoreOptions<IRootState> = {
     SYSTEM_VOICE: (state) => state.systemVoice,
     SYSTEM_LOCATION: (state) => state.systemLocation,
     ACTIVE_TX: (state) => state.messages[0],
+    NAV_VISIBLE: (state) => state.navVisible,
+    PASSPHRASE: (s) => s.passphrase,
   },
   actions: {
     "SOCKET_new message"(ctx, payload) {
@@ -78,19 +97,17 @@ const store: StoreOptions<IRootState> = {
     },
     "FETCH_TALKGROUPS"(ctx) {
       axios({
-        url: `https://api.openmhz.com/${ ctx.state.system }/talkgroups`,
+        url: `https://api.openmhz.com/${ctx.state.system}/talkgroups`,
         method: "get",
-      })
-        .then((response) => {
-          if (response.status === 200) {
-            const tgs = (response.data as IOpenMHzTalkgroupResponse).talkgroups;
-            ctx.commit("SET_TALKGROUPS", tgs);
-          }
-        });
+      }).then((response) => {
+        if (response.status === 200) {
+          const tgs = (response.data as IOpenMHzTalkgroupResponse).talkgroups;
+          ctx.commit("SET_TALKGROUPS", tgs);
+        }
+      });
     },
   },
   plugins: [vuexLocal.plugin],
 };
 
 export default new Vuex.Store<IRootState>(store);
-

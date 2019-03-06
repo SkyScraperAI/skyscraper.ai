@@ -33,7 +33,7 @@ export default class Wave extends Vue {
   public windowHalfX = window.innerWidth / 2;
   public windowHalfY = window.innerHeight / 2;
 
-  private mounted() {
+  protected mounted() {
     if (this.container) {
       this.container.className += this.container.className ? " waves" : "waves";
     }

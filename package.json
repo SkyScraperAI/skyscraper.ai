@@ -6,18 +6,24 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "docker": "docker run -p 8080:8080 --name sibyl-web sibylvision/skyscraper.ai",
+    "docker:build": "docker build . -t sibylvision/skyscraper.ai",
     "pages": "yarn run build && rimraf docs && cp -a dist docs && echo beta.sibylvision.com > docs/CNAME"
   },
   "dependencies": {
+    "apexcharts": "^3.3.1",
     "axios": "^0.18.0",
+    "crypto-js": "^3.1.9-1",
     "jsplumb": "^2.9.0",
     "lodash": "^4.17.11",
     "logrocket": "^0.6.19",
     "moment": "^2.24.0",
+    "raw-loader": "^1.0.0",
     "register-service-worker": "^1.5.2",
     "socket.io": "^2.2.0",
     "three": "^0.101.1",
     "vue": "^2.5.21",
+    "vue-apexcharts": "^1.2.9",
     "vue-audio-visual": "^1.3.0",
     "vue-class-component": "^6.0.0",
     "vue-fullpage.js": "^0.1.1",
@@ -33,6 +39,7 @@
     "wavesurfer.js": "^2.1.3"
   },
   "devDependencies": {
+    "@types/crypto-js": "^3.1.43",
     "@types/lodash": "^4.14.120",
     "@types/socket.io": "^2.1.2",
     "@types/three": "^0.93.19",
@@ -51,12 +58,11 @@
     "stylus-loader": "^3.0.1",
     "tslib": "^1.9.3",
     "typescript": "^3.0.0",
+    "vue-cli-plugin-docker-nginx": "^1.0.1",
     "vue-cli-plugin-vuetify": "^0.4.6",
+    "vue-cli-plugin-webpack-bundle-analyzer": "^1.2.0",
     "vue-template-compiler": "^2.5.21",
     "vuetify-loader": "^1.0.5"
-  },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
   },
   "lint-staged": {
     "*.ts": [

@@ -9,11 +9,11 @@
                 <v-layout row wrap align-center>
                     <v-flex class="text-xs-center" mt-4 mb-5 xs12 hidden-sm-and-down>
                         <h1 class="text--primary display-2">SkyScraper</h1>
-                        <h3 class="subheading mt-3">Be the first to know.</h3>
+                        <h3 class="subheading mt-3">The Swiss-army knife of radio capture and analysis.</h3>
                     </v-flex>
                     <v-flex md6 pt-2>
                         <p class="headline">
-                            Radios power our digital world. The data that surrounds us is
+                            Radios power the digital world. The data that surrounds us is
                             <strong>valuable</strong> and untapped.
                         </p>
                         <p class="subheading">Exploding radio usage and complex protocols make analysis difficult.</p>
@@ -49,7 +49,6 @@
                     </v-flex>
                 </v-layout>
             </v-container>
-
     </v-container>
 </template>
 

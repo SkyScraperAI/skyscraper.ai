@@ -12,7 +12,7 @@ addons:
 install:
     - yarn install
 script:
-    - yarn run pages
+    - yarn run build
 cache:
     directories:
         - "node_modules"

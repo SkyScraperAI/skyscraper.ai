@@ -1,6 +1,7 @@
 .DS_Store
 node_modules
 /dist
+docs
 
 # local env files
 .env.local
@@ -192,3 +193,7 @@ typings/
 
 # Custom rules (everything added below won't be overriden by 'Generate .gitignore File' if you use 'Update' option)
 node_modules/.bin/pbjs
+src/assets/financials.json
+
+#Electron-builder output
+/dist_electron
