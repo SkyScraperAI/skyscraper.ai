@@ -4,11 +4,26 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    
-    <meta property="og:type" content="product.group">
-    <meta property="og:title" content="SkyScraper | Unlocking the Spectrum">
-    <meta property="og:url" content="https://skyscraper.ai">
-    <meta property="og:image" content="/img/og-banner.png">
+
+    <meta property="og:type" content="product.group" />
+    <meta property="og:title" content="SkyScraper | Unlocking the Spectrum" />
+    <meta property="og:url" content="https://skyscraper.ai" />
+    <meta property="og:image" content="/img/og-banner.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@SkyScraperRF" />
+    <meta
+      name="twitter:title"
+      content="The Swiss-army knife of radio capture and analysis."
+    />
+    <meta
+      name="twitter:description"
+      content="Radios power our world. The data that surrounds us is valuable and untapped. Exploding radio usage and complex protocols make analysis difficult. SkyScraper transforms static into priceless data."
+    />
+    <meta
+      name="twitter:image"
+      content="https://skyscraper.ai/img/og-banner.png"
+    />
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link
@@ -47,10 +62,62 @@
     <meta name="theme-color" content="#ffffff" />
     <!-- Segment -->
     <script>
-      !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t,e){var n=document.createElement("script");n.type="text/javascript";n.async=!0;n.src="https://cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(n,a);analytics._loadOptions=e};analytics.SNIPPET_VERSION="4.1.0";
-        analytics.load("bLN5L85xYhDthdQol0oc5eKYCgKbNFju");
-        analytics.page();
-      }}();
+      !(function() {
+        var analytics = (window.analytics = window.analytics || []);
+        if (!analytics.initialize)
+          if (analytics.invoked)
+            window.console &&
+              console.error &&
+              console.error("Segment snippet included twice.");
+          else {
+            analytics.invoked = !0;
+            analytics.methods = [
+              "trackSubmit",
+              "trackClick",
+              "trackLink",
+              "trackForm",
+              "pageview",
+              "identify",
+              "reset",
+              "group",
+              "track",
+              "ready",
+              "alias",
+              "debug",
+              "page",
+              "once",
+              "off",
+              "on",
+            ];
+            analytics.factory = function(t) {
+              return function() {
+                var e = Array.prototype.slice.call(arguments);
+                e.unshift(t);
+                analytics.push(e);
+                return analytics;
+              };
+            };
+            for (var t = 0; t < analytics.methods.length; t++) {
+              var e = analytics.methods[t];
+              analytics[e] = analytics.factory(e);
+            }
+            analytics.load = function(t, e) {
+              var n = document.createElement("script");
+              n.type = "text/javascript";
+              n.async = !0;
+              n.src =
+                "https://cdn.segment.com/analytics.js/v1/" +
+                t +
+                "/analytics.min.js";
+              var a = document.getElementsByTagName("script")[0];
+              a.parentNode.insertBefore(n, a);
+              analytics._loadOptions = e;
+            };
+            analytics.SNIPPET_VERSION = "4.1.0";
+            analytics.load("bLN5L85xYhDthdQol0oc5eKYCgKbNFju");
+            analytics.page();
+          }
+      })();
     </script>
 
     <!--  ClearBit Forms -->
