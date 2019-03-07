@@ -11,7 +11,7 @@ function loadView(view: string) {
 }
 
 export default new Router({
-    mode: process.env.NODE_ENV === "production" ? "history" : "hash",
+    mode: "hash",
     routes: [
         {
             path: "/",
