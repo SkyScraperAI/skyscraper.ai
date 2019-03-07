@@ -1,18 +1,16 @@
 import { MetaInfo } from "vue-meta";
 
 const globalMeta: MetaInfo = {
-  titleTemplate: "%s | Taking Back The Airwaves",
+  titleTemplate: "%s | Unlocking the Spectrum",
   htmlAttrs: {
     lang: "en",
   },
   meta: [
-    { name: "og:image", content: "/img/og-banner.png" },
     { name: "canonical", href: "https://skyscraper.ai/", id: "canonical" },
     { name: "viewport", content: "width=device-width, initial-scale=1" },
     {
       name: "description",
-      content: `Radios got smarter, computers got faster, and now SkyScraper
-      . Meet the Swiss-army knife of radio capture and analysis.`,
+      content: `Meet the Swiss-army knife of radio capture and analysis.`,
     },
     { name: "Content-Type", content: "text/html; charset=utf-8" },
   ],
