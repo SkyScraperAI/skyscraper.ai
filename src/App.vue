@@ -13,14 +13,9 @@
       <v-layout align-center justify-space-between row fill-height>
         <v-flex grow>
           <v-toolbar-title>
-            <h1 class="red--text darken-4 headline">
-              <a href="/">Sibyl Vision</a>
+            <h1 class="headline">
+              <a href="/"><strong>Sky</strong>Scraper</a>
             </h1>
-          </v-toolbar-title>
-        </v-flex>
-        <v-flex md4>
-          <v-toolbar-title grow class="text-md-center text-xs-right hidden-md-and-up">
-            <h1 class="primary--text headline" style="font-size: 1.8rem;">SkyScraper</h1>
           </v-toolbar-title>
         </v-flex>
         <v-flex shrink fill-height hidden-sm-and-down>

@@ -39,11 +39,11 @@
                     },
                     {
                         label: "hello@sibylvision.com",
-                        url: "mailto:hello@sibylvision.com",
+                        url: "mailto:support@skyscraper.ai",
                     },
                     {
                         label: "@SibylVision",
-                        url: "//twitter.com/SibylVision",
+                        url: "//twitter.com/SkyScraperRF",
                     },
                 ],
             };

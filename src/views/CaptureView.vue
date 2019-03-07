@@ -169,12 +169,14 @@
     private plumb = (window as any).jsPlumb.getInstance() as jsPlumbInstance;
 
     public mounted() {
-      this.plumb.ready(() => {
-        this.plumb.deleteEveryConnection();
-        this.plumb.deleteEveryEndpoint();
-        this.plumb = (window as any).jsPlumb.getInstance() as jsPlumbInstance;
-        this.plumb.setContainer("rf-capture");
-        this.connectPlumbing();
+      window.addEventListener("load", () => {
+        this.plumb.ready(() => {
+          this.plumb.deleteEveryConnection();
+          this.plumb.deleteEveryEndpoint();
+          this.plumb = (window as any).jsPlumb.getInstance() as jsPlumbInstance;
+          this.plumb.setContainer("rf-capture");
+          this.connectPlumbing();
+        });
       });
       window.addEventListener("resize", this.redrawLines);
     }
