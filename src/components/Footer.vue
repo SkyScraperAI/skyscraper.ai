@@ -1,11 +1,12 @@
 <template>
   <v-footer height="auto" color="red lighten-1" class="pb-1">
-    <v-layout justify-center row wrap class="py-3">
+    <v-layout justify-center row wrap class="py-3 text-xs-center">
       <div v-for="link in links" :key="link.label">
         <v-btn color="white" flat round :href="link.url ? link.url : '#'">
           <span class="white--text monospaced">{{ link.label }}</span>
         </v-btn>
       </div>
+      <v-flex xs12 class="white--text monospaced py-2">&copy; Sibyl Vision, 2019</v-flex>
     </v-layout>
   </v-footer>
 </template>
@@ -24,8 +25,8 @@ import { Component } from "vue-property-decorator";
           url: "tel:+14159675238"
         },
         {
-          label: "hello@sibylvision.com",
-          url: "mailto:support@skyscraper.ai"
+          label: "hello@skyscraper.ai",
+          url: "mailto:hello@skyscraper.ai"
         },
         {
           label: "@SkyScraperRF",
