@@ -59,7 +59,7 @@
               },
               {
                 icon: "mdi-twitter",
-                url: "https://twitter.com/pkpolls",
+                url: "//twitter.com/pkcodes",
                 color: "blue-grey lighten-4",
               },
             ],
