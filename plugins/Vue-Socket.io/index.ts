@@ -1,5 +1,4 @@
 import Listener from "./listener";
-import Logger from "./logger";
 import Emitter from "./emitter";
 import SocketIO from "socket.io-client";
 

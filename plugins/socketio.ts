@@ -1,8 +1,7 @@
 import Vue from "vue";
-import VueSocket from  "./Vue-Socket.io";
+import VueSocket from "./Vue-Socket.io";
 
 export default ({ app: { store } }) => {
-
   const socketIo = new VueSocket({
     connection: "https://api.openmhz.com",
     vuex: {
@@ -14,5 +13,5 @@ export default ({ app: { store } }) => {
   Vue.use(socketIo);
 
   return socketIo;
-}
+};
 

@@ -195,12 +195,12 @@
         this.wavesurfer.on("error", () => {
           this.isPlaying = false;
           this.$forceUpdate();
-          this.$store.dispatch("SHIFT_MESSAGES");
+          this.$store.dispatch("trunked/SHIFT_MESSAGES");
         });
         this.wavesurfer.on("finish", () => {
           this.isPlaying = false;
           this.$forceUpdate();
-          this.$store.dispatch("SHIFT_MESSAGES");
+          this.$store.dispatch("trunked/SHIFT_MESSAGES");
         });
         this.wavesurfer.on("audioprocess", () => {
           this.isPlaying = true;
