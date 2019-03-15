@@ -5,7 +5,7 @@
   "regions": ["sfo", "iad"],
   "builds": [
     {
-      "src": "package.json",
+      "src": "package.old.json",
       "use": "@now/static-build"
     }
   ]

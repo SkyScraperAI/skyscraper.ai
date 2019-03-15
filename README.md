@@ -1,22 +1,22 @@
-# SkyScraper landing page
+# skyscraper-website
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
+> The skyscraper.ai public website.
+
+## Build Setup
+
+``` bash
+# install dependencies
+$ yarn install
+
+# serve with hot reload at localhost:3000
+$ yarn run dev
+
+# build for production and launch server
+$ yarn run build
+$ yarn start
+
+# generate static project
+$ yarn run generate
 ```
 
-### Compiles and minifies for production
-```
-yarn run build
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
-
-## Deploy
-The master branch is automatically published to [skyscraper.ai].
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
