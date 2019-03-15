@@ -1,48 +1,55 @@
-import NuxtConfiguration from '@nuxt/config-edge'
-
-const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin');
-const pkg = require('./package.json');
-
-export const config: NuxtConfiguration = {
-  mode: 'spa',
+// const VuetifyLoaderPlugin = require("vuetify-loader/lib/plugin");
+const pkg = require("./package.json");
+const isDev = process.env.NODE_ENV !== "production";
+export default {
+  mode: "spa",
+  modern: isDev ? false : "client",
+  devtools: isDev,
+  devtool: 'eval-source-map',
+  parallel: true,
+  extractCSS: true,
   /*
    ** Headers of the page
    */
   head: {
     title: pkg.name,
     meta: [
-      {charset: 'utf-8'},
-      {name: 'viewport', content: 'width=device-width, initial-scale=1'},
-      {hid: 'description', name: 'description', content: pkg.description}
+      { charset: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { hid: "description", name: "description", content: pkg.description },
     ],
     link: [
-      {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},
+      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       {
-        rel: 'stylesheet',
+        rel: "stylesheet",
         href:
-          'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'
-      }
-    ]
+          "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons",
+      },
+    ],
   },
   /*
    ** Customize the progress-bar color
    */
-  loading: {color: '#fff'},
+  loading: { color: "#fff" },
   /*
    ** Global CSS
    */
-  css: ['~/assets/style/app.styl'],
+  css: ["~/assets/style/app.styl"],
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/vuetify', '~/plugins/scrollto', '~/plugins/socketio'],
+  plugins: [
+    { src: "@/plugins/vuetify", ssr: false },
+    { src: "@/plugins/scrollto", ssr: false },
+    { src: "@/plugins/socketio", ssr: false },
+  ],
   /*
    ** Nuxt.js modules
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    "@nuxtjs/axios",
+    "@nuxtjs/pwa",
   ],
   /*
    ** Axios module configuration
@@ -54,31 +61,31 @@ export const config: NuxtConfiguration = {
    ** Build configuration
    */
   build: {
-    transpile: ['vuetify/lib'],
-    plugins: [new VuetifyLoaderPlugin()],
+    transpile: ["vuetify/lib"],
+    // plugins: [new VuetifyLoaderPlugin()],
     loaders: {
       stylus: {
-        import: ['~assets/style/app.styl', '~assets/style/variables.styl']
-      }
+        import: ["~assets/style/app.styl", "~assets/style/variables.styl"],
+      },
     },
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {
+    extend(config: any, ctx: any) {
       // Use raw-loader
       config.module.rules.push({
         test: /\.aes$/i,
-        use: 'raw-loader',
+        use: "raw-loader",
       });
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
+        // config.module.rules.push({
+        //   enforce: "pre",
+        //   test: /\.(js|vue)$/,
+        //   loader: "eslint-loader",
+        //   exclude: /(node_modules)/,
+        // });
       }
-    }
-  }
-}
+    },
+  },
+};

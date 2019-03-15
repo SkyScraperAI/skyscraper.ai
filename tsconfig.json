@@ -1,6 +1,13 @@
 {
   "extends": "@nuxt/typescript",
   "compilerOptions": {
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "module": "es2015",
+    "esModuleInterop": true,
+    "importHelpers": true,
+    "sourceMap": true,
     "baseUrl": ".",
     "types": [
       "@types/node",

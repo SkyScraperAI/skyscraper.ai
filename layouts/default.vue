@@ -40,7 +40,6 @@
 <script lang="ts">
   import Vue from "vue";
   import Component from "vue-class-component";
-  import globalMeta from "~/assets/globalMeta";
   import Footer from "~/components/Footer.vue";
 
   if (process.client) {
@@ -78,9 +77,6 @@
           name: "Team",
         },
       ],
-      metaInfo() {
-        return globalMeta;
-      },
     }),
     components: {
       Footer,
@@ -90,11 +86,11 @@
     public slides: ISlide[] = [];
 
     protected mounted() {
-      this.$store.commit("SET_NAV_VISIBLE", true);
+      this .$store.commit("SET_NAV_VISIBLE", true);
     }
 
     get navVisible() {
-      return this.$store.getters.NAV_VISIBLE;
+      return this .$store.getters.NAV_VISIBLE;
     }
   }
 </script>

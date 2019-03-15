@@ -256,6 +256,7 @@
       this.$store.commit("SET_NAV_VISIBLE", false);
     }
   }
+
 </script>
 <style lang="scss">
   #pitch {

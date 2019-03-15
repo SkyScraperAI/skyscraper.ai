@@ -1,4 +1,4 @@
-import {IOpenMHzResponse, IOpenMHzTalkgroupResponse, IOpenMHzTalkgroups,} from "@/types/openmhz";
+import {IOpenMHzResponse, IOpenMHzTalkgroupResponse, IOpenMHzTalkgroups} from "@/types/openmhz";
 import axios from "axios";
 import {sortBy} from "lodash";
 
@@ -6,58 +6,57 @@ const MAX_STORED_TX = 4;
 export const state = () => {
   return {
     messages: [] as IOpenMHzResponse[],
-    talkgroups: {} as IOpenMHzTalkgroups,
+    talkgroups: {} as unknown as IOpenMHzTalkgroups,
     system: "wmata",
     systemName: "Washington Metro Transit Authority",
     systemType: "Motorola Type II Smartnet",
     systemVoice: "Analog and APCO-25 Common Air Interface",
     systemLocation: "Washington, DC",
-    navVisible: true,
     passphrase: undefined,
-  }
+  };
 };
-
 export const mutations = {
-  ADD_MESSAGE: (state, payload) => {
-    if (state.messages.length >= MAX_STORED_TX) {
-      const oldestMessage = state.messages[0];
+  ADD_MESSAGE: (s: { messages: any[]; }, payload: any) => {
+    if (s.messages.length >= MAX_STORED_TX) {
+      const oldestMessage = s.messages[0];
       const sorted = sortBy(
-        state.messages.slice(1, MAX_STORED_TX),
+        s.messages.slice(1, MAX_STORED_TX),
         (m) => new Date(m.time),
       );
       sorted.shift();
       sorted.push(payload);
-      state.messages = [oldestMessage, ...sorted];
+      s.messages = [oldestMessage, ...sorted];
     } else {
-      state.messages.push(payload);
+      s.messages.push(payload);
     }
   },
-  SET_TALKGROUPS: (state, payload) => {
-    state.talkgroups = payload;
+  SET_TALKGROUPS: (s: { talkgroups: any; }, payload: any) => {
+    s.talkgroups = payload;
   },
-  SET_NAV_VISIBLE: (state, payload) => {
-    state.navVisible = payload;
-  },
-  SET_PASSPHRASE: (state, payload) => {
-    state.passphrase = payload;
+  SET_PASSPHRASE: (s: { passphrase: any; }, payload: any) => {
+    s.passphrase = payload;
   },
 };
 export const getters = {
-  MESSAGES: (state) => {
-    return state.messages;
+  MESSAGES: (s: { messages: any; }) => {
+    return s.messages;
   },
-  TALKGROUPS: (state) => state.talkgroups,
-  SYSTEM: (state) => state.system,
-  SYSTEM_NAME: (state) => state.systemName,
-  SYSTEM_TYPE: (state) => state.systemType,
-  SYSTEM_VOICE: (state) => state.systemVoice,
-  SYSTEM_LOCATION: (state) => state.systemLocation,
-  ACTIVE_TX: (state) => state.messages[0],
-  NAV_VISIBLE: (state) => state.navVisible,
-  PASSPHRASE: (s) => s.passphrase,
+  TALKGROUPS: (s: { talkgroups: any; }) => s.talkgroups,
+  SYSTEM: (s: { system: any; }) => s.system,
+  SYSTEM_NAME: (s: { systemName: any; }) => s.systemName,
+  SYSTEM_TYPE: (s: { systemType: any; }) => s.systemType,
+  SYSTEM_VOICE: (s: { systemVoice: any; }) => s.systemVoice,
+  SYSTEM_LOCATION: (s: { systemLocation: any; }) => s.systemLocation,
+  ACTIVE_TX: (s: { messages: any[]; }) => s.messages[0],
+  PASSPHRASE: (s: { passphrase: any; }) => s.passphrase,
 };
 export const actions = {
-  "SOCKET_new message"(ctx, payload) {
+  "SOCKET_new message"(ctx:
+                         {
+                           state: { talkgroups: {}; }; getters: { TALKGROUPS: any[]; };
+                           commit: (arg0: string, arg1: IOpenMHzResponse) => void;
+                         },
+                       payload: string) {
     const message = JSON.parse(payload) as IOpenMHzResponse;
     if (Object.keys(ctx.state.talkgroups).length > 0) {
       const tg = ctx.getters.TALKGROUPS[message.talkgroupNum];
@@ -67,10 +66,10 @@ export const actions = {
       }
     }
   },
-  "SHIFT_MESSAGES"(ctx) {
+  "SHIFT_MESSAGES"(ctx: { state: { messages: { shift: () => void; }; }; }) {
     ctx.state.messages.shift();
   },
-  "FETCH_TALKGROUPS"(ctx) {
+  "FETCH_TALKGROUPS"(ctx: { state: { system: any; }; commit: (arg0: string, arg1: IOpenMHzTalkgroups) => void; }) {
     axios({
       url: `https://api.openmhz.com/${ctx.state.system}/talkgroups`,
       method: "get",

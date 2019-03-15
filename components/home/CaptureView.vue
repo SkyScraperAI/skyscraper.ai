@@ -173,24 +173,23 @@ import Box from "~/components/Box.vue";
   }
 })
 export default class CaptureView extends Vue {
-  private servicesModel = "cat0";
+  servicesModel = "cat0";
   private capture: any[] = [];
-  private plumb: any;
-  private isMounted = false;
+  public plumb: any;
+  isMounted = false;
 
   public mounted() {
     this.isMounted = true;
     window.addEventListener("load", () => {
       this.plumb = (window as any).jsPlumb.getInstance() as jsPlumbInstance;
+      window.addEventListener("resize", this.redrawLines);
       this.plumb.ready(() => {
         this.plumb.deleteEveryConnection();
         this.plumb.deleteEveryEndpoint();
-        this.plumb = (window as any).jsPlumb.getInstance() as jsPlumbInstance;
         this.plumb.setContainer("rf-capture");
         this.connectPlumbing();
       });
     });
-    window.addEventListener("resize", this.redrawLines);
   }
 
   public updated() {
@@ -198,9 +197,11 @@ export default class CaptureView extends Vue {
   }
 
   private redrawLines() {
-    this.$nextTick(() => {
-      this.connectPlumbing();
-    });
+    if (this.plumb) {
+      this.$nextTick(() => {
+        this.connectPlumbing();
+      });
+    }
   }
 
   private connectPlumbing() {
@@ -208,7 +209,7 @@ export default class CaptureView extends Vue {
       this.plumb.deleteEveryEndpoint();
 
       if ((this.$refs.box as Element).clientHeight > 0) {
-        this.capture.forEach((v, i) => {
+        this.capture.forEach((_, i) => {
           this.plumb.connect({
             source: "cat" + i,
             target: "box-target",

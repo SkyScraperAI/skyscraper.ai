@@ -44,24 +44,6 @@
 
   const encryptedFinancials = require("!!raw-loader!~/assets/financials.aes");
 
-  interface IFinancials {
-    newPurchases: number;
-    subscribers: number;
-    netRevenue: number;
-    cogs: number;
-    grossMargin: number;
-    percentMarginOfRevenue: number;
-    sga: number;
-    percentSgaOfRevenue: number;
-    netIncome: number;
-    percentIncomeRevenue: number;
-    beginningCash: number;
-    cashFlowOps: number;
-    cashEnd: number;
-
-    [key: string]: number;
-  }
-
   @Component({
     data() {
       return {
@@ -77,11 +59,11 @@
     }
 
     private financials: any = {};
-    private activeTab = "B2C";
-    private haveCleartext = false;
-    private wrongPassword = false;
-    private passwordInput = "";
-    private hint = "Ping <a href='mailto:hello@sibylvision.com'>hello@sibylvision.com</a> to request access.";
+    activeTab = "B2C";
+    haveCleartext = false;
+    wrongPassword = false;
+    passwordInput = "";
+    hint = "Ping <a href='mailto:hello@sibylvision.com'>hello@sibylvision.com</a> to request access.";
 
     public mounted() {
       if (this.passphrase) {
@@ -119,7 +101,7 @@
       return Math.round(value);
     }
 
-    public keyFilter(rowName: string) {
+    keyFilter(rowName: string) {
       let r = rowName.replace(/([A-Z])/g, " $1");
       r = r.charAt(0).toUpperCase() + r.slice(1);
       r = r.replace("Cogs", "COGS");
@@ -127,7 +109,7 @@
       return r;
     }
 
-    private submitPassword() {
+    submitPassword() {
       console.log(this.passwordInput);
       this.$store.commit("SET_PASSPHRASE", this.passwordInput);
       this.decryptFinancials();
