@@ -173,10 +173,10 @@ import Box from "~/components/Box.vue";
   }
 })
 export default class CaptureView extends Vue {
-  servicesModel = "cat0";
-  private capture: any[] = [];
+  public servicesModel = "cat0";
   public plumb: any;
-  isMounted = false;
+  public isMounted = false;
+  private capture: any[] = [];
 
   public mounted() {
     this.isMounted = true;

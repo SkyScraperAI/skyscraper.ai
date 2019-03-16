@@ -61,7 +61,7 @@
     components: {}
   })
   export default class IntroView extends Vue {
-     isMounted = false;
+    public isMounted = false;
 
     protected mounted() {
       this.isMounted = true;

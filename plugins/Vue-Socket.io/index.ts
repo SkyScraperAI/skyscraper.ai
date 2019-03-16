@@ -21,7 +21,7 @@ export default class VueSocketIO {
    * @param debug
    * @param options
    */
-  constructor({ connection, vuex, options } : IConstructorArgs) {
+  constructor({ connection, vuex, options }: IConstructorArgs) {
     this.io = this.connect(connection, options);
     this.emitter = new Emitter(vuex);
     this.listener = new Listener(this.io, this.emitter);

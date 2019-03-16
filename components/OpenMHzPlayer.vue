@@ -72,7 +72,7 @@
 </template>
 <script lang="ts">
   import { IOpenMHzResponse } from "~/types/openmhz";
-  import moment from "moment";
+  import {parseZone as moment } from "moment";
   import Vue from "vue";
   import { Component, Watch } from "vue-property-decorator";
 
@@ -121,14 +121,16 @@
             return tgMode;
         }
       },
-    },
-    sockets: {
-      connect: function () {
-        console.log('socket connected')
-      },
     }
   })
   export default class OpenMHzPlayer extends Vue {
+    public isPlaying = false;
+    public systemName = this.$store.getters["trunked/SYSTEM_NAME"];
+    public systemType = this.$store.getters["trunked/SYSTEM_TYPE"];
+    private userInteracted = false;
+    private shortName = this.$store.getters["trunked/SYSTEM"];
+    private wavesurfer: any;
+
     get activeTx() {
       return this.$store.getters["trunked/ACTIVE_TX"];
     }
@@ -145,12 +147,17 @@
       return this.$store.getters["trunked/MESSAGES"];
     }
 
-    isPlaying = false;
-    private userInteracted = false;
-    private shortName = this.$store.getters["trunked/SYSTEM"];
-    systemName = this.$store.getters["trunked/SYSTEM_NAME"];
-    systemType = this.$store.getters["trunked/SYSTEM_TYPE"];
-    private wavesurfer: any;
+
+    @Watch("activeTx", { immediate: false })
+    public activeTxChanged(oldTx: IOpenMHzResponse, newTx: IOpenMHzResponse) {
+      if (!oldTx || !newTx || oldTx._id !== newTx._id) {
+        this.$nextTick(() => {
+          if (this.activeTx && this.activeTx.url) {
+            this.wavesurfer.load(this.activeTx.url);
+          }
+        });
+      }
+    }
 
     public playToggleClicked() {
       this.userInteracted = true;
@@ -160,19 +167,18 @@
       });
     }
 
+    public timeAgo(d: string) {
+      return moment(d).fromNow();
+    }
+
+    public formatFrequency(hertz: number) {
+      return Number(hertz / 1000000).toFixed(4) + " MHz";
+    }
     protected mounted() {
       this.setupSocket();
       this.startSocket();
       this.fetchTalkgroups();
       this.setupWaveSurfer();
-    }
-
-    timeAgo(d: string) {
-      return moment(d).fromNow();
-    }
-
-    formatFrequency(hertz: number) {
-      return Number(hertz / 1000000).toFixed(4) + " MHz";
     }
 
     private setupWaveSurfer() {
@@ -233,17 +239,6 @@
         filterName: "",
         shortName: this.shortName,
       });
-    }
-
-    @Watch("activeTx", { immediate: false })
-    public activeTxChanged(oldTx: IOpenMHzResponse, newTx: IOpenMHzResponse) {
-      if (!oldTx || !newTx || oldTx._id !== newTx._id) {
-        this.$nextTick(() => {
-          if (this.activeTx && this.activeTx.url) {
-            this.wavesurfer.load(this.activeTx.url);
-          }
-        });
-      }
     }
   }
 </script>

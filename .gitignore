@@ -1,12 +1,7 @@
 .DS_Store
 node_modules
-/dist
-docs
+dist
 .nuxt
-
-# local env files
-.env.local
-.env.*.local
 
 # Log files
 npm-debug.log*
@@ -20,7 +15,7 @@ yarn-error.log*
 *.ntvs*
 *.njsproj
 *.sln
-*.sw*
+*sw*
 
 # File created using '.gitignore Generator' for Visual Studio Code: https://bit.ly/vscode-gig
 

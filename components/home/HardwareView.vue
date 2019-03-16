@@ -1,5 +1,6 @@
 <template>
   <v-container fluid grid-list-md dark class="white--text primary py-5" id="hardware">
+    <script src="https://clearbitjs.com/v1/x/forms.js"></script>
     <v-layout wrap fill-height style="max-width: 1500px; margin: 0 auto;" px-4 pb-4>
       <v-flex xs12>
         <h4 class="text-xs-center headline">Three tiers. Three new device classes.</h4>
@@ -51,7 +52,7 @@
           <v-btn
             v-else
             large
-            class="clearbit-overlay mx-3 mb-4 blue-grey white--text monospaced"
+            class="mx-3 mb-4 blue-grey white--text monospaced"
             data-form-id="fe245108-fd5e-47a1-8ff7-c5fc27effedd"
             data-theme="default"
           >Early Access Program
@@ -79,7 +80,7 @@
 
 <script lang="ts">
   import Vue from "vue";
-  import {Component} from "vue-property-decorator";
+  import { Component } from "vue-property-decorator";
 
   @Component({
     data() {
@@ -273,18 +274,18 @@
     }
   })
   export default class HardwareView extends Vue {
-    priceLevels: any[] = [];
+    public priceLevels: any[] = [];
+    public isMounted = false;
     private features: any[] = [];
-    isMounted = false;
 
-    mounted() {
-      this.isMounted = true;
-    }
-
-    featuresAtPricePoint(idx: number) {
-      return this.features.filter(f => {
+    public featuresAtPricePoint(idx: number) {
+      return this.features.filter((f) => {
         return f.levels[idx] === true;
       });
+    }
+
+    public mounted() {
+      this.isMounted = true;
     }
   }
 </script>
