@@ -5,7 +5,6 @@ export default {
   mode: "spa",
   modern: isDev ? false : "client",
   devtools: isDev,
-  devtool: "eval-source-map",
   manifest: {
     name: "SkyScraper",
     short_name: "SkyScraper"
@@ -34,7 +33,9 @@ export default {
       {
         name: "og:description",
         property: "og:description",
-        content: "Radios power our world. The data that surrounds us is valuable and untapped. Exploding radio usage and complex protocols make analysis difficult. SkyScraper transforms static into priceless data."
+        content: "Radios power our world. The data that surrounds us is valuable and untapped." +
+          "Exploding radio usage and complex protocols make analysis difficult. " +
+          "SkyScraper transforms static into priceless data."
       },
       { itemprop: "name", content: "SkyScraper" },
       { itemprop: "url", content: "https://skyscraper.ai" }
@@ -63,8 +64,6 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
-    "@nuxtjs/axios",
     "@nuxtjs/pwa",
     "nuxt-logrocket",
   ],
@@ -72,12 +71,6 @@ export default {
   logRocket: {
     logRocketId: "oswcej/sibyl-landing",
     devModeAllowed: false
-  },
-  /*
-   ** Axios module configuration
-   */
-  axios: {
-    // See https://github.com/nuxt-community/axios-module#options
   },
   /*
    ** Build configuration
