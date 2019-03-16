@@ -21,9 +21,7 @@ export default {
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
         name: "description",
-        content: `Radios power our world. The data that surrounds us is
-        valuable and untapped. Exploding radio usage and complex protocols make
-        analysis difficult. SkyScraper transforms static into priceless data.`,
+        content: "SkyScraper transforms static into priceless data.",
       },
       { name: "Content-Type", content: "text/html; charset=utf-8" },
       { name: "og:title", property: "og:title", content: "SkyScraper - Unlock the spectrum." },
@@ -33,9 +31,7 @@ export default {
       {
         name: "og:description",
         property: "og:description",
-        content: "Radios power our world. The data that surrounds us is valuable and untapped." +
-          "Exploding radio usage and complex protocols make analysis difficult. " +
-          "SkyScraper transforms static into priceless data."
+        content: "SkyScraper transforms static into priceless data."
       },
       { itemprop: "name", content: "SkyScraper" },
       { itemprop: "url", content: "https://skyscraper.ai" }
