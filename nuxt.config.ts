@@ -1,8 +1,7 @@
-import NuxtConfiguration from "./types/nuxt";
 const MomentLocalesPlugin = require("moment-locales-webpack-plugin");
 
 const isDev = process.env.NODE_ENV !== "production";
-const config: NuxtConfiguration = {
+const config: any = {
   mode: "spa",
   modern: isDev ? false : "client",
   manifest: {
@@ -58,7 +57,6 @@ const config: NuxtConfiguration = {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    // { src: "@/plugins/vuetify", ssr: false },
     { src: "@/plugins/scrollto", ssr: false },
     { src: "@/plugins/socketio", ssr: false },
   ],

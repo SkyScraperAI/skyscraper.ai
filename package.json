@@ -10,7 +10,7 @@
     "generate": "nuxt-ts generate",
     "lint": "tslint --fix --project .",
     "precommit": "yarn run lint",
-    "now-build": "yarn run build"
+    "now-build": "yarn run generate"
   },
   "dependencies": {
     "@nuxtjs/pwa": "^2.6.0",
