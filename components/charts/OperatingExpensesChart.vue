@@ -32,8 +32,8 @@
       return negative ? `-$${f}` : `$${f}`;
     }
 
-    @Prop(Object) public financials!: IFinancials;
-    series = [{
+    @Prop(Object) protected financials!: IFinancials;
+    protected series = [{
       name: "Salaries & Benefits",
       data: this.getFinancials("Salaries and Benefits"),
     }, {
@@ -52,7 +52,7 @@
       name: "Product Development",
       data: this.getFinancials("Product Development")
     }];
-    options = {
+    protected options = {
       chart: {
         // width: "100%",
         height: 300,

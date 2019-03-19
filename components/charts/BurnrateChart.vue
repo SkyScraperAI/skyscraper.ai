@@ -40,8 +40,8 @@
       return negative ? `-$${f}` : `$${f}`;
     }
 
-    @Prop(Object) public financials!: IFinancials;
-    series = [{
+    @Prop(Object) protected financials!: IFinancials;
+    protected series = [{
       name: "Net Burn",
       type: "column",
       data: this.netBurn,
@@ -50,7 +50,7 @@
       type: "line",
       data: this.endingCash,
     }];
-    options = {
+    protected options = {
       chart: {
         // width: '100%',
         height: 300,

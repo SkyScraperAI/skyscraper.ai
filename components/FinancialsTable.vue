@@ -58,13 +58,12 @@
       return this.$store.getters.PASSPHRASE;
     }
 
+    protected activeTab = "B2C";
+    protected haveCleartext = false;
+    protected wrongPassword = false;
+    protected passwordInput = "";
+    protected hint = "Ping <a href='mailto:hello@sibylvision.com'>hello@sibylvision.com</a> to request access.";
     private financials: any = {};
-    activeTab = "B2C";
-    haveCleartext = false;
-    wrongPassword = false;
-    passwordInput = "";
-    hint = "Ping <a href='mailto:hello@sibylvision.com'>hello@sibylvision.com</a> to request access.";
-
     public mounted() {
       if (this.passphrase) {
         this.decryptFinancials();
@@ -101,7 +100,7 @@
       return Math.round(value);
     }
 
-    keyFilter(rowName: string) {
+    protected keyFilter(rowName: string) {
       let r = rowName.replace(/([A-Z])/g, " $1");
       r = r.charAt(0).toUpperCase() + r.slice(1);
       r = r.replace("Cogs", "COGS");
@@ -109,8 +108,7 @@
       return r;
     }
 
-    submitPassword() {
-      console.log(this.passwordInput);
+    protected submitPassword() {
       this.$store.commit("SET_PASSPHRASE", this.passwordInput);
       this.decryptFinancials();
     }

@@ -1,13 +1,14 @@
+import NuxtConfiguration from "./types/nuxt";
+
 const MomentLocalesPlugin = require("moment-locales-webpack-plugin");
 
 const isDev = process.env.NODE_ENV !== "production";
-export default {
+const config: NuxtConfiguration = {
   mode: "spa",
   modern: isDev ? false : "client",
-  devtools: isDev,
   manifest: {
     name: "SkyScraper",
-    short_name: "SkyScraper"
+    short_name: "SkyScraper",
   },
   /*
    ** Headers of the page
@@ -24,21 +25,27 @@ export default {
         content: "SkyScraper transforms static into priceless data.",
       },
       { name: "Content-Type", content: "text/html; charset=utf-8" },
-      { name: "og:title", property: "og:title", content: "SkyScraper - Unlock the spectrum." },
+      {
+        name: "og:title",
+        property: "og:title",
+        content: "SkyScraper - Unlock the spectrum.",
+      },
       { name: "og:url", property: "og:url", content: "https://skyscraper.ai" },
       { name: "og:site_name", property: "og:site_name", content: "SkyScraper" },
-      { name: "og:image", property: "og:image", content: "https://skyscraper.ai/img/og-banner.png" },
+      {
+        name: "og:image",
+        property: "og:image",
+        content: "https://skyscraper.ai/img/og-banner.png",
+      },
       {
         name: "og:description",
         property: "og:description",
-        content: "SkyScraper transforms static into priceless data."
+        content: "SkyScraper transforms static into priceless data.",
       },
       { itemprop: "name", content: "SkyScraper" },
-      { itemprop: "url", content: "https://skyscraper.ai" }
+      { itemprop: "url", content: "https://skyscraper.ai" },
     ],
-    link: [
-      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
-    ],
+    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
   /*
    ** Customize the progress-bar color
@@ -67,7 +74,7 @@ export default {
   // module options
   logRocket: {
     logRocketId: "oswcej/sibyl-landing",
-    devModeAllowed: false
+    devModeAllowed: false,
   },
   /*
    ** Build configuration
@@ -91,3 +98,5 @@ export default {
     },
   },
 };
+
+export default config;
