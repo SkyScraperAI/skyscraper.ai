@@ -1,5 +1,4 @@
 import NuxtConfiguration from "./types/nuxt";
-
 const MomentLocalesPlugin = require("moment-locales-webpack-plugin");
 
 const isDev = process.env.NODE_ENV !== "production";
@@ -54,7 +53,7 @@ const config: NuxtConfiguration = {
   /*
    ** Global CSS
    */
-  css: ["~/assets/style/app.scss"],
+  css: ["~/assets/style/app.styl", "@mdi/font/css/materialdesignicons.css"],
   /*
    ** Plugins to load before mounting the App
    */
@@ -70,6 +69,12 @@ const config: NuxtConfiguration = {
   vuetify: {
     materialIcons: false,
     treeShake: true,
+    css: false,
+    theme: {
+      primary: "#2c303a",
+    },
+    customProperties: true,
+    iconfont: "mdi",
   },
   // module options
   logRocket: {
@@ -82,9 +87,6 @@ const config: NuxtConfiguration = {
   build: {
     extractCSS: true,
     transpile: [/^vuetify/],
-    loaders: {
-      stylus: {},
-    },
     plugins: [new MomentLocalesPlugin()],
     /*
      ** You can extend webpack config here

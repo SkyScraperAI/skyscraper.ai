@@ -34,13 +34,13 @@ interface ISlide {
     PricingView,
     ApplicationsView,
     IntroView,
-    CaptureView
+    CaptureView,
   },
   metaInfo() {
     return {
       titleTemplate: "SkyScraper | Taking Back The Airwaves",
       htmlAttrs: {
-        lang: "en"
+        lang: "en",
       },
       meta: [
         { name: "og:image", content: "/img/og-banner.png" },
@@ -49,15 +49,15 @@ interface ISlide {
         {
           name: "description",
           content: `Radios got smarter, computers got faster, and now SkyScraper
-      . Meet the Swiss-army knife of radio capture and analysis.`
+      . Meet the Swiss-army knife of radio capture and analysis.`,
         },
-        { name: "Content-Type", content: "text/html; charset=utf-8" }
+        { name: "Content-Type", content: "text/html; charset=utf-8" },
       ],
       script: [
         // { src: 'https://cdn.jsdelivr.net/npm/vue/dist/vue.js', async: true, defer: true }
-      ]
+      ],
     };
-  }
+  },
 })
 export default class HomeView extends Vue {
   public slides: ISlide[] = [];
@@ -66,4 +66,3 @@ export default class HomeView extends Vue {
   }
 }
 </script>
-

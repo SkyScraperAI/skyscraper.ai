@@ -14,7 +14,7 @@
             v-for="(category, idx) in capture"
             active-class="error--text"
             :key="'cat' + idx"
-            :id="'cat'+idx"
+            :id="'cat' + idx"
             :href="'#cat' + idx"
             v-scroll-to="'#rf-capture'"
             :disabled="idx > 0"
@@ -26,10 +26,17 @@
       </v-flex>
       <v-flex
         xs12
-        :class="{'my-0': isMounted && $vuetify.breakpoint.smAndDown, 'my-5': isMounted && $vuetify.breakpoint.mdAndUp}"
+        :class="{
+          'my-0': isMounted && $vuetify.breakpoint.smAndDown,
+          'my-5': isMounted && $vuetify.breakpoint.mdAndUp,
+        }"
       >
         <v-tabs-items v-model="servicesModel">
-          <v-tab-item v-for="(cat, i) in capture" :value="`cat${i}`" :key="'cat-detail'+i">
+          <v-tab-item
+            v-for="(cat, i) in capture"
+            :value="`cat${i}`"
+            :key="'cat-detail' + i"
+          >
             <v-container grid-list-xl>
               <v-layout align-start wrap v-if="cat.detail">
                 <v-flex fill-height sm12 md4 xs12>
@@ -38,19 +45,20 @@
                       <v-card>
                         <v-card-title class="red darken-2 white--text">
                           <h1 class="headline">
-                            {{cat.detail.title ||
-                            ""}}
+                            {{ cat.detail.title || "" }}
                           </h1>
                         </v-card-title>
                         <v-card-text v-if="cat.detail.subtitle" color="primary">
-                          <p>{{cat.detail.subtitle}}</p>
+                          <p>{{ cat.detail.subtitle }}</p>
                         </v-card-text>
                       </v-card>
                     </v-flex>
                     <v-flex xs12 class="hidden-sm-and-down">
                       <v-card>
                         <v-card-title class="red darken-2 white--text">
-                          <h2 class="subheading">{{cat.detail.list.title}}</h2>
+                          <h2 class="subheading">
+                            {{ cat.detail.list.title }}
+                          </h2>
                         </v-card-title>
                         <v-card-text>
                           <v-list
@@ -64,8 +72,16 @@
                               v-for="(item, i) in cat.detail.list.items"
                               :key="cat + i + item.title"
                             >
-                              <v-list-tile-title v-text="item.text"></v-list-tile-title>
-                              <v-btn :href="item.link" target="_blank" rel="noopener" flat icon>
+                              <v-list-tile-title
+                                v-text="item.text"
+                              ></v-list-tile-title>
+                              <v-btn
+                                :href="item.link"
+                                target="_blank"
+                                rel="noopener"
+                                flat
+                                icon
+                              >
                                 <v-icon small>mdi-open-in-new</v-icon>
                               </v-btn>
                             </v-list-tile>
@@ -102,7 +118,7 @@ import Box from "~/components/Box.vue";
 @Component({
   components: {
     OpenMHzPlayer,
-    Box
+    Box,
   },
   data() {
     return {
@@ -123,54 +139,54 @@ import Box from "~/components/Box.vue";
               items: [
                 {
                   text: "P25 Phase 1 & 2",
-                  link: "//en.wikipedia.org/wiki/Project_25#P25_phases"
+                  link: "//en.wikipedia.org/wiki/Project_25#P25_phases",
                 },
                 {
                   text: "Motorola SmartNet",
-                  link: "//en.wikipedia.org/wiki/Motorola_Type_II"
+                  link: "//en.wikipedia.org/wiki/Motorola_Type_II",
                 },
                 {
                   text: "Conventional P25",
                   link:
-                    "//en.wikipedia.org/wiki/Project_25#Conventional_implementation"
+                    "//en.wikipedia.org/wiki/Project_25#Conventional_implementation",
                 },
                 {
                   text: "Analog Systems",
                   link:
-                    "//en.wikipedia.org/wiki/Two-way_radio#Analog_versus_digital"
-                }
-              ]
-            }
-          }
+                    "//en.wikipedia.org/wiki/Two-way_radio#Analog_versus_digital",
+                },
+              ],
+            },
+          },
         },
         {
           title: "Vehicle Telemetry",
           selected: false,
-          icon: "mdi-airplane"
+          icon: "mdi-airplane",
         },
         {
           title: "Surveillance Detection",
           selected: false,
-          icon: "mdi-bug-check"
+          icon: "mdi-bug-check",
         },
         {
           title: "Satellite Downlink",
           selected: false,
-          icon: "mdi-satellite-variant"
+          icon: "mdi-satellite-variant",
         },
         {
           title: "Spectrum Monitoring",
           selected: false,
-          icon: "mdi-current-ac"
+          icon: "mdi-current-ac",
         },
         {
           title: "And More",
           selected: false,
-          icon: "mdi-plus"
-        }
-      ]
+          icon: "mdi-plus",
+        },
+      ],
     };
-  }
+  },
 })
 export default class CaptureView extends Vue {
   public servicesModel = "cat0";
@@ -215,7 +231,7 @@ export default class CaptureView extends Vue {
             target: "box-target",
             connector: ["Bezier", { curviness: 190 }],
             anchors: [["BottomCenter", []], ["Continuous", [0.5, 0, 0, -1]]],
-            endpoint: "Blank"
+            endpoint: "Blank",
           });
         });
       }

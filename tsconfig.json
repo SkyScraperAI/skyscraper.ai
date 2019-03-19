@@ -14,6 +14,11 @@
       "@nuxt/vue-app",
       "./types",
       "vuetify"
-    ]
+    ],
+    "pretty": true,
+    "paths": {
+      "@*": ["./*"],
+      "~*": ["./*"]
+    }
   }
 }
