@@ -19,6 +19,9 @@
   import IntroView from "@/components/home/IntroView.vue";
   import Vue from "vue";
   import Component from "vue-class-component";
+  if (process.client) {
+    require("jsplumb/dist/js/jsplumb.min.js");
+  }
 
   interface ISlide {
     component: Vue;

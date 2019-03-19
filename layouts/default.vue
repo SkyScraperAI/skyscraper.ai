@@ -41,10 +41,6 @@
   import Vue from "vue";
   import Component from "vue-class-component";
   import Footer from "~/components/Footer.vue";
-
-  if (process.client) {
-    require("jsplumb");
-  }
   import 'vuetify/src/stylus/app.styl'
 
   interface ISlide {
