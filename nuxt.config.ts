@@ -1,13 +1,12 @@
 const MomentLocalesPlugin = require("moment-locales-webpack-plugin");
 
 const isDev = process.env.NODE_ENV !== "production";
-export default {
+const config: any = {
   mode: "spa",
   modern: isDev ? false : "client",
-  devtools: isDev,
   manifest: {
     name: "SkyScraper",
-    short_name: "SkyScraper"
+    short_name: "SkyScraper",
   },
   /*
    ** Headers of the page
@@ -24,21 +23,27 @@ export default {
         content: "SkyScraper transforms static into priceless data.",
       },
       { name: "Content-Type", content: "text/html; charset=utf-8" },
-      { name: "og:title", property: "og:title", content: "SkyScraper - Unlock the spectrum." },
+      {
+        name: "og:title",
+        property: "og:title",
+        content: "SkyScraper - Unlock the spectrum.",
+      },
       { name: "og:url", property: "og:url", content: "https://skyscraper.ai" },
       { name: "og:site_name", property: "og:site_name", content: "SkyScraper" },
-      { name: "og:image", property: "og:image", content: "https://skyscraper.ai/img/og-banner.png" },
+      {
+        name: "og:image",
+        property: "og:image",
+        content: "https://skyscraper.ai/img/og-banner.png",
+      },
       {
         name: "og:description",
         property: "og:description",
-        content: "SkyScraper transforms static into priceless data."
+        content: "SkyScraper transforms static into priceless data.",
       },
       { itemprop: "name", content: "SkyScraper" },
-      { itemprop: "url", content: "https://skyscraper.ai" }
+      { itemprop: "url", content: "https://skyscraper.ai" },
     ],
-    link: [
-      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
-    ],
+    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
   /*
    ** Customize the progress-bar color
@@ -47,57 +52,51 @@ export default {
   /*
    ** Global CSS
    */
-  css: ["~/assets/style/app.styl"],
+  css: ["~/assets/style/app.styl", "@mdi/font/css/materialdesignicons.css"],
   /*
    ** Plugins to load before mounting the App
    */
   plugins: [
-    { src: "@/plugins/vuetify", ssr: false },
     { src: "@/plugins/scrollto", ssr: false },
     { src: "@/plugins/socketio", ssr: false },
   ],
   /*
    ** Nuxt.js modules
    */
-  modules: [
-    "@nuxtjs/pwa",
-    "nuxt-logrocket",
-  ],
+  modules: ["@nuxtjs/pwa", "nuxt-logrocket", "@nuxtjs/vuetify"],
+  vuetify: {
+    materialIcons: false,
+    treeShake: true,
+    css: false,
+    theme: {
+      primary: "#2c303a",
+    },
+    customProperties: true,
+    iconfont: "mdi",
+  },
   // module options
   logRocket: {
     logRocketId: "oswcej/sibyl-landing",
-    devModeAllowed: false
+    devModeAllowed: false,
   },
   /*
    ** Build configuration
    */
   build: {
     extractCSS: true,
-    transpile: ["vuetify/lib"],
-    loaders: {
-      stylus: {
-        import: ["~assets/style/app.styl", "~assets/style/variables.styl"],
-      },
-    },
+    transpile: [/^vuetify/],
     plugins: [new MomentLocalesPlugin()],
     /*
      ** You can extend webpack config here
      */
-    extend(config: any, ctx: any) {
+    extend(c: any) {
       // Use raw-loader
-      config.module.rules.push({
+      c.module.rules.push({
         test: /\.aes$/i,
         use: "raw-loader",
       });
-      // Run ESLint on save
-      if (ctx.isDev && ctx.isClient) {
-        // config.module.rules.push({
-        //   enforce: "pre",
-        //   test: /\.(js|vue)$/,
-        //   loader: "eslint-loader",
-        //   exclude: /(node_modules)/,
-        // });
-      }
     },
   },
 };
+
+export default config;

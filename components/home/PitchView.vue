@@ -5,17 +5,28 @@
         <v-flex lg10 offset-lg1>
           <v-layout wrap justify-center align-center>
             <v-flex xs12 md5 lg4 mx-4>
-              <img alt="SkyScraper, by Sibyl Vision" src="~/assets//img/logo-dark.svg" id="hero-logo">
+              <img
+                alt="SkyScraper, by Sibyl Vision"
+                src="~/assets//img/logo-dark.svg"
+                id="hero-logo"
+              />
             </v-flex>
             <v-flex xs12 md4 lg4 mx-4 text-xs-center text-md-left>
-              <span class="headline white--text">The Swiss-army knife of radio capture and analysis.</span>
+              <span class="headline white--text"
+                >The Swiss-army knife of radio capture and analysis.</span
+              >
             </v-flex>
           </v-layout>
           <v-layout wrap align-center class="my-4 py-4">
             <v-flex>
               <v-divider class="grey lighten-1"></v-divider>
             </v-flex>
-            <v-flex text-xs-center shrink px-4 class="grey--text text--lighten-3">
+            <v-flex
+              text-xs-center
+              shrink
+              px-4
+              class="grey--text text--lighten-3"
+            >
               <div class="display-1" v-text="sections.opportunity.title"></div>
             </v-flex>
             <v-flex>
@@ -24,18 +35,18 @@
           </v-layout>
           <v-layout
             v-for="(card, idx) in sections.opportunity.cards"
-            :key="'opportunity'+idx"
+            :key="'opportunity' + idx"
             wrap
             row
             justify-center
           >
             <v-flex
               v-for="(item, i) in card.items"
-              :key="'op'+ idx + i"
+              :key="'op' + idx + i"
               :class="item.classes + ' pa-2'"
             >
               <v-card color="grey lighten-4" style="height:100%">
-                <v-card-title :class="item.titleClasses ">
+                <v-card-title :class="item.titleClasses">
                   <div class="headline" v-text="item.title"></div>
                 </v-card-title>
                 <v-card-text>
@@ -54,14 +65,17 @@
                   <v-flex>
                     <div
                       class="headline font-weight-bold"
-                      v-html="'<sup style=\'top: -0.25em\'>$</sup>100<span class=\'grey--text\'>K</span>'"
+                      v-html="
+                        '<sup style=\'top: -0.25em\'>$</sup>100<span class=\'grey--text\'>K</span>'
+                      "
                     ></div>
                   </v-flex>
                   <v-flex lg7 md5 sm7 class="pr-3">
-                  <span>
-                    Money raised will go towards hardware certification, our pilot program,
-                    metro area demo installation, and pre-market production costs.
-                  </span>
+                    <span>
+                      Money raised will go towards hardware certification, our
+                      pilot program, metro area demo installation, and
+                      pre-market production costs.
+                    </span>
                   </v-flex>
                 </v-layout>
               </v-flex>
@@ -71,7 +85,12 @@
             <v-flex>
               <v-divider class="grey lighten-1"></v-divider>
             </v-flex>
-            <v-flex text-xs-center shrink px-4 class="grey--text text--lighten-3">
+            <v-flex
+              text-xs-center
+              shrink
+              px-4
+              class="grey--text text--lighten-3"
+            >
               <div class="display-1" v-text="sections.sales.title"></div>
             </v-flex>
             <v-flex>
@@ -80,18 +99,18 @@
           </v-layout>
           <v-layout
             v-for="(card, idx) in sections.sales.cards"
-            :key="'sales'+idx"
+            :key="'sales' + idx"
             wrap
             row
             justify-center
           >
             <v-flex
               v-for="(item, i) in card.items"
-              :key="'sales'+ idx + i"
+              :key="'sales' + idx + i"
               :class="item.classes + ' pa-2'"
             >
               <v-card color="grey lighten-4" style="height:100%">
-                <v-card-title :class="item.titleClasses ">
+                <v-card-title :class="item.titleClasses">
                   <div class="headline" v-text="item.title"></div>
                 </v-card-title>
                 <v-card-text>
@@ -104,7 +123,12 @@
             <v-flex>
               <v-divider class="grey lighten-1"></v-divider>
             </v-flex>
-            <v-flex text-xs-center shrink px-4 class="grey--text text--lighten-3">
+            <v-flex
+              text-xs-center
+              shrink
+              px-4
+              class="grey--text text--lighten-3"
+            >
               <div class="display-1">Financial Outlook</div>
             </v-flex>
             <v-flex>
@@ -119,47 +143,47 @@
 </template>
 
 <script lang="ts">
-  import FinancialsTable from "@/components/FinancialsTable.vue";
-  import Vue from "vue";
-  import {Component} from "vue-property-decorator";
+import FinancialsTable from "@/components/FinancialsTable.vue";
+import Vue from "vue";
+import { Component } from "vue-property-decorator";
 
-  @Component({
-    name: "PitchView",
-    components: {FinancialsTable},
-    data() {
-      return {
-        sections: {
-          opportunity: {
-            title: "Our Opportunity",
-            cards: [
-              {
-                items: [
-                  {
-                    title: "The problem",
-                    classes: "sm6",
-                    titleClasses: "red lighten-1 white--text",
-                    content: `<p class="text-justify">Radio usage is exploding and the protocols and technologies driving
+@Component({
+  name: "PitchView",
+  components: { FinancialsTable },
+  data() {
+    return {
+      sections: {
+        opportunity: {
+          title: "Our Opportunity",
+          cards: [
+            {
+              items: [
+                {
+                  title: "The problem",
+                  classes: "sm6",
+                  titleClasses: "red lighten-1 white--text",
+                  content: `<p class="text-justify">Radio usage is exploding and the protocols and technologies driving
                 the surge are disparate and complex. Capturing any non-trivial radio traffic requires
                 arduous configuration and prior domain knowledge. There is no abstraction
                 layer to the airwaves.</p>`,
-                  },
-                  {
-                    title: "Our solution",
-                    classes: "sm6",
-                    titleClasses: "primary lighten-2 white--text",
-                    content: `<p class="text-justify">SkyScraper democratizes radio by unifying the processing of the
+                },
+                {
+                  title: "Our solution",
+                  classes: "sm6",
+                  titleClasses: "primary lighten-2 white--text",
+                  content: `<p class="text-justify">SkyScraper democratizes radio by unifying the processing of the
               myriad RF technologies in use in a price sensitive package which supports the entire
               spectrum, from century old architectures to yet-finalized future protocols.</p>`,
-                  },
-                ],
-              },
-              {
-                items: [
-                  {
-                    title: "Timing",
-                    classes: "md12",
-                    titleClasses: "primary lighten-5 black--text  ",
-                    content: `<p class="text-justify">Over the last decade, advancements in low-power and high frequency
+                },
+              ],
+            },
+            {
+              items: [
+                {
+                  title: "Timing",
+                  classes: "md12",
+                  titleClasses: "primary lighten-5 black--text  ",
+                  content: `<p class="text-justify">Over the last decade, advancements in low-power and high frequency
               radio systems have spurred a hardware revolution. From
               <a href="https://en.wikipedia.org/wiki/Direct_TPMS" target="_blank">car tires</a> to
               <a href="https://www.cyberscoop.com/crane-hack-radio-frequency-trend-micro-s4x19/" target="_blank">
@@ -179,16 +203,16 @@
               That is to say... everywhere.
               </p>
               `,
-                  },
-                ],
-              },
-              {
-                items: [
-                  {
-                    title: "Target markets",
-                    classes: "sm6 lg4",
-                    titleClasses: "primary lighten-2 white--text",
-                    content: `
+                },
+              ],
+            },
+            {
+              items: [
+                {
+                  title: "Target markets",
+                  classes: "sm6 lg4",
+                  titleClasses: "primary lighten-2 white--text",
+                  content: `
                 <ol style="padding-left: 18px;">
                     <li>Consumer-grade SDR</li>
                     <li>Commercial scanners</li>
@@ -196,12 +220,12 @@
                     <li>Intelligence and security</li>
                 </ol>
                 `,
-                  },
-                  {
-                    title: "Competition",
-                    classes: "sm6 lg8",
-                    titleClasses: "primary lighten-2 white--text",
-                    content: `
+                },
+                {
+                  title: "Competition",
+                  classes: "sm6 lg8",
+                  titleClasses: "primary lighten-2 white--text",
+                  content: `
                 <div class="layout row wrap">
                     <div class="flex xs4 font-weight-bold">Competition</div>
                     <div class="flex xs8 font-weight-bold">Why SkyScraper is better</div>
@@ -217,60 +241,60 @@
                     <div class="flex xs8">Similar price point, small subset of our features</div>
                 </div>
                 `,
-                  },
-                ],
-              },
-            ],
-          },
-          sales: {
-            title: "Sales & Marketing",
-            cards: [
-              {
-                items: [
-                  {
-                    title: "Sales channels",
-                    classes: "sm6",
-                    titleClasses: "green lighten-1 white--text",
-                    content: `<p class="text-justify">The consumer SDR market is driven by online discussion forums;
+                },
+              ],
+            },
+          ],
+        },
+        sales: {
+          title: "Sales & Marketing",
+          cards: [
+            {
+              items: [
+                {
+                  title: "Sales channels",
+                  classes: "sm6",
+                  titleClasses: "green lighten-1 white--text",
+                  content: `<p class="text-justify">The consumer SDR market is driven by online discussion forums;
               traction there will be quick upon general market availability. Government sales will be accelerated
               by the unique inter-agency relationships of our founders and advisors.</p>`,
-                  },
-                  {
-                    title: "Marketing activities",
-                    classes: "sm6",
-                    titleClasses: "primary lighten-2 white--text",
-                    content: `<p class="text-justify">We have engaged with novel and inter-disciplinary pilot users whose
+                },
+                {
+                  title: "Marketing activities",
+                  classes: "sm6",
+                  titleClasses: "primary lighten-2 white--text",
+                  content: `<p class="text-justify">We have engaged with novel and inter-disciplinary pilot users whose
                existing processes will be transformed by the use of SkyScraper. They will provide us with
                social-proof, genuine product stories and early press.
                </p>`,
-                  },
-                ],
-              },
-            ],
-          },
+                },
+              ],
+            },
+          ],
         },
-      };
-    },
-  })
-  export default class PitchView extends Vue {
-    protected mounted() {
-      this.$store.commit("SET_NAV_VISIBLE", false);
-    }
+      },
+    };
+  },
+})
+export default class PitchView extends Vue {
+  protected mounted() {
+    this.$store.commit("SET_NAV_VISIBLE", false);
   }
+}
 </script>
 <style lang="scss">
-  #pitch {
-    #hero-logo {
-      width: 100%;
-    }
-
-    p.text-justify {
-      text-align: justify;
-    }
-
-    #funding-needed {
-      background-image: url("../../public/img/green-arrow.png");
-      height: 74px;
-    }
+#pitch {
+  #hero-logo {
+    width: 100%;
   }
+
+  p.text-justify {
+    text-align: justify;
+  }
+
+  #funding-needed {
+    background-image: url("../../public/img/green-arrow.png");
+    height: 74px;
+  }
+}
 </style>

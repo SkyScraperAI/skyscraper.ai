@@ -1,8 +1,15 @@
 <template>
-  <v-container fluid pa-0 fill-height primary id="not-found" style="margin-top: 64px !important;">
+  <v-container
+    fluid
+    pa-0
+    fill-height
+    primary
+    id="not-found"
+    style="margin-top: 64px !important;"
+  >
     <v-layout wrap align-center justify-center>
       <v-flex md6 lg5>
-        <img src="../../public/img/wow.png" alt="Wow!" style="width: 100%;">
+        <img src="../../public/img/wow.png" alt="Wow!" style="width: 100%;" />
       </v-flex>
 
       <svg id="radar-circle">
@@ -12,7 +19,7 @@
           r="0"
           fill-opacity="0"
           :stroke="radar.stroke"
-          :stroke-width="radar.maxWidth * .9"
+          :stroke-width="radar.maxWidth * 0.9"
           stroke-opacity="0.4"
         >
           <animate
@@ -31,7 +38,7 @@
           r="0"
           fill-opacity="0"
           :stroke="radar.stroke"
-          :stroke-width="radar.maxWidth * .8"
+          :stroke-width="radar.maxWidth * 0.8"
           stroke-opacity="0.4"
         >
           <animate
@@ -50,7 +57,7 @@
           r="0"
           fill-opacity="0"
           :stroke="radar.stroke"
-          :stroke-width="radar.maxWidth * .5"
+          :stroke-width="radar.maxWidth * 0.5"
           stroke-opacity="0.4"
         >
           <animate
@@ -69,7 +76,7 @@
           r="0"
           fill-opacity="0"
           :stroke="radar.stroke"
-          :stroke-width="radar.maxWidth * .3"
+          :stroke-width="radar.maxWidth * 0.3"
           stroke-opacity="0.4"
         >
           <animate
@@ -88,7 +95,7 @@
           r="0"
           fill-opacity="0"
           :stroke="radar.stroke"
-          :stroke-width="radar.maxWidth * .1"
+          :stroke-width="radar.maxWidth * 0.1"
           stroke-opacity="0.4"
         >
           <animate
@@ -117,13 +124,11 @@ import { Component } from "vue-property-decorator/lib/vue-property-decorator";
         duration: "8s",
         stroke: "red",
         maxWidth: "10px",
-      }
+      },
     };
-  }
+  },
 })
-export default class NotFoundView extends Vue {
-
-}
+export default class NotFoundView extends Vue {}
 </script>
 <style lang="scss">
 #not-found {

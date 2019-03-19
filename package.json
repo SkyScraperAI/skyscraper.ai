@@ -7,11 +7,10 @@
   "scripts": {
     "dev": "nuxt-ts",
     "build": "nuxt-ts build",
-    "start": "nuxt-ts start",
     "generate": "nuxt-ts generate",
     "lint": "tslint --fix --project .",
     "precommit": "yarn run lint",
-    "now-build": "yarn run build"
+    "now-build": "yarn run generate"
   },
   "dependencies": {
     "@nuxtjs/pwa": "^2.6.0",
@@ -22,7 +21,6 @@
     "logrocket": "^0.6.19",
     "moment": "^2.24.0",
     "moment-locales-webpack-plugin": "^1.0.7",
-    "nuxt": "^2.4.0",
     "nuxt-logrocket": "^1.1.0",
     "nuxt-ts": "^2.4.5",
     "raw-loader": "^1.0.0",
@@ -30,9 +28,10 @@
     "three": "^0.102.1",
     "vue": "^2.6.9",
     "vue-class-component": "^7.0.1",
+    "vue-material-design-icons": "^3.1.0",
     "vue-property-decorator": "^8.0.0",
     "vue-scrollto": "^2.14.0",
-    "vuetify": "^1.5.5",
+    "vuetify": "^1.5.7",
     "vuetify-loader": "^1.2.1",
     "vuex": "^3.1.0",
     "vuex-persist": "^2.0.0",
@@ -41,6 +40,7 @@
   "devDependencies": {
     "@mdi/font": "^3.5.95",
     "@nuxtjs/eslint-config": "^0.0.1",
+    "@nuxtjs/vuetify": "^0.5.5",
     "@types/crypto-js": "^3.1.43",
     "@types/lodash": "^4.14.123",
     "@types/socket.io": "^2.1.2",
@@ -48,23 +48,28 @@
     "@types/vue-scrollto": "^2.14.0",
     "@types/wavesurfer.js": "^2.0.2",
     "babel-eslint": "^10.0.1",
+    "css-loader": "^2.1.1",
     "eslint": "^5.15.1",
     "eslint-config-prettier": "^4.1.0",
     "eslint-config-standard": ">=12.0.0",
     "eslint-loader": "^2.1.2",
     "eslint-plugin-import": ">=2.16.0",
-    "eslint-plugin-jest": ">=22.3.0",
     "eslint-plugin-node": ">=8.0.1",
     "eslint-plugin-nuxt": ">=0.4.2",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-promise": ">=4.0.1",
     "eslint-plugin-standard": ">=4.0.0",
     "eslint-plugin-vue": "^5.2.2",
+    "glob-all": "^3.1.0",
     "node-sass": "^4.11.0",
     "nodemon": "^1.18.9",
+    "nuxt-purgecss": "^0.2.1",
     "prettier": "^1.16.4",
+    "purgecss-webpack-plugin": "^1.4.0",
     "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
     "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.2"
+    "stylus-loader": "^3.0.2",
+    "tslint-config-prettier": "^1.18.0"
   }
 }

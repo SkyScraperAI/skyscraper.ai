@@ -2,8 +2,8 @@
  * shitty logger class
  */
 export class VueSocketIOLogger {
-  private prefix: string;
-  private debug: boolean;
+  private readonly prefix: string;
+  private readonly debug: boolean;
 
   constructor() {
     this.debug = false;
@@ -12,8 +12,12 @@ export class VueSocketIOLogger {
 
   public info(text: string, data = "") {
     if (this.debug) {
-      window.console.info(this.prefix + `%c${text}`,
-        "color: blue; font-weight: 600", "color: #333333", data);
+      window.console.info(
+        this.prefix + `%c${text}`,
+        "color: blue; font-weight: 600",
+        "color: #333333",
+        data
+      );
     }
   }
 
@@ -27,13 +31,16 @@ export class VueSocketIOLogger {
     if (this.debug) {
       window.console.warn(this.prefix, ...arguments);
     }
-
   }
 
   public event(text: string, data = "") {
     if (this.debug) {
-      window.console.info(this.prefix + `%c${text}`,
-        "color: blue; font-weight: 600", "color: #333333", data);
+      window.console.info(
+        this.prefix + `%c${text}`,
+        "color: blue; font-weight: 600",
+        "color: #333333",
+        data
+      );
     }
   }
 }

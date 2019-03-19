@@ -6,7 +6,9 @@
           <span class="white--text monospaced">{{ link.label }}</span>
         </v-btn>
       </div>
-      <v-flex xs12 class="white--text monospaced py-2">&copy; Sibyl Vision, 2019</v-flex>
+      <v-flex xs12 class="white--text monospaced py-2"
+        >&copy; Sibyl Vision, 2019</v-flex
+      >
     </v-layout>
   </v-footer>
 </template>
@@ -22,19 +24,19 @@ import { Component } from "vue-property-decorator";
       links: [
         {
           label: "(415) 967-5238",
-          url: "tel:+14159675238"
+          url: "tel:+14159675238",
         },
         {
           label: "hello@skyscraper.ai",
-          url: "mailto:hello@skyscraper.ai"
+          url: "mailto:hello@skyscraper.ai",
         },
         {
           label: "@SkyScraperRF",
-          url: "//twitter.com/SkyScraperRF"
-        }
-      ]
+          url: "//twitter.com/SkyScraperRF",
+        },
+      ],
     };
-  }
+  },
 })
 export default class Footer extends Vue {
   get year() {
@@ -46,6 +48,7 @@ export default class Footer extends Vue {
 <style lang="scss">
 footer {
   margin-top: -4px;
+  //noinspection ALL
   .v-btn {
     text-transform: none;
   }

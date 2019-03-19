@@ -12,7 +12,13 @@
     "types": [
       "@types/node",
       "@nuxt/vue-app",
-      "./types"
-    ]
+      "./types",
+      "vuetify"
+    ],
+    "pretty": true,
+    "paths": {
+      "@*": ["./*"],
+      "~*": ["./*"]
+    }
   }
 }
