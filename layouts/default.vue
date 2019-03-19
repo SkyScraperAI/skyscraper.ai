@@ -45,6 +45,7 @@
   if (process.client) {
     require("jsplumb");
   }
+  import 'vuetify/src/stylus/app.styl'
 
   interface ISlide {
     id: string;

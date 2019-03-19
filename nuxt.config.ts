@@ -47,22 +47,23 @@ export default {
   /*
    ** Global CSS
    */
-  css: ["~/assets/style/app.styl"],
+  css: ["~/assets/style/app.scss"],
   /*
    ** Plugins to load before mounting the App
    */
   plugins: [
-    { src: "@/plugins/vuetify", ssr: false },
+    // { src: "@/plugins/vuetify", ssr: false },
     { src: "@/plugins/scrollto", ssr: false },
     { src: "@/plugins/socketio", ssr: false },
   ],
   /*
    ** Nuxt.js modules
    */
-  modules: [
-    "@nuxtjs/pwa",
-    "nuxt-logrocket",
-  ],
+  modules: ["@nuxtjs/pwa", "nuxt-logrocket", "@nuxtjs/vuetify"],
+  vuetify: {
+    materialIcons: false,
+    treeShake: true,
+  },
   // module options
   logRocket: {
     logRocketId: "oswcej/sibyl-landing",
@@ -73,31 +74,20 @@ export default {
    */
   build: {
     extractCSS: true,
-    transpile: ["vuetify/lib"],
+    transpile: [/^vuetify/],
     loaders: {
-      stylus: {
-        import: ["~assets/style/app.styl", "~assets/style/variables.styl"],
-      },
+      stylus: {},
     },
     plugins: [new MomentLocalesPlugin()],
     /*
      ** You can extend webpack config here
      */
-    extend(config: any, ctx: any) {
+    extend(c: any) {
       // Use raw-loader
-      config.module.rules.push({
+      c.module.rules.push({
         test: /\.aes$/i,
         use: "raw-loader",
       });
-      // Run ESLint on save
-      if (ctx.isDev && ctx.isClient) {
-        // config.module.rules.push({
-        //   enforce: "pre",
-        //   test: /\.(js|vue)$/,
-        //   loader: "eslint-loader",
-        //   exclude: /(node_modules)/,
-        // });
-      }
     },
   },
 };
