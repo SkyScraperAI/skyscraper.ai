@@ -66,6 +66,7 @@ const config: any = {
     "nuxt-logrocket",
     "@nuxtjs/vuetify",
     ["@nuxtjs/google-tag-manager", { id: "GTM-W3F47T2" }],
+    ["nuxt-segment-analytics", { id: "ez1moOZPgBWo9wEE7GNVIKZ4D4GJJ66m", useRouter: true }],
   ],
   vuetify: {
     materialIcons: false,

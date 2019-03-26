@@ -5358,6 +5358,11 @@ load-json-file@^2.0.0:
     pify "^2.0.0"
     strip-bom "^3.0.0"
 
+load-script@~1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/load-script/-/load-script-1.0.0.tgz#0491939e0bee5643ee494a7e3da3d2bac70c6ca4"
+  integrity sha1-BJGTngvuVkPuSUp+PaPSuscMbKQ=
+
 loader-fs-cache@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/loader-fs-cache/-/loader-fs-cache-1.0.1.tgz#56e0bf08bd9708b26a765b68509840c8dec9fdbc"
@@ -6158,6 +6163,13 @@ nuxt-purgecss@^0.2.1:
     glob-all "^3.1.0"
     purgecss "^1.1.0"
     purgecss-webpack-plugin "^1.4.0"
+
+nuxt-segment-analytics@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/nuxt-segment-analytics/-/nuxt-segment-analytics-0.0.1.tgz#6316cb244dc3b603ea4a4d622d379c790cbf0a85"
+  integrity sha512-hWWClv3xixrKCiuuWnB0QCAXAIzIXP5rupr1h7oy1ExmrM69ewJvmBL/HBBHAXeuGPuQKJUp2SNSuGdpxpXTNA==
+  dependencies:
+    vue-segment-analytics "^0.3.1"
 
 nuxt-ts@^2.4.5:
   version "2.4.5"
@@ -9238,6 +9250,13 @@ vue-scrollto@^2.14.0:
   integrity sha512-X2j0CXJM8zP85LPGWjJt41CvetqmiXj/6kPvlELpUYoTt1WNCZgHnu97kaUdpUn8YYGevZ1jnTKT3d3Q4GkgBQ==
   dependencies:
     bezier-easing "^2.0.3"
+
+vue-segment-analytics@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/vue-segment-analytics/-/vue-segment-analytics-0.3.1.tgz#98587b60be0870e4e1aa295a2c2c73e5098c7982"
+  integrity sha512-Uk7t6tiIAb828L1sEIMegL2IVVnPc2b301QVOnIVRQ+VuuNQ/AYEqeHDBsbtysPlMCdsr7onpChPxUEQ1JnkBA==
+  dependencies:
+    load-script "~1.0.0"
 
 vue-server-renderer@^2.5.22:
   version "2.6.9"
