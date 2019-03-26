@@ -17,8 +17,28 @@
     ],
     "pretty": true,
     "paths": {
-      "@*": ["./*"],
-      "~*": ["./*"]
-    }
+      "@*": [
+        "./*"
+      ],
+      "~*": [
+        "./*"
+      ],
+      "~/*": [
+        "./*"
+      ],
+      "@/*": [
+        "./*"
+      ]
+    },
+    "target": "esnext",
+    "lib": [
+      "esnext",
+      "esnext.asynciterable",
+      "dom"
+    ],
+    "allowJs": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "noEmit": true
   }
 }
