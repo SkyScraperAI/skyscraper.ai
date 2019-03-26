@@ -16,7 +16,6 @@ const config: any = {
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "canonical", href: "https://skyscraper.ai/", id: "canonical" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
         name: "description",
@@ -41,7 +40,6 @@ const config: any = {
         content: "SkyScraper transforms static into priceless data.",
       },
       { itemprop: "name", content: "SkyScraper" },
-      { itemprop: "url", content: "https://skyscraper.ai" },
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
@@ -67,12 +65,7 @@ const config: any = {
     "@nuxtjs/pwa",
     "nuxt-logrocket",
     "@nuxtjs/vuetify",
-    [
-      "@nuxtjs/google-analytics",
-      {
-        id: "UA-133845977-1",
-      },
-    ],
+    ["@nuxtjs/google-tag-manager", { id: "GTM-W3F47T2" }],
   ],
   vuetify: {
     materialIcons: false,
