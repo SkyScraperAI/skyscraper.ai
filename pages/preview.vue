@@ -72,7 +72,7 @@
   </v-container>
 </template>
 
-<script>
+<script lang="ts">
   import Vue from "vue";
   import { Component } from "vue-property-decorator";
 
@@ -126,7 +126,11 @@
       },
     },
   })
-  export default class Preview extends Vue {}
+  export default class Preview extends Vue {
+    protected mounted() {
+      this.$analytics.page("Preview");
+    }
+  }
 </script>
 
 <style>
