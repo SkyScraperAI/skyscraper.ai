@@ -14,6 +14,9 @@
 
   @Component({
     layout: "preview",
+    head: {
+      title: "SkyScraper Preview"
+    }
   })
   export default class Preview extends Vue {}
 </script>

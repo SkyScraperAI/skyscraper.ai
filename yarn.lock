@@ -1178,6 +1178,13 @@
   resolved "https://registry.yarnpkg.com/@nuxtjs/eslint-config/-/eslint-config-0.0.1.tgz#3aeed1cc6a2e01331c7e6b56bfa7152ce8bb2d90"
   integrity sha512-Scz5oYNtVwePF1ebXcWPrFxBpNF5wAkYh8L++6f2ZdLyUb1mCOwzE2+oVZxS25hGCYUyecFEshbqeSwkC+ktqA==
 
+"@nuxtjs/google-analytics@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/google-analytics/-/google-analytics-2.2.0.tgz#4b2072824961974109eb0bff6a95591fea92c6d9"
+  integrity sha512-Ds166zi7KAwc23gHOkKHovSdMEDJS55UJGkowT4IfVAOCE00l65J3fKI9t2P9+O5cdokXTadNiMLGZV5QM731Q==
+  dependencies:
+    vue-analytics "^5.16.2"
+
 "@nuxtjs/icon@^2.6.0":
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/@nuxtjs/icon/-/icon-2.6.0.tgz#65295ee059794f01e41a52c4141c06e898e798bc"
@@ -1233,11 +1240,6 @@
     mustache "^2.3.0"
     stack-trace "0.0.10"
 
-"@types/anymatch@*":
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/@types/anymatch/-/anymatch-1.3.1.tgz#336badc1beecb9dacc38bea2cf32adf627a8421a"
-  integrity sha512-/+CRPXpBDpo2RK9C68N3b2cOvO0Cf5B9aPijHsoDQTHivnGSObdOF2BRQOYjojWTDy6nQvMjmqRXIxH55VjxxA==
-
 "@types/crypto-js@^3.1.43":
   version "3.1.43"
   resolved "https://registry.yarnpkg.com/@types/crypto-js/-/crypto-js-3.1.43.tgz#b859347d6289ba13e347c335a4c9efa63337a748"
@@ -1270,18 +1272,6 @@
   dependencies:
     "@types/node" "*"
 
-"@types/tapable@*":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@types/tapable/-/tapable-1.0.4.tgz#b4ffc7dc97b498c969b360a41eee247f82616370"
-  integrity sha512-78AdXtlhpCHT0K3EytMpn4JNxaf5tbqbLcbIRoQIHzpTIyjpxLQKRoxU55ujBXAtg3Nl2h/XWvfDa9dsMOd0pQ==
-
-"@types/uglify-js@*":
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/@types/uglify-js/-/uglify-js-3.0.4.tgz#96beae23df6f561862a830b4288a49e86baac082"
-  integrity sha512-SudIN9TRJ+v8g5pTG8RRCqfqTMNqgWCKKd3vtynhGzkIIjxaicNAMuY5TRadJ6tzDu3Dotf3ngaMILtmOdmWEQ==
-  dependencies:
-    source-map "^0.6.1"
-
 "@types/vue-scrollto@^2.14.0":
   version "2.14.0"
   resolved "https://registry.yarnpkg.com/@types/vue-scrollto/-/vue-scrollto-2.14.0.tgz#04dc4f5183b266cacdb4ea1550acc0ef8b291b10"
@@ -1293,17 +1283,6 @@
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/@types/wavesurfer.js/-/wavesurfer.js-2.0.2.tgz#b98a4d57ca24ee2028ae6dd5c2208b568bb73842"
   integrity sha512-078vSMwH9LNVg9oAe7/M27p1MjfJ3ncuj54ROj+nL4vnrvDEV7Ye1v+o/LTR0Z396r6u6DTNkoEq5kKgJkzFrQ==
-
-"@types/webpack@^4.4.26":
-  version "4.4.26"
-  resolved "https://registry.yarnpkg.com/@types/webpack/-/webpack-4.4.26.tgz#b52f605351f2ed60e6ce24fa7df39ab7abd03470"
-  integrity sha512-vs8LjgEZUQTBxotXbMf8s4jgykozkqjv6P0JRi+1BLh0n7LQUkMXfvsoPb5U/dBL1ay5Lu0c46G6FRmAZBhAUA==
-  dependencies:
-    "@types/anymatch" "*"
-    "@types/node" "*"
-    "@types/tapable" "*"
-    "@types/uglify-js" "*"
-    source-map "^0.6.0"
 
 "@vue/babel-helper-vue-jsx-merge-props@^1.0.0-beta.2":
   version "1.0.0-beta.2"
@@ -6190,18 +6169,6 @@ nuxt-ts@^2.4.5:
     "@nuxt/typescript" "2.4.5"
     "@nuxt/webpack" "2.4.5"
 
-nuxt@^2.4.5:
-  version "2.4.5"
-  resolved "https://registry.yarnpkg.com/nuxt/-/nuxt-2.4.5.tgz#3f3256c47e78038ef8081e522181aa2578bddcea"
-  integrity sha512-y2p0q58C8yyNr8zg9wEx5ZNhAYe0sbMXHeproGiCKXc2GW7TR6KtZ9/9IBeVlz7HwvoZW+VXIt2m/oecI9IbqQ==
-  dependencies:
-    "@nuxt/builder" "2.4.5"
-    "@nuxt/cli" "2.4.5"
-    "@nuxt/core" "2.4.5"
-    "@nuxt/generator" "2.4.5"
-    "@nuxt/opencollective" "^0.2.1"
-    "@nuxt/webpack" "2.4.5"
-
 oauth-sign@~0.9.0:
   version "0.9.0"
   resolved "https://registry.yarnpkg.com/oauth-sign/-/oauth-sign-0.9.0.tgz#47a7b016baa68b5fa0ecf3dee08a85c679ac6455"
@@ -9196,6 +9163,11 @@ vm-browserify@0.0.4:
   integrity sha1-XX6kW7755Kb/ZflUOOCofDV9WnM=
   dependencies:
     indexof "0.0.1"
+
+vue-analytics@^5.16.2:
+  version "5.16.4"
+  resolved "https://registry.yarnpkg.com/vue-analytics/-/vue-analytics-5.16.4.tgz#7f9e197cbc64afac96884a05214b17efaf8e9d09"
+  integrity sha512-M67cUqpPeyk2rftrvlx2uU+BQ/C4E8SkF2Ct9LizOYUoTccZtCCJwhMJfQ3XL8xep6p3K8KYz58FzRWvx5zlPw==
 
 vue-class-component@^7.0.1:
   version "7.0.1"

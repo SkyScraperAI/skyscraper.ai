@@ -63,7 +63,17 @@ const config: any = {
   /*
    ** Nuxt.js modules
    */
-  modules: ["@nuxtjs/pwa", "nuxt-logrocket", "@nuxtjs/vuetify"],
+  modules: [
+    "@nuxtjs/pwa",
+    "nuxt-logrocket",
+    "@nuxtjs/vuetify",
+    [
+      "@nuxtjs/google-analytics",
+      {
+        id: "UA-133845977-1",
+      },
+    ],
+  ],
   vuetify: {
     materialIcons: false,
     treeShake: true,
