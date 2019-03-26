@@ -8,17 +8,16 @@
       class="grey lighten-4 elevation-1"
       style="z-index: 100;"
       id="navbar"
-      v-if="navVisible"
     >
       <v-layout align-center justify-space-between row fill-height>
         <v-flex grow>
-          <v-toolbar-title>
-            <h1 class="headline">
+          <v-toolbar-title class="text-xs-center">
+            <span class="headline">
               <a href="/">
                 <strong>Sky</strong>Scraper
               </a>
               <span class="muted">Preview</span>
-            </h1>
+            </span>
           </v-toolbar-title>
         </v-flex>
         <v-flex shrink fill-height hidden-sm-and-down>
