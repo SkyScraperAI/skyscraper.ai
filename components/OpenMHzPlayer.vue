@@ -229,10 +229,11 @@ export default class OpenMHzPlayer extends Vue {
         }
         this.$forceUpdate();
       });
-      this.wavesurfer.on("error", () => {
+      this.wavesurfer.on("error", (e: Error) => {
+        console.error(e);
         this.isPlaying = false;
         this.$forceUpdate();
-        this.$store.dispatch("trunked/SHIFT_MESSAGES");
+        // this.$store.dispatch("trunked/SHIFT_MESSAGES");
       });
       this.wavesurfer.on("finish", () => {
         this.isPlaying = false;

@@ -16,8 +16,7 @@ import ApplicationsView from "@/views/ApplicationsView.vue";
 import CaptureView from "@/views/CaptureView.vue";
 import PricingView from "@/views/HardwareView.vue";
 import IntroView from "@/views/IntroView.vue";
-import Vue from "vue";
-import Component from "vue-class-component";
+import { Component, Vue } from "nuxt-property-decorator";
 
 interface ISlide {
   component: Vue;
@@ -28,7 +27,11 @@ interface ISlide {
 }
 
 @Component({
-  data: () => ({}),
+  data() {
+    return {
+      slides: [] as ISlide[],
+    };
+  },
   components: {
     AboutView,
     PricingView,

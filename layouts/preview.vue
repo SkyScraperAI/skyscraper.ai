@@ -22,13 +22,7 @@
         </v-flex>
         <v-flex shrink fill-height hidden-sm-and-down>
           <v-toolbar-items v-if="$route.path == '/'" id="toolbar-menu" class="d-flex" justify-end>
-            <v-btn
-              v-for="slide in slides.filter((slide) => slide.name)"
-              flat
-              v-scroll-to="'#' + slide.id"
-              :key="'nav' + slide.id"
-              :aria-label="slide.name"
-            >{{ slide.name }}</v-btn>
+
           </v-toolbar-items>
         </v-flex>
       </v-layout>
@@ -40,8 +34,7 @@
 </template>
 
 <script lang="ts">
-  import Vue from "vue";
-  import { Component } from "vue-property-decorator";
+  import { Component, Vue } from "nuxt-property-decorator";
   import "vuetify/src/stylus/app.styl";
 
 
