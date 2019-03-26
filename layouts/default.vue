@@ -61,7 +61,8 @@ interface ISlide {
 }
 
 @Component({
-  data: () => ({
+  data() {
+    return {
     drawer: null,
     slides: [
       {
@@ -84,7 +85,8 @@ interface ISlide {
         name: "Team",
       },
     ],
-  }),
+    }
+  },
   components: {
     Footer,
   },

@@ -1,28 +1,22 @@
 {
-  "extends": "@nuxt/typescript",
   "compilerOptions": {
-    "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
+    "target": "esnext",
+    "module": "esnext",
     "moduleResolution": "node",
-    "module": "es2015",
-    "esModuleInterop": true,
-    "importHelpers": true,
-    "sourceMap": true,
-    "baseUrl": ".",
-    "types": [
-      "@types/node",
-      "@nuxt/vue-app",
-      "./types/*",
-      "vuetify"
+    "lib": [
+      "esnext",
+      "esnext.asynciterable",
+      "dom"
     ],
-    "pretty": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "allowJs": true,
+    "sourceMap": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "noEmit": true,
+    "baseUrl": ".",
     "paths": {
-      "@*": [
-        "./*"
-      ],
-      "~*": [
-        "./*"
-      ],
       "~/*": [
         "./*"
       ],
@@ -30,15 +24,10 @@
         "./*"
       ]
     },
-    "target": "esnext",
-    "lib": [
-      "esnext",
-      "esnext.asynciterable",
-      "dom"
-    ],
-    "allowJs": true,
-    "strict": true,
-    "noImplicitAny": false,
-    "noEmit": true
+    "types": [
+      "@types/node",
+      "@nuxt/vue-app",
+      "types"
+    ]
   }
 }
