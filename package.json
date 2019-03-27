@@ -11,6 +11,7 @@
     "lint": "tslint --fix --project .",
     "precommit": "yarn run lint",
     "now-build": "yarn run generate"
+    "now-build": "yarn run generate --no-lock"
   },
   "dependencies": {
     "@nuxt/typescript": "^2.5.1",
