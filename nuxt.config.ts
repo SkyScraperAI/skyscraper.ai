@@ -1,7 +1,9 @@
-const MomentLocalesPlugin = require("moment-locales-webpack-plugin");
+import NuxtConfigration from "@nuxt/config";
 
+const MomentLocalesPlugin = require("moment-locales-webpack-plugin");
 const isDev = process.env.NODE_ENV !== "production";
-const config: any = {
+
+const config: NuxtConfigration = {
   mode: "spa",
   modern: isDev ? false : "client",
   manifest: {
@@ -57,6 +59,7 @@ const config: any = {
   plugins: [
     { src: "@/plugins/scrollto", ssr: false },
     { src: "@/plugins/socketio", ssr: false },
+    { src: "@/plugins/segment", ssr: false}
   ],
   /*
    ** Nuxt.js modules
@@ -65,7 +68,7 @@ const config: any = {
     "@nuxtjs/pwa",
     "nuxt-logrocket",
     "@nuxtjs/vuetify",
-    ["nuxt-segment-analytics", { id: "ez1moOZPgBWo9wEE7GNVIKZ4D4GJJ66m", useRouter: true }],
+    "@nuxtjs/webpackmonitor"
   ],
   vuetify: {
     materialIcons: false,

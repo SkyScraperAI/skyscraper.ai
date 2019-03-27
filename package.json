@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
+    "build:monitor": "nuxt build --webpackmonitor",
     "generate": "nuxt generate",
     "lint": "tslint --fix --project .",
     "precommit": "yarn run lint",
@@ -42,8 +43,10 @@
   },
   "devDependencies": {
     "@mdi/font": "^3.5.95",
+    "@nuxt/config": "^2.5.1",
     "@nuxtjs/eslint-config": "^0.0.1",
     "@nuxtjs/vuetify": "^0.5.5",
+    "@nuxtjs/webpackmonitor": "^0.1.0",
     "@types/crypto-js": "^3.1.43",
     "@types/lodash": "^4.14.123",
     "@types/socket.io": "^2.1.2",
@@ -76,6 +79,7 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "ts-node": "^8.0.3",
+    "tslint": "^5.14.0",
     "tslint-config-prettier": "^1.18.0"
   }
 }

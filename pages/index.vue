@@ -47,7 +47,6 @@ export default class HomeView extends Vue {
 
   protected mounted() {
     this.$store.commit("SET_NAV_VISIBLE", true);
-    this.$analytics.page("Home");
   }
 }
 </script>

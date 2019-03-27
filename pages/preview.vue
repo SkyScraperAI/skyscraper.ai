@@ -128,7 +128,6 @@
   })
   export default class Preview extends Vue {
     protected mounted() {
-      this.$analytics.page("Preview");
     }
   }
 </script>

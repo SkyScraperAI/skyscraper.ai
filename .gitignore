@@ -195,3 +195,4 @@ src/assets/financials.json
 /dist_electron
 /compose/config/
 !/compose/config/nginx/
+.monitor/stats.json

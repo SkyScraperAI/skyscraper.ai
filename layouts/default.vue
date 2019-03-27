@@ -78,7 +78,7 @@
             name: "Team",
           },
         ],
-      }
+      };
     },
     components: {
       Footer,
@@ -86,14 +86,6 @@
   })
   export default class App extends Vue {
     public slides: ISlide[] = [];
-
-    public head() {
-      return {
-        script: [
-          { src: '/js/drift.js' }
-        ]
-      }
-    }
 
     protected mounted() {
       this.$store.commit("SET_NAV_VISIBLE", true);
