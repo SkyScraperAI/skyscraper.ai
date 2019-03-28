@@ -6,7 +6,6 @@
     class="white--text primary py-5"
     id="hardware"
   >
-    <script src="https://clearbitjs.com/v1/x/forms.js"></script>
     <v-layout
       wrap
       fill-height
@@ -64,10 +63,11 @@
           </v-card-text>
           <v-btn
             v-if="l.waitlist"
-            class="mx-3 mb-4 red lighten-2 white--text clearbit-overlay monospaced"
+            class="mx-3 mb-4 red lighten-2 white--text monospaced"
             data-form-id="9782d888-335f-46ab-ba66-beca3d572ecf"
             data-theme="default"
             large
+            href="#eap-data"
             >Join the waiting list
           </v-btn>
           <v-btn
@@ -76,6 +76,7 @@
             class="mx-3 mb-4 blue-grey white--text monospaced"
             data-form-id="fe245108-fd5e-47a1-8ff7-c5fc27effedd"
             data-theme="default"
+            href="#eap-data"
             >Early Access Program
           </v-btn>
           <v-divider></v-divider>
