@@ -29,11 +29,6 @@
         widgets: false,
       };
     },
-    asyncData: async () => {
-      let {data} = await axios.get(`/device/location`);
-      consola.log(data);
-      return {location: data, coordinates: data.ll.reverse()};
-    },
     layout: "preview",
     head: {
       title: "SkyScraper Preview",
