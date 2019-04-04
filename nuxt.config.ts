@@ -10,6 +10,11 @@ const config: NuxtConfigration = {
     name: "SkyScraper",
     short_name: "SkyScraper",
   },
+  env: {
+    apiServer: process.env.API_ENDPOINT
+      ? process.env.API_ENDPOINT
+      : "http://127.0.0.1:9090",
+  },
   /*
    ** Headers of the page
    */
@@ -59,7 +64,7 @@ const config: NuxtConfigration = {
   plugins: [
     { src: "@/plugins/scrollto", ssr: false },
     { src: "@/plugins/socketio", ssr: false },
-    { src: "@/plugins/segment", ssr: false}
+    { src: "@/plugins/segment", ssr: false },
   ],
   /*
    ** Nuxt.js modules
@@ -68,7 +73,7 @@ const config: NuxtConfigration = {
     "@nuxtjs/pwa",
     "nuxt-logrocket",
     "@nuxtjs/vuetify",
-    "@nuxtjs/webpackmonitor"
+    "@nuxtjs/webpackmonitor",
   ],
   vuetify: {
     materialIcons: false,

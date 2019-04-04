@@ -16,7 +16,7 @@
               <a href="/">
                 <strong>Sky</strong>Scraper
               </a>
-              <span class="muted">Preview</span>
+              <span class="muted font-weight-thin">Preview</span>
             </span>
           </v-toolbar-title>
         </v-flex>
@@ -34,13 +34,11 @@
 </template>
 
 <script lang="ts">
-  import { Component, Vue } from "nuxt-property-decorator";
+  import {Component, Vue} from "nuxt-property-decorator";
   import "vuetify/src/stylus/app.styl";
 
 
-  @Component({
-
-  })
+  @Component({})
   export default class App extends Vue {
 
     protected mounted() {
@@ -67,6 +65,7 @@
 
   h1 {
     font-size: 21px !important;
+
     .headline {
       .muted {
         color: #585656;

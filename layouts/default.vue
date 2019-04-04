@@ -29,8 +29,8 @@
               :aria-label="slide.name"
             >{{ slide.name }}</v-btn>
 
-            <v-btn flat aria-label="Preview" to="/preview">
-              <n-link to="/preview" style="text-decoration: none;">Preview</n-link>
+            <v-btn flat aria-label="Preview" to="/demo">
+              <n-link to="/demo" style="text-decoration: none;">Preview</n-link>
             </v-btn>
           </v-toolbar-items>
         </v-flex>
