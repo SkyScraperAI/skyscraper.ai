@@ -1,3 +1,5 @@
+import consola from "consola";
+
 export default ({ app }) => {
   if (process.server) {
     return;
@@ -60,6 +62,21 @@ export default ({ app }) => {
 
     app.router.afterEach((to) => {
       analytics.page(to.fullPath);
+      if (window.drift) {
+        window.drift.page(to.name);
+        consola.log(`Drift page set to ${to.name}`);
+      } else {
+        analytics.ready(() => {
+          if (window.drift) {
+            consola.debug(`Drift page set to ${to.name}`);
+            window.drift.page(to.name);
+          } else {
+            consola.warn(
+              "Segment loaded but drift property not found on window."
+            );
+          }
+        });
+      }
     });
   }
 };
