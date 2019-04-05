@@ -18,7 +18,7 @@ import CaptureView from "@/components/home/CaptureView.vue";
 import PricingView from "@/components/home/HardwareView.vue";
 import IntroView from "@/components/home/IntroView.vue";
 import Vue from "vue";
-import {Component} from "vue-property-decorator";
+import { Component } from "vue-property-decorator";
 
 if (process.client) {
   require("jsplumb/dist/js/jsplumb.min.js");

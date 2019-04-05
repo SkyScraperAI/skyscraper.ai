@@ -8,12 +8,12 @@ export const state = () => {
 };
 
 export const getters = {
-  NAV_VISIBLE: (s: { navVisible: any; }) => s.navVisible,
-  PREVIEW_DISCLAIMER: (s: any) => s.previewDisclaimer
+  NAV_VISIBLE: (s: { navVisible: any }) => s.navVisible,
+  PREVIEW_DISCLAIMER: (s: any) => s.previewDisclaimer,
 };
 
 export const mutations = {
-  SET_NAV_VISIBLE: (s: { navVisible: any; }, payload: any) => {
+  SET_NAV_VISIBLE: (s: { navVisible: any }, payload: any) => {
     s.navVisible = payload;
   },
   SET_PREVIEW_DISCLAIMER: (s: any, payload: any) => {

@@ -1,7 +1,6 @@
 import Emitter = SocketIOClient.Emitter;
 
 export default class VueSocketIOListener {
-
   /**
    * socket.io-client reserved event keywords
    * @type {string[]}
@@ -19,7 +18,7 @@ export default class VueSocketIOListener {
     "connect_timeout",
     "connecting",
     "ping",
-    "pong"
+    "pong",
   ];
   private io: any;
   private emitter: SocketIOClient.Emitter;
@@ -34,7 +33,7 @@ export default class VueSocketIOListener {
    * Listening all socket.io events
    */
   public register() {
-    this.io.onevent = (packet: { data: [any, ...any[]]; }) => {
+    this.io.onevent = (packet: { data: [any, ...any[]] }) => {
       const [event, ...args] = packet.data;
 
       if (args.length === 1) {
@@ -43,7 +42,9 @@ export default class VueSocketIOListener {
         this.onEvent(event, args);
       }
     };
-    VueSocketIOListener.staticEvents.forEach((event) => this.io.on(event, (args: any) => this.onEvent(event, args)));
+    VueSocketIOListener.staticEvents.forEach((event) =>
+      this.io.on(event, (args: any) => this.onEvent(event, args))
+    );
   }
 
   /**
@@ -52,5 +53,4 @@ export default class VueSocketIOListener {
   public onEvent(event: string, args: any) {
     this.emitter.emit(event, args);
   }
-
 }

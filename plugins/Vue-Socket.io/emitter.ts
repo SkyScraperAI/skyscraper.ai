@@ -8,8 +8,14 @@ export default class EventEmitter {
 
   constructor(vuex: any) {
     Logger.info(vuex ? `Vuex adapter enabled` : `Vuex adapter disabled`);
-    Logger.info(vuex.mutationPrefix ? `Vuex socket mutations enabled` : `Vuex socket mutations disabled`);
-    Logger.info(vuex ? `Vuex socket actions enabled` : `Vuex socket actions disabled`);
+    Logger.info(
+      vuex.mutationPrefix
+        ? `Vuex socket mutations enabled`
+        : `Vuex socket mutations disabled`
+    );
+    Logger.info(
+      vuex ? `Vuex socket actions enabled` : `Vuex socket actions disabled`
+    );
     this.store = vuex.store;
     this.actionPrefix = vuex.actionPrefix ? vuex.actionPrefix : "SOCKET_";
     this.mutationPrefix = vuex.mutationPrefix;
@@ -22,7 +28,11 @@ export default class EventEmitter {
    * @param callback
    * @param component
    */
-  public addListener(event: any, callback: any, component: { $options: { name: any; }; }) {
+  public addListener(
+    event: any,
+    callback: any,
+    component: { $options: { name: any } }
+  ) {
     if (typeof callback === "function") {
       if (!this.listeners.has(event)) {
         this.listeners.set(event, []);
@@ -39,12 +49,14 @@ export default class EventEmitter {
    * @param event
    * @param component
    */
-  public removeListener(event: any, component: { $options: { name: any; }; }) {
+  public removeListener(event: any, component: { $options: { name: any } }) {
     if (this.listeners.has(event)) {
-      const listeners = this.listeners.get(event).filter(
-        (listener: { component: { $options: { name: any; }; }; }) => (
-          listener.component !== component
-        ));
+      const listeners = this.listeners
+        .get(event)
+        .filter(
+          (listener: { component: { $options: { name: any } } }) =>
+            listener.component !== component
+        );
 
       if (listeners.length > 0) {
         this.listeners.set(event, listeners);
@@ -52,7 +64,9 @@ export default class EventEmitter {
         this.listeners.delete(event);
       }
 
-      Logger.info(`#${event} unsubscribe, component: ${component.$options.name}`);
+      Logger.info(
+        `#${event} unsubscribe, component: ${component.$options.name}`
+      );
     }
   }
 
@@ -64,10 +78,16 @@ export default class EventEmitter {
   public emit(event: string, args: string | undefined) {
     if (this.listeners.has(event)) {
       Logger.info(`Broadcasting: #${event}, Data:`, args);
-      this.listeners.get(event).forEach(
-        (listener: { callback: { call: (arg0: any, arg1: string | undefined) => void; }; component: any; }) => {
-          listener.callback.call(listener.component, args);
-        });
+      this.listeners
+        .get(event)
+        .forEach(
+          (listener: {
+            callback: { call: (arg0: any, arg1: string | undefined) => void };
+            component: any;
+          }) => {
+            listener.callback.call(listener.component, args);
+          }
+        );
     }
 
     if (event !== "ping" && event !== "pong") {

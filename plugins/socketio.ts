@@ -18,4 +18,3 @@ export default ({ app: { store } }: INuxtApp) => {
 
   return socketIo;
 };
-

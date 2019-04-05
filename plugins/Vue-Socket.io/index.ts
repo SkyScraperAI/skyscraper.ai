@@ -42,22 +42,16 @@ export default class VueSocketIO {
    * @param connection
    * @param options
    */
-  public connect(connection: string, options: SocketIOClient.ConnectOpts | undefined) {
-
+  public connect(
+    connection: string,
+    options: SocketIOClient.ConnectOpts | undefined
+  ) {
     if (connection && typeof connection === "object") {
-
       return connection;
-
     } else if (typeof connection === "string") {
-
-      return this.io = SocketIO(connection, options);
-
+      return (this.io = SocketIO(connection, options));
     } else {
-
       throw new Error("Unsupported connection type");
-
     }
-
   }
-
 }
