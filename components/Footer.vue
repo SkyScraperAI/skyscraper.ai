@@ -1,5 +1,5 @@
 <template>
-  <v-footer height="auto" color="red lighten-1" class="pb-1">
+  <v-footer height="auto" color="red lighten-1" class="pb-1" id="footer">
     <v-layout justify-center row wrap class="py-3 text-xs-center">
       <div v-for="link in links" :key="link.label">
         <v-btn color="white" flat round :href="link.url ? link.url : '#'">

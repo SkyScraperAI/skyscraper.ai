@@ -131,7 +131,7 @@
             >
               <div class="display-1">Financial Outlook</div>
             </v-flex>
-            <v-flex>
+            <v-flex xs12>
               <v-divider class="grey lighten-1"></v-divider>
             </v-flex>
           </v-layout>
