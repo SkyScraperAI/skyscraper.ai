@@ -1115,13 +1115,22 @@
     std-env "^2.2.1"
     wrap-ansi "^5.1.0"
 
-"@nuxt/config@2.6.1", "@nuxt/config@^2.6.1":
+"@nuxt/config@2.6.1":
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/@nuxt/config/-/config-2.6.1.tgz#3578ddc55766215fa72d89289412d999624b4641"
   integrity sha512-BIkT9ma6zQ1X/TY8F6hUWBEuJ6ie70VIF/5qjuIaTXEETNQEMSRIugO2mh6pTGCX8gEm2x6Yj91gL0uqF0pjQQ==
   dependencies:
     "@nuxt/utils" "2.6.1"
     consola "^2.5.8"
+    std-env "^2.2.1"
+
+"@nuxt/config@^2.6.2":
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/@nuxt/config/-/config-2.6.2.tgz#f63314c6e0bec416a8e8e53cc9c905d7e66a8cea"
+  integrity sha512-y9n+Dgei4Vhrb5h1530IYSnwqoyUefu4HG68lof8nNqs5TejjcJhcnnjh0df77wIqX20C256eXYATwo3Vn8rdQ==
+  dependencies:
+    "@nuxt/utils" "2.6.2"
+    consola "^2.6.0"
     std-env "^2.2.1"
 
 "@nuxt/core@2.6.1":
@@ -1243,6 +1252,18 @@
   integrity sha512-lCCAa7E1tRHvXMDd37GXfV92edc0VPKye2Z5/res6uZ1dWORhSnYMqeszmnKjpNiEjTOpMW6lNOjKncrjc4PeQ==
   dependencies:
     consola "^2.5.8"
+    fs-extra "^7.0.1"
+    hash-sum "^1.0.2"
+    proper-lockfile "^4.1.1"
+    serialize-javascript "^1.6.1"
+    signal-exit "^3.0.2"
+
+"@nuxt/utils@2.6.2":
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/@nuxt/utils/-/utils-2.6.2.tgz#5772e2352aa6d8725748ed9ca0d86f8077eabb9d"
+  integrity sha512-n5ZCLgdbdMB6/3mAZqu2nSiFHcQ/BwqP8xtYP/Bn6vl6WLWMIoVB/QmC6pywJtv1ABJhVMMdTeCKLV8hZ7iXEQ==
+  dependencies:
+    consola "^2.6.0"
     fs-extra "^7.0.1"
     hash-sum "^1.0.2"
     proper-lockfile "^4.1.1"
@@ -3108,10 +3129,10 @@ consola@^1.4.5:
     lodash "^4.17.5"
     std-env "^1.1.0"
 
-consola@^2.0.0-1, consola@^2.3.0, consola@^2.5.6, consola@^2.5.8:
-  version "2.5.8"
-  resolved "https://registry.yarnpkg.com/consola/-/consola-2.5.8.tgz#26afe2ab7f560d285a88578eaae9d9be18029ba9"
-  integrity sha512-fYv1M0rNJw4h0CZUx8PX02Px7xQhA+vNHpV8DBCGMoozp2Io/vrSXhhEothaRnSt7VMR0rj2pt9KKLXa5amrCw==
+consola@^2.0.0-1, consola@^2.3.0, consola@^2.5.6, consola@^2.5.8, consola@^2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/consola/-/consola-2.6.0.tgz#ddf4e2a4361f67c120aa8bb41a0bd3cdbb58636e"
+  integrity sha512-jge0Ip1NVoOafxZq1zxG1sLYVBtKV45BF39VV6YKSWb45nyLOHY51YP0+cBQ2DyOTKhCjtF0XrRJkjTvX4wzgQ==
 
 console-browserify@^1.1.0:
   version "1.1.0"
