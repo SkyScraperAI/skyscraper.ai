@@ -44,8 +44,8 @@
     "wavesurfer.js": "^2.2.0"
   },
   "devDependencies": {
-    "@mdi/font": "^3.5.95",
-    "@nuxt/config": "^2.6.1",
+    "@mdi/font": "^3.6.95",
+    "@nuxt/config": "^2.6.2",
     "@nuxtjs/eslint-config": "^0.0.1",
     "@nuxtjs/vuetify": "^0.5.5",
     "@nuxtjs/webpackmonitor": "^0.1.0",
@@ -61,7 +61,7 @@
     "eslint-config-prettier": "^4.1.0",
     "eslint-config-standard": ">=12.0.0",
     "eslint-loader": "^2.1.2",
-    "eslint-plugin-import": ">=2.16.0",
+    "eslint-plugin-import": ">=2.17.1",
     "eslint-plugin-jest": "^22.4.1",
     "eslint-plugin-node": ">=8.0.1",
     "eslint-plugin-nuxt": ">=0.4.2",
@@ -80,7 +80,7 @@
     "style-loader": "^0.23.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
-    "ts-node": "^8.0.3",
+    "ts-node": "^8.1.0",
     "tslint": "^5.15.0",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.4.3",
