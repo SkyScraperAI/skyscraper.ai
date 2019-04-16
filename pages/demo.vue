@@ -38,7 +38,7 @@ import { Component } from "vue-property-decorator";
 export default class Demo extends Vue {}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 html {
   height: 100vh;
   overflow: hidden;
