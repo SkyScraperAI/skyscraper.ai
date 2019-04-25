@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "@mdi/font": "^3.6.95",
-    "@nuxt/config": "^2.6.2",
+    "@nuxt/config": "^2.6.3",
     "@nuxtjs/eslint-config": "^0.0.1",
     "@nuxtjs/vuetify": "^0.5.5",
     "@nuxtjs/webpackmonitor": "^0.1.0",
