@@ -16,7 +16,7 @@
   "dependencies": {
     "@nuxt/typescript": "^2.6.3",
     "@nuxtjs/google-tag-manager": "^2.2.0",
-    "@nuxtjs/pwa": "^3.0.0-beta.14",
+    "@nuxtjs/pwa": "^3.0.0-beta.15",
     "axios": "^0.18.0",
     "cross-env": "^5.2.0",
     "crypto-js": "^3.1.9-1",
