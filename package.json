@@ -33,7 +33,7 @@
     "socket.io-client": "^2.2.0",
     "three": "^0.104.0",
     "vue": "^2.6.9",
-    "vue-class-component": "^7.0.1",
+    "vue-class-component": "^7.1.0",
     "vue-material-design-icons": "^3.2.0",
     "vue-property-decorator": "^8.0.0",
     "vue-scrollto": "^2.14.0",
