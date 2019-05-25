@@ -24,7 +24,7 @@ import { Component } from "vue-property-decorator";
       links: [
         {
           label: "(415) 967-5238",
-          url: "tel:+14159675238",
+          url: "tel:+14159807090",
         },
         {
           label: "hello@skyscraper.ai",
