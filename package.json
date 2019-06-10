@@ -74,7 +74,7 @@
     "nodemon": "^1.19.1",
     "nuxt-property-decorator": "^2.3.0",
     "nuxt-purgecss": "^0.2.1",
-    "prettier": "^1.18.1",
+    "prettier": "^1.18.2",
     "purgecss-webpack-plugin": "^1.5.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
