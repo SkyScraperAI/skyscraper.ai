@@ -6041,10 +6041,15 @@ logrocket-vuex@^0.0.3:
   resolved "https://registry.yarnpkg.com/logrocket-vuex/-/logrocket-vuex-0.0.3.tgz#e11d65d384f0c9fdac72f984436cc038adf3db90"
   integrity sha1-4R1l04Twyf2scvmEQ2zAOK3z25A=
 
-logrocket@^0.6.20, logrocket@^0.6.21:
+logrocket@^0.6.20:
   version "0.6.21"
   resolved "https://registry.yarnpkg.com/logrocket/-/logrocket-0.6.21.tgz#f19749a4bc2ea51821a0f5acb08e811ac3d3f314"
   integrity sha512-fyCA8PfNQqeuQyedqLQLiw47ibG8476a7C/amuusHKmqPdGo5GQmFD4Ba9vKRFbbakz+MmUdBGbYrQgq9K4e+g==
+
+logrocket@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/logrocket/-/logrocket-1.0.1.tgz#0555ec619d2db54a7b345c4e8df09baea835b176"
+  integrity sha512-oPA0c5GzMKsWp/6p19OaujZQMzttluqVOI+989uHeciPAljPZvGEpZRbNO3Rr+jC/8jVLJdlMP9IHuyhKsASGA==
 
 loose-envify@^1.0.0:
   version "1.4.0"
@@ -6751,12 +6756,12 @@ number-is-nan@^1.0.0:
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
   integrity sha1-CXtgK1NCKlIsGvuHkDGDNpQaAR0=
 
-nuxt-logrocket@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/nuxt-logrocket/-/nuxt-logrocket-1.2.1.tgz#774d3e0c41ec62ce340b2a83f14c3ca761ff5251"
-  integrity sha512-0iko7uPNzONZgvoYeAXrsiAC6sBmI8QVRJjFpBbD5E8hFp86yuYgg5XpP4HT3RdvS/VLdUsTbq/T4uIvYVgyZQ==
+nuxt-logrocket@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/nuxt-logrocket/-/nuxt-logrocket-1.2.3.tgz#f6dd6f26bf2405acc00e527561bd7a3dbc419fbf"
+  integrity sha512-7+DP+oNuwO/1Is/hIA0nUCqmHV3/FIjGKWc9fMUAbakFmYp4PZ+ra086NbSm3SAvzAFNMSdmzUVpf02hn108ug==
   dependencies:
-    logrocket "^0.6.21"
+    logrocket "^1.0.1"
     logrocket-vuex "^0.0.3"
 
 nuxt-property-decorator@^2.3.0:
