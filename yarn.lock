@@ -1171,22 +1171,13 @@
     std-env "^2.2.1"
     wrap-ansi "^5.1.0"
 
-"@nuxt/config@2.8.1":
+"@nuxt/config@2.8.1", "@nuxt/config@^2.8.1":
   version "2.8.1"
   resolved "https://registry.yarnpkg.com/@nuxt/config/-/config-2.8.1.tgz#cb4c5b2e0d6f85501b45eb4a46489f0661e8deb2"
   integrity sha512-kzVYTC4VJP+noVOPb9d0cFBWbyOjLZyDpD8oJL6fUV4FLdEyOAD9Z14mypGOloeCAsc90brNXtqV9gnZiePXvQ==
   dependencies:
     "@nuxt/utils" "2.8.1"
     consola "^2.7.1"
-    std-env "^2.2.1"
-
-"@nuxt/config@^2.6.3":
-  version "2.6.3"
-  resolved "https://registry.yarnpkg.com/@nuxt/config/-/config-2.6.3.tgz#2753970a92c445ba0196af77a1716c8278a6e08f"
-  integrity sha512-uVwD6rjmMpcpP7ZG5qXdP66XOH1AETqVMBX+gAqiUd4HtS4DL63XhRcS5EZKwq6fdPM6LrMC0Bol9KZeHy2eow==
-  dependencies:
-    "@nuxt/utils" "2.6.3"
-    consola "^2.6.0"
     std-env "^2.2.1"
 
 "@nuxt/core@2.8.1":
@@ -1299,18 +1290,6 @@
     fs-extra "^7.0.1"
     ts-loader "^5.3.3"
     typescript "^3.4.3"
-
-"@nuxt/utils@2.6.3":
-  version "2.6.3"
-  resolved "https://registry.yarnpkg.com/@nuxt/utils/-/utils-2.6.3.tgz#29214eebd62336f7e94062831038e2553da3a95c"
-  integrity sha512-gkfV98DCGCS22jWiy5vy/Ugh79odaJt603czoQB5VVizFpDKS+YK27EvAz6Ljz3lxPBjSvsKjGkAnTsQ9VmqXg==
-  dependencies:
-    consola "^2.6.0"
-    fs-extra "^7.0.1"
-    hash-sum "^1.0.2"
-    proper-lockfile "^4.1.1"
-    serialize-javascript "^1.6.1"
-    signal-exit "^3.0.2"
 
 "@nuxt/utils@2.8.1":
   version "2.8.1"
@@ -3276,12 +3255,7 @@ consola@^1.4.5:
     lodash "^4.17.5"
     std-env "^1.1.0"
 
-consola@^2.3.0, consola@^2.5.6, consola@^2.6.0:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/consola/-/consola-2.6.0.tgz#ddf4e2a4361f67c120aa8bb41a0bd3cdbb58636e"
-  integrity sha512-jge0Ip1NVoOafxZq1zxG1sLYVBtKV45BF39VV6YKSWb45nyLOHY51YP0+cBQ2DyOTKhCjtF0XrRJkjTvX4wzgQ==
-
-consola@^2.7.1:
+consola@^2.3.0, consola@^2.5.6, consola@^2.6.0, consola@^2.7.1:
   version "2.9.0"
   resolved "https://registry.yarnpkg.com/consola/-/consola-2.9.0.tgz#57760e3a65a53ec27337f4add31505802d902278"
   integrity sha512-34Iue+LRcWbndFIfZc5boNizWlsrRjqIBJZTe591vImgbnq7nx2EzlrLtANj9TH2Fxm7puFJBJAOk5BhvZOddQ==
@@ -9150,7 +9124,7 @@ send@0.17.1:
     range-parser "~1.2.1"
     statuses "~1.5.0"
 
-serialize-javascript@^1.3.0, serialize-javascript@^1.4.0, serialize-javascript@^1.6.1:
+serialize-javascript@^1.3.0, serialize-javascript@^1.4.0:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/serialize-javascript/-/serialize-javascript-1.6.1.tgz#4d1f697ec49429a847ca6f442a2a755126c4d879"
   integrity sha512-A5MOagrPFga4YaKQSWHryl7AXvbQkEqpw4NNYMTNYUNV51bA8ABHgYFpqKx+YFFrw59xMV1qGH1R4AgoNIVgCw==
