@@ -1,13 +1,13 @@
 <template>
   <v-footer height="auto" color="red lighten-1" class="pb-1" id="footer">
-    <v-layout justify-center row wrap class="py-3 text-xs-center">
+    <v-layout justify-center row wrap class="py-1 text-xs-center">
       <div v-for="link in links" :key="link.label">
         <v-btn color="white" flat round :href="link.url ? link.url : '#'">
           <span class="white--text monospaced">{{ link.label }}</span>
         </v-btn>
       </div>
       <v-flex xs12 class="white--text monospaced py-2"
-        >&copy; Sibyl Vision, 2019</v-flex
+        >&copy; SkyScraper 2019</v-flex
       >
     </v-layout>
   </v-footer>

@@ -21,14 +21,6 @@
         </v-flex>
         <v-flex shrink fill-height hidden-sm-and-down>
           <v-toolbar-items v-if="$route.path == '/'" id="toolbar-menu" class="d-flex" justify-end>
-            <v-btn
-              v-for="slide in slides.filter((slide) => slide.name)"
-              flat
-              v-scroll-to="'#' + slide.id"
-              :key="'nav' + slide.id"
-              :aria-label="slide.name"
-            >{{ slide.name }}</v-btn>
-
             <v-btn flat aria-label="Preview" to="/demo">
               <n-link to="/demo" style="text-decoration: none;">Preview</n-link>
             </v-btn>
@@ -36,7 +28,7 @@
         </v-flex>
       </v-layout>
     </v-toolbar>
-    <nuxt/>
+    <nuxt />
     <Footer></Footer>
   </v-app>
 </template>
@@ -57,27 +49,6 @@
     data() {
       return {
         drawer: null,
-        slides: [
-          {
-            id: "intro",
-          },
-          {
-            name: "Capture",
-            id: "rf-capture",
-          },
-          {
-            name: "Analyze",
-            id: "analyze",
-          },
-          {
-            name: "Hardware",
-            id: "hardware",
-          },
-          {
-            id: "team",
-            name: "Team",
-          },
-        ],
       };
     },
     components: {

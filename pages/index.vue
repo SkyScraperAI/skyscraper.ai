@@ -2,10 +2,9 @@
 <template>
   <v-container fluid pa-0 ma-0>
     <v-layout row wrap>
-      <IntroView></IntroView>
+      <!-- <IntroView></IntroView> -->
       <CaptureView></CaptureView>
       <ApplicationsView></ApplicationsView>
-      <PricingView></PricingView>
       <AboutView></AboutView>
     </v-layout>
   </v-container>

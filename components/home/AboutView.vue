@@ -7,7 +7,7 @@
     <v-layout row wrap>
       <v-flex
         xs12
-        sm4
+        sm6
         class="text-xs-center mt-3 mb-2"
         v-for="member in team"
         :key="member.name"
@@ -74,28 +74,6 @@ import { Component } from "vue-property-decorator";
             {
               icon: "mdi-twitter",
               url: "//twitter.com/pkcodes",
-              color: "blue-grey lighten-4",
-            },
-          ],
-        },
-        {
-          name: "Colin Heilbut",
-          subtitle: "Frequency Modulator",
-          image: "colin.jpg",
-          links: [
-            {
-              icon: "mdi-email",
-              url: "mailto:colin@sibylvision.com",
-              color: "blue-grey lighten-3",
-            },
-            {
-              icon: "mdi-linkedin",
-              url: "https://linkedin.com/in/colinhsf/",
-              color: "blue-grey lighten-4",
-            },
-            {
-              icon: "mdi-twitter",
-              url: "https://twitter.com/colinheilbut",
               color: "blue-grey lighten-4",
             },
           ],
