@@ -1662,10 +1662,10 @@
   dependencies:
     source-map "^0.6.1"
 
-"@types/vue-scrollto@^2.14.0":
-  version "2.14.0"
-  resolved "https://registry.yarnpkg.com/@types/vue-scrollto/-/vue-scrollto-2.14.0.tgz#04dc4f5183b266cacdb4ea1550acc0ef8b291b10"
-  integrity sha512-SoBDCIdDKZ/LbnNntw61w/cTQp5VlD+wbMyLPyh6TOXLPBrFYDRhb9Ujn66yf+CHXQEgbbswIRKe5RwOQF8zIQ==
+"@types/vue-scrollto@^2.15.0":
+  version "2.15.0"
+  resolved "https://registry.yarnpkg.com/@types/vue-scrollto/-/vue-scrollto-2.15.0.tgz#b0948e2e09b7f0cd51e9e490763454d717ddf090"
+  integrity sha512-TbvAmHPrhDI4KNQ0aMaOcTMHC4fDEybF7KESVWOSLxYPTsOcAb3+ChSj/DFmuUWfhjkYH1TYGtNfEbQv9U9TxA==
   dependencies:
     vue "^2.4.4"
 
