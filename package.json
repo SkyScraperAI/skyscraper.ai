@@ -47,7 +47,7 @@
     "@mdi/font": "^3.8.95",
     "@nuxt/config": "^2.6.3",
     "@nuxtjs/eslint-config": "^1.0.1",
-    "@nuxtjs/vuetify": "^0.5.6",
+    "@nuxtjs/vuetify": "^1.8.4",
     "@nuxtjs/webpackmonitor": "^0.1.0",
     "@types/crypto-js": "^3.1.43",
     "@types/lodash": "^4.14.136",
