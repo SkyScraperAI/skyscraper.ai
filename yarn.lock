@@ -6768,10 +6768,10 @@ mkdirp@0.5.1, mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdi
   dependencies:
     minimist "0.0.8"
 
-moment-locales-webpack-plugin@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/moment-locales-webpack-plugin/-/moment-locales-webpack-plugin-1.0.7.tgz#ce2931b8a25100dae0868adbd9e93972dcb33359"
-  integrity sha512-KjYpaAhmuzGFZl6534FlZoK7QtW3vqlxd+A17W9DlgHJ5yhXANy7AZJl7iYtZpWjAfMTAWiVrQ7YDZdkFO6uRw==
+moment-locales-webpack-plugin@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/moment-locales-webpack-plugin/-/moment-locales-webpack-plugin-1.1.1.tgz#15095823a771cb6e0c72433ea907c2b560a277b1"
+  integrity sha512-l6XlXks6e/z3Iz3N4QavNFd/p54g7aDdk1AHZxmzigpLwq/gVjbapJnbGE5mZUE+/EoPmg2kCauP1nr8E0fdog==
   dependencies:
     lodash.difference "^4.5.0"
 
