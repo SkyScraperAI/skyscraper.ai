@@ -10599,10 +10599,10 @@ watchpack@^1.6.0:
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
 
-wavesurfer.js@^2.2.0:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/wavesurfer.js/-/wavesurfer.js-2.2.1.tgz#066ccd85d1ce70b64bd5a5b491e2c797645a6973"
-  integrity sha512-DMrgRN04dUK1YA4MDIMKx1EcIab7wtNcf2OE1Gn3ASnob4JMK3pwph/29ioph8UiHykMTloJIsPurvlC9NZVOQ==
+wavesurfer.js@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/wavesurfer.js/-/wavesurfer.js-3.3.0.tgz#8e3429c5981162562aeb48f555d75bfeaaa4c5c8"
+  integrity sha512-Lfa5c2uN3ykVTxjkves+hcCpT+aePIr6aTKDgHXvIXIZo/ypC9KNd6kpclygnhEMCZo8VZA2ST/rq8UrBdyteQ==
 
 webpack-bundle-analyzer@^3.3.2:
   version "3.3.2"
