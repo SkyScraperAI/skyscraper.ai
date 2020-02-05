@@ -44,7 +44,7 @@
     "wavesurfer.js": "^2.2.0"
   },
   "devDependencies": {
-    "@mdi/font": "^3.8.95",
+    "@mdi/font": "^4.9.95",
     "@nuxt/config": "^2.6.3",
     "@nuxtjs/eslint-config": "^1.1.2",
     "@nuxtjs/vuetify": "^0.5.6",
