@@ -1368,10 +1368,12 @@
     eslint-plugin-unicorn "^9.1.1"
     eslint-plugin-vue "^5.2.3"
 
-"@nuxtjs/google-tag-manager@^2.2.1":
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/google-tag-manager/-/google-tag-manager-2.2.1.tgz#8029953dcc1d09a430fc5f961a48555017c875d0"
-  integrity sha512-1JpV8NRpdTd58FQiPyZUdFdYxfhrt6/a0UUQcoFMBbM3+pELho2RlOj52NE+OYY0IPR0D736ULBHXLhwv1CKdw==
+"@nuxtjs/google-tag-manager@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/google-tag-manager/-/google-tag-manager-2.4.0.tgz#f72b4893900aa6e0c79ec9073b0aabce93f348d9"
+  integrity sha512-NWQarN9urn0fPCa6vmmbJeNNj52im9JYSn5+5t61AMiw54x1pNBLROwNzuKu8zWO0kYOR+3dUg0Ah5EKGL82KA==
+  dependencies:
+    lodash "^4.17.15"
 
 "@nuxtjs/icon@3.0.0-beta.16":
   version "3.0.0-beta.16"
