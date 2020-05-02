@@ -70,7 +70,7 @@
     "eslint-plugin-standard": ">=4.0.1",
     "eslint-plugin-vue": "^5.2.3",
     "glob-all": "^3.2.1",
-    "node-sass": "^4.13.0",
+    "node-sass": "^4.14.0",
     "nodemon": "^1.19.1",
     "nuxt-property-decorator": "^2.5.0",
     "nuxt-purgecss": "^0.2.1",
