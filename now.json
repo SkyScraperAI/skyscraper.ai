@@ -2,7 +2,6 @@
   "name": "skyscraper.ai - Landing Page",
   "version": 2,
   "alias": ["skyscraper.ai", "www.skyscraper.ai"],
-  "regions": ["sfo", "iad"],
   "builds": [
     {
       "src": "package.json",
