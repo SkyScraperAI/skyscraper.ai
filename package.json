@@ -72,7 +72,7 @@
     "glob-all": "^3.2.1",
     "node-sass": "^4.14.1",
     "nodemon": "^1.19.1",
-    "nuxt-property-decorator": "^2.5.0",
+    "nuxt-property-decorator": "^2.7.2",
     "nuxt-purgecss": "^0.2.1",
     "prettier": "^1.19.1",
     "purgecss-webpack-plugin": "^1.6.0",
