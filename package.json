@@ -71,7 +71,7 @@
     "eslint-plugin-vue": "^5.2.3",
     "glob-all": "^3.2.1",
     "node-sass": "^4.14.1",
-    "nodemon": "^1.19.1",
+    "nodemon": "^2.0.3",
     "nuxt-property-decorator": "^2.7.2",
     "nuxt-purgecss": "^0.2.1",
     "prettier": "^1.19.1",
