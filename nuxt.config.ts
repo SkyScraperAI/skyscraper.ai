@@ -1,6 +1,7 @@
 import { Configuration } from "@nuxt/types";
 
-const MomentLocalesPlugin = require("moment-locales-webpack-plugin");
+import MomentLocalesPlugin from "moment-locales-webpack-plugin";
+
 const isDev = process.env.NODE_ENV !== "production";
 
 const config: Configuration = {
@@ -15,10 +16,6 @@ const config: Configuration = {
       ? process.env.API_ENDPOINT
       : "http://127.0.0.1:9090",
   },
-  /*
-   ** Headers of the page
-   */
-
   head: {
     title: "SkyScraper | Unlock the spectrum.",
     htmlAttrs: {
@@ -54,28 +51,15 @@ const config: Configuration = {
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
-  /*
-   ** Customize the progress-bar color
-   */
   loading: { color: "#fff" },
-  /*
-   ** Global CSS
-   */
   css: ["~/assets/style/app.styl", "@mdi/font/css/materialdesignicons.css"],
-  /*
-   ** Plugins to load before mounting the App
-   */
   plugins: [
     "~/plugins/scrollto.ts",
     "~/plugins/socketio",
     { src: "~/plugins/segment", ssr: false },
   ],
   buildModules: ["@nuxt/typescript-build"],
-  modules: [
-    "@nuxtjs/pwa",
-    "nuxt-logrocket",
-    "@nuxtjs/vuetify",
-  ],
+  modules: ["@nuxtjs/pwa", "nuxt-logrocket", "@nuxtjs/vuetify"],
   vuetify: {
     materialIcons: false,
     treeShake: true,
@@ -86,24 +70,17 @@ const config: Configuration = {
     customProperties: true,
     iconfont: "mdi",
   },
-  // module options
   logRocket: {
     logRocketId: "oswcej/sibyl-landing",
     devModeAllowed: false,
   },
-  /*
-   ** Build configuration
-   */
   build: {
     extractCSS: true,
     transpile: [/^vuetify/],
     plugins: [new MomentLocalesPlugin()],
-    /*
-     ** You can extend webpack config here
-     */
-    extend(c: any) {
-      // Use raw-loader
-      c.module.rules.push({
+    extend(c): void {
+      c.devtool = isDev ? "eval-source-map" : "hidden-source-map";
+      c.module?.rules.push({
         test: /\.aes$/i,
         use: "raw-loader",
       });

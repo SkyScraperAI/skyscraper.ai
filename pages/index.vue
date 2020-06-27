@@ -1,6 +1,6 @@
 @@ -1,69 +0,0 @@
 <template>
-  <v-container fluid pa-0 ma-0>
+  <v-container fluid class="pa-0 ma-0">
     <v-layout row wrap>
       <!-- <IntroView></IntroView> -->
       <CaptureView></CaptureView>

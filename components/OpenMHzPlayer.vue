@@ -1,83 +1,95 @@
 <template>
   <v-card style="max-height: 480px !important;">
-    <v-card-title class="red darken-2 white--text subheading" id="player-title">
+    <v-card-title id="player-title" class="red darken-2 white--text subheading">
       <v-layout align-center>
         <v-flex shrink>
           <v-btn
+            :aria-label="isPlaying ? 'Pause' : 'Play'"
+            :disabled="!activeTx"
+            class="mr-4 white"
             fab
             small
-            class="mr-4 white"
-            :disabled="!activeTx"
-            :aria-label="isPlaying ? 'Pause' : 'Play'"
             @click="playToggleClicked()"
           >
-            <v-icon v-if="!isPlaying">mdi-play</v-icon>
-            <v-icon v-else>mdi-pause</v-icon>
+            <v-icon v-if="!isPlaying">
+              mdi-play
+            </v-icon>
+            <v-icon v-else>
+              mdi-pause
+            </v-icon>
           </v-btn>
         </v-flex>
         <v-flex pa-0>
-          <v-layout column class="pt-2">
+          <v-layout class="pt-2"
+column>
             <v-flex class="my-1 py-0"
-              ><span class="subheading">{{ systemName }}</span></v-flex
-            >
+>
+              <span class="subheading">{{ systemName }}</span>
+            </v-flex>
             <v-flex class="my-0 pb-3 pt-0"
-              ><span class="body-1">{{ systemType }}</span></v-flex
-            >
+>
+              <span class="body-1">{{ systemType }}</span>
+            </v-flex>
           </v-layout>
         </v-flex>
       </v-layout>
     </v-card-title>
     <v-flex class="pa-0">
-      <v-layout row pl-3 pt-3>
-        <v-flex md4 xs6 v-if="activeTx">
+      <v-layout pl-3
+pt-3 row>
+        <v-flex v-if="activeTx" md4 xs6>
           <span
             class="caption font-weight-light"
             v-text="timeAgo(activeTx.time)"
-          ></span>
-          <h3 class="mt-1" v-text="activeTx.talkgroup.alpha"></h3>
+          />
+          <h3
+class="mt-1" v-text="activeTx.talkgroup.alpha" />
           <span
-            style="display: block"
             class="body-2 ellipsis"
+            style="display: block;"
             v-text="activeTx.talkgroup.description"
-          ></span>
+          />
           <v-flex class="px-0 pb-0 pt-1">
             <span
               class="monospaced subheading"
               v-text="formatFrequency(activeTx.freq)"
-            ></span>
+            />
           </v-flex>
         </v-flex>
-        <v-flex class="py-0 pl-2" md8 xs6>
+        <v-flex class="py-0 pl-2"
+md8 xs6>
           <v-flex
-            :class="activeTx ? '' : 'd-none'"
             id="waveform"
+            :class="activeTx ? '' : 'd-none'"
             class="px-0 py-1"
             style="height: 100%;"
-          ></v-flex>
+          />
         </v-flex>
       </v-layout>
       <v-data-table
-        style="height: 100% !important; max-height: 100% !important;"
-        :total-items="3"
+        id="openmhz-table"
+        :headers="headers"
         :items="messages"
         :loading="!haveTransmissions"
-        :headers="headers"
+        :total-items="3"
         item-key="_id"
-        id="openmhz-table"
         no-data-text="Waiting for transmissions..."
         no-results-text="Waiting for transmissions..."
+        style="height: 100% !important; max-height: 100% !important;"
       >
-        <template slot="items" slot-scope="props" :selected="true">
+        <template slot="items" :selected="true" slot-scope="props">
           <tr
             v-if="activeTx"
+            :key="props.item && props.item._id ? props.item._id : 0"
             :class="
               props.item && props.item._id === activeTx._id
                 ? 'grey lighten-2 black--text'
                 : ''
             "
-            :key="props.item && props.item._id ? props.item._id : 0"
           >
-            <td class="caption">{{ props.item.time | moment }}</td>
+            <td class="caption">
+              {{ props.item.time | moment }}
+            </td>
             <td class="caption hidden-md-and-down">
               {{ props.item.talkgroup.alpha }}
             </td>
@@ -86,14 +98,14 @@
             </td>
           </tr>
         </template>
-        <template slot="footer" v-if="messages.length < 4">
+        <template v-if="messages.length < 4" slot="footer">
           <tr
             v-for="(_, idx) in Array(4 - messages.length)"
             :key="'ee-tr-r-' + idx"
           >
-            <td></td>
-            <td></td>
-            <td class="hidden-md-and-down"></td>
+            <td />
+            <td />
+            <td class="hidden-md-and-down" />
           </tr>
         </template>
       </v-data-table>
@@ -101,10 +113,11 @@
   </v-card>
 </template>
 <script lang="ts">
-import { IOpenMHzResponse } from "~/types/openmhz";
 import { parseZone as moment } from "moment";
 import Vue from "vue";
 import { Component, Watch } from "vue-property-decorator";
+import webAudioTouchUnlock from "web-audio-touch-unlock";
+import { IOpenMHzResponse } from "~/types/openmhz";
 
 let WaveSurfer: any;
 if (process.client) {
@@ -139,9 +152,7 @@ if (process.client) {
   filters: {
     moment(timestamp: string) {
       const date = new Date(timestamp);
-      return moment(date)
-        .format("LTS")
-        .toString();
+      return moment(date).format("LTS").toString();
     },
     talkgroupMode: (tgMode: string) => {
       switch (tgMode) {
@@ -205,11 +216,36 @@ export default class OpenMHzPlayer extends Vue {
   public formatFrequency(hertz: number) {
     return Number(hertz / 1000000).toFixed(4) + " MHz";
   }
+
+  audioUnlock() {
+    if (!process.client) {
+      return;
+    }
+    const context = new (window.AudioContext ||
+      (window as any).webkitAudioContext)();
+
+    webAudioTouchUnlock(context)
+      .then((unlocked: boolean) => {
+        if (unlocked) {
+          debugger;
+          // AudioContext was unlocked from an explicit user action, sound should start playing now
+        } else {
+          debugger;
+          // There was no need for unlocking, devices other than iOS
+        }
+      })
+      .catch((reason: any) => {
+        debugger;
+        console.error(reason);
+      });
+  }
+
   protected mounted() {
     this.setupSocket();
     this.startSocket();
     this.fetchTalkgroups();
     this.setupWaveSurfer();
+    // this.audioUnlock();
   }
 
   private setupWaveSurfer() {

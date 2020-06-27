@@ -4,14 +4,14 @@ module.exports = {
     node: true,
     browser: true,
   },
-  parser: "@typescript-eslint/parser",
+  parser: "vue-eslint-parser",
   parserOptions: {
     ecmaFeatures: {
       legacyDecorators: true,
     },
     sourceType: "module",
     ecmaVersion: 2020,
-    parser: "babel-eslint",
+    parser: "@typescript-eslint/parser",
   },
   plugins: ["@typescript-eslint", "vue"],
   extends: [

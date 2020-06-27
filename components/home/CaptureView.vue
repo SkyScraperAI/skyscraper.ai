@@ -5,7 +5,7 @@
     class="px-0 py-0 home-slide"
     id="rf-capture"
     :class="{
-      'mt-5 pt-4': isMounted && $vuetify.breakpoint.smAndDown,
+      'mt-5 pt-2': isMounted && $vuetify.breakpoint.smAndDown,
       'mt-5 pt-3': isMounted && $vuetify.breakpoint.mdAndUp,
     }"
   >
@@ -25,7 +25,7 @@
             :key="'cat' + idx"
             :id="'cat' + idx"
             :href="'#cat' + idx"
-            v-scroll-to="'#rf-capture'"
+            v-scroll-to="'#cap'"
             :disabled="idx > 0"
           >
             <span class="hidden-sm-and-down">{{ category.title }}</span>
