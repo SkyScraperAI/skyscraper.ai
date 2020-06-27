@@ -1,9 +1,9 @@
-import NuxtConfigration from "@nuxt/config";
+import { Configuration } from "@nuxt/types";
 
 const MomentLocalesPlugin = require("moment-locales-webpack-plugin");
 const isDev = process.env.NODE_ENV !== "production";
 
-const config: NuxtConfigration = {
+const config: Configuration = {
   mode: "spa",
   modern: isDev ? false : "client",
   manifest: {
@@ -18,8 +18,12 @@ const config: NuxtConfigration = {
   /*
    ** Headers of the page
    */
+
   head: {
     title: "SkyScraper | Unlock the spectrum.",
+    htmlAttrs: {
+      lang: "en",
+    },
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -62,18 +66,15 @@ const config: NuxtConfigration = {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    { src: "@/plugins/scrollto", ssr: false },
-    { src: "@/plugins/socketio", ssr: false },
-    { src: "@/plugins/segment", ssr: false },
+    "~/plugins/scrollto.ts",
+    "~/plugins/socketio",
+    { src: "~/plugins/segment", ssr: false },
   ],
-  /*
-   ** Nuxt.js modules
-   */
+  buildModules: ["@nuxt/typescript-build"],
   modules: [
     "@nuxtjs/pwa",
     "nuxt-logrocket",
     "@nuxtjs/vuetify",
-    "@nuxtjs/webpackmonitor",
   ],
   vuetify: {
     materialIcons: false,

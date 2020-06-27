@@ -1,27 +1,42 @@
 module.exports = {
   root: true,
   env: {
-    browser: true,
     node: true,
+    browser: true,
   },
+  parser: "@typescript-eslint/parser",
   parserOptions: {
-    parser: "babel-eslint",
-    "ecmaFeatures": {
-      "legacyDecorators": true,
+    ecmaFeatures: {
+      legacyDecorators: true,
     },
+    sourceType: "module",
+    ecmaVersion: 2020,
+    parser: "babel-eslint",
   },
+  plugins: ["@typescript-eslint", "vue"],
   extends: [
-    "@nuxtjs",
-    "plugin:nuxt/recommended",
-    "plugin:prettier/recommended",
-    "prettier",
-    "prettier/vue",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:vue/recommended",
+    "prettier/@typescript-eslint", // Disable ESLint rules from @typescript-eslint/eslint-plugin that would conflict with prettier
+    "plugin:prettier/recommended", // Make sure this is always the last configuration in the extends array.
   ],
-  plugins: [
-    "prettier"
+  ignorePatterns: [
+    "node_modules",
+    "*.d.ts",
+    "generated",
+    "static/*",
+    "dist",
+    "build",
+    "nuxt",
   ],
-  // add your custom rules here
   rules: {
-    experimentalDecorators: true,
+    "prettier/prettier": "error",
+    "space-before-function-paren": 0,
+    quotes: [
+      "error",
+      "double",
+      { avoidEscape: true, allowTemplateLiterals: false },
+    ],
   },
 };

@@ -27,25 +27,14 @@ interface ISlide {
 }
 
 @Component({
-  data() {
-    return {
-      slides: [] as ISlide[],
-    };
-  },
   components: {
     AboutView,
     PricingView,
     ApplicationsView,
     IntroView,
     CaptureView,
-  },
-  metaInfo() {
-    return {
-      titleTemplate: "SkyScraper | Taking Back The Airwaves",
-      htmlAttrs: {
-        lang: "en",
-      },
-      meta: [
+  }, meta:
+[
         { name: "og:image", content: "/img/og-banner.png" },
         { name: "canonical", href: "https://skyscraper.ai/", id: "canonical" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -55,12 +44,8 @@ interface ISlide {
       . Meet the Swiss-army knife of radio capture and analysis.`,
         },
         { name: "Content-Type", content: "text/html; charset=utf-8" },
-      ],
-      script: [
-        // { src: 'https://cdn.jsdelivr.net/npm/vue/dist/vue.js', async: true, defer: true }
-      ],
-    };
-  },
+      ]
+
 })
 export default class HomeView extends Vue {
   public slides: ISlide[] = [];

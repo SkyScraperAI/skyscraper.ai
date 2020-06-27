@@ -5,11 +5,10 @@
   "author": "Peter Kazazes",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "build:monitor": "nuxt build --webpackmonitor",
-    "generate": "nuxt generate",
-    "lint": "tslint --fix --project .",
+    "dev": "nuxt-ts",
+    "build": "nuxt-ts build",
+    "generate": "nuxt-ts generate",
+    "lint": "eslint --fix --project .",
     "precommit": "yarn run lint",
     "now-build": "yarn run generate --no-lock"
   },
