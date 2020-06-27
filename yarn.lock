@@ -6732,9 +6732,9 @@ mixin-deep@^1.2.0:
   dependencies:
     minimist "^1.2.5"
 
-"moment-locales-webpack-plugin@git://github.com/kazazes/moment-locales-webpack-plugin.git":
+"moment-locales-webpack-plugin@git://github.com/kazazes/moment-locales-webpack-plugin.git#master":
   version "1.2.0"
-  resolved "git://github.com/kazazes/moment-locales-webpack-plugin.git#1fbfe33b874e6e53c18ac32010a0fe67da3e9920"
+  resolved "git://github.com/kazazes/moment-locales-webpack-plugin.git#e83237732703162bffaab90aa7e00a8438d14dac"
   dependencies:
     lodash.difference "^4.5.0"
 
