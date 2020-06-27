@@ -1,31 +1,34 @@
 <template>
   <v-container
+    id="rf-capture"
     dark
     fluid
     class="px-0 py-0 home-slide"
-    id="rf-capture"
     :class="{
       'mt-5 pt-2': isMounted && $vuetify.breakpoint.smAndDown,
       'mt-5 pt-3': isMounted && $vuetify.breakpoint.mdAndUp,
     }"
   >
-    <v-layout wrap align-end id="cap" class="primary pb-3">
+    <v-layout
+wrap align-end
+id="cap" class="primary pb-3"
+>
       <v-flex xs12>
         <v-tabs
+          v-model="servicesModel"
           dark
           grow
           icons-and-text
           slider-color="white"
           color="grey darken-3"
-          v-model="servicesModel"
         >
           <v-tab
             v-for="(category, idx) in capture"
-            active-class="error--text"
-            :key="'cat' + idx"
             :id="'cat' + idx"
-            :href="'#cat' + idx"
+            :key="'cat' + idx"
             v-scroll-to="'#cap'"
+            active-class="error--text"
+            :href="'#cat' + idx"
             :disabled="idx > 0"
           >
             <span class="hidden-sm-and-down">{{ category.title }}</span>
@@ -41,41 +44,69 @@
         }"
       >
         <v-tabs-items v-model="servicesModel">
-          <v-tab-item v-for="(cat, i) in capture" :value="`cat${i}`" :key="'cat-detail' + i">
+          <v-tab-item
+            v-for="(cat, i) in capture"
+            :key="'cat-detail' + i"
+            :value="`cat${i}`"
+          >
             <v-container grid-list-xl>
-              <v-layout align-start wrap v-if="cat.detail">
-                <v-flex fill-height sm12 md4 xs12>
-                  <v-layout column fill-height>
+              <v-layout
+align-start wrap
+v-if="cat.detail"
+>
+                <v-flex
+fill-height sm12
+md4 xs12
+>
+                  <v-layout
+column fill-height
+>
                     <v-flex xs12>
                       <v-card>
                         <v-card-title class="red darken-2 white--text">
-                          <h1 class="headline">{{ cat.detail.title || "" }}</h1>
+                          <h1 class="headline">
+                            {{ cat.detail.title || "" }}
+                          </h1>
                         </v-card-title>
-                        <v-card-text v-if="cat.detail.subtitle" color="primary">
+                        <v-card-text
+v-if="cat.detail.subtitle" color="primary"
+>
                           <p>{{ cat.detail.subtitle }}</p>
                         </v-card-text>
                       </v-card>
                     </v-flex>
-                    <v-flex xs12 class="hidden-sm-and-down">
+                    <v-flex
+xs12 class="hidden-sm-and-down"
+>
                       <v-card>
                         <v-card-title class="red darken-2 white--text">
-                          <h2 class="subheading">{{ cat.detail.list.title }}</h2>
+                          <h2 class="subheading">
+                            {{ cat.detail.list.title }}
+                          </h2>
                         </v-card-title>
                         <v-card-text>
                           <v-list
+                            v-if="cat.detail.list"
                             subheader
                             dense
                             class="mt-2"
-                            v-if="cat.detail.list"
-                            style="max-width: 300px"
+                            style="max-width: 300px;"
                           >
                             <v-list-tile
                               v-for="(item, i) in cat.detail.list.items"
                               :key="cat + i + item.title"
                             >
-                              <v-list-tile-title v-text="item.text"></v-list-tile-title>
-                              <v-btn :href="item.link" target="_blank" rel="noopener" flat icon>
-                                <v-icon small>mdi-open-in-new</v-icon>
+                              <v-list-tile-title v-text="item.text" />
+                              <v-btn
+                                :href="item.link"
+                                target="_blank"
+                                rel="noopener"
+                                flat
+                                icon
+                              >
+                                <v-icon small>
+                                  mdi-open-in-new
+                                </v-icon>
                               </v-btn>
                             </v-list-tile>
                           </v-list>
@@ -84,17 +115,19 @@
                     </v-flex>
                   </v-layout>
                 </v-flex>
-                <v-flex md8 sm12>
-                  <component :is="cat.demoComponent"></component>
+                <v-flex
+md8 sm12
+>
+                  <component :is="cat.demoComponent" />
                 </v-flex>
               </v-layout>
             </v-container>
-            <!--                        </v-card>-->
           </v-tab-item>
         </v-tabs-items>
       </v-flex>
-      <v-flex hidden-sm-and-down ref="box" xs12 class="py-0" id="box">
-        <Box></Box>
+      <v-flex ref="box"
+hidden-sm-and-down id="box" xs12 class="py-0">
+        <Box />
       </v-flex>
     </v-layout>
   </v-container>
@@ -223,7 +256,10 @@
               source: "cat" + i,
               target: "box-target",
               connector: ["Bezier", { curviness: 190 }],
-              anchors: [["BottomCenter", []], ["Continuous", [0.5, 0, 0, -1]]],
+              anchors: [
+                ["BottomCenter", []],
+                ["Continuous", [0.5, 0, 0, -1]],
+              ],
               endpoint: "Blank",
             });
           });

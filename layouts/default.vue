@@ -1,35 +1,53 @@
 <template>
-  <v-app id="sibyl" class="grey lighten-3">
+  <v-app
+id="sibyl" class="grey lighten-3"
+>
     <v-toolbar
+      v-if="navVisible"
+      id="navbar"
       absolute
       app
       clipped-right
       class="grey lighten-4 elevation-1"
       style="z-index: 100;"
-      id="navbar"
-      v-if="navVisible"
     >
-      <v-layout align-center justify-space-between row fill-height>
+      <v-layout
+align-center justify-space-between
+row fill-height
+>
         <v-flex grow>
           <v-toolbar-title>
             <h1 class="headline">
-              <a href="/">
-                <strong>Sky</strong>Scraper
-              </a>
+              <a href="/"> <strong>Sky</strong>Scraper </a>
             </h1>
           </v-toolbar-title>
         </v-flex>
-        <v-flex shrink fill-height hidden-sm-and-down>
-          <v-toolbar-items v-if="$route.path == '/'" id="toolbar-menu" class="d-flex" justify-end>
-            <v-btn flat aria-label="Preview" to="/demo">
-              <n-link to="/demo" style="text-decoration: none;">Preview</n-link>
+        <v-flex
+shrink fill-height
+hidden-sm-and-down
+>
+          <v-toolbar-items
+            v-if="$route.path == '/'"
+            id="toolbar-menu"
+            class="d-flex"
+            justify-end
+          >
+            <v-btn
+flat aria-label="Preview"
+to="/demo"
+>
+              <n-link
+to="/demo" style="text-decoration: none;"
+>
+                Preview
+              </n-link>
             </v-btn>
           </v-toolbar-items>
         </v-flex>
       </v-layout>
     </v-toolbar>
     <nuxt />
-    <Footer></Footer>
+    <Footer />
   </v-app>
 </template>
 

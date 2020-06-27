@@ -7,14 +7,14 @@ export default class EventEmitter {
   private listeners: Map<any, any>;
 
   constructor(vuex: any) {
-    Logger.info(vuex ? `Vuex adapter enabled` : `Vuex adapter disabled`);
+    Logger.info(vuex ? "Vuex adapter enabled" : "Vuex adapter disabled");
     Logger.info(
       vuex.mutationPrefix
-        ? `Vuex socket mutations enabled`
-        : `Vuex socket mutations disabled`
+        ? "Vuex socket mutations enabled"
+        : "Vuex socket mutations disabled"
     );
     Logger.info(
-      vuex ? `Vuex socket actions enabled` : `Vuex socket actions disabled`
+      vuex ? "Vuex socket actions enabled" : "Vuex socket actions disabled"
     );
     this.store = vuex.store;
     this.actionPrefix = vuex.actionPrefix ? vuex.actionPrefix : "SOCKET_";
@@ -40,7 +40,7 @@ export default class EventEmitter {
       this.listeners.get(event).push({ callback, component });
       Logger.info(`#${event} subscribe, component: ${component.$options.name}`);
     } else {
-      throw new Error(`callback must be a function`);
+      throw new Error("callback must be a function");
     }
   }
 

@@ -33,8 +33,8 @@ export default ({ app }) => {
         "off",
         "on",
       ];
-      analytics.factory = function(t) {
-        return function() {
+      analytics.factory = function (t) {
+        return function () {
           const e = Array.prototype.slice.call(arguments);
           e.unshift(t);
           analytics.push(e);
@@ -45,7 +45,7 @@ export default ({ app }) => {
         const e = analytics.methods[t];
         analytics[e] = analytics.factory(e);
       }
-      analytics.load = function(t, e) {
+      analytics.load = function (t, e) {
         const n = document.createElement("script");
         n.type = "text/javascript";
         n.async = !0;

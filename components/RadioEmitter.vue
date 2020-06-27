@@ -17,7 +17,7 @@
           dur="6s"
           repeatCount="indefinite"
           begin="0.25s"
-        ></animate>
+        />
       </circle>
 
       <circle
@@ -36,7 +36,7 @@
           dur="6s"
           repeatCount="indefinite"
           begin="1.25s"
-        ></animate>
+        />
       </circle>
 
       <circle
@@ -55,7 +55,7 @@
           dur="6s"
           repeatCount="indefinite"
           begin="2.25s"
-        ></animate>
+        />
       </circle>
 
       <circle
@@ -74,7 +74,7 @@
           dur="6s"
           repeatCount="indefinite"
           begin="3.25s"
-        ></animate>
+        />
       </circle>
 
       <circle
@@ -93,23 +93,23 @@
           dur="6s"
           repeatCount="indefinite"
           begin="4.25s"
-        ></animate>
+        />
       </circle>
     </svg>
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-export default class RadioEmitter extends Vue {}
+  import Vue from "vue";
+  export default class RadioEmitter extends Vue {}
 </script>
 
 <style>
-svg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  margin: auto;
-  top: 0;
-  left: 0;
-}
+  svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    top: 0;
+    left: 0;
+  }
 </style>
