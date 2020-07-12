@@ -6059,10 +6059,10 @@ jsonfile@^6.0.1:
   optionalDependencies:
     graceful-fs "^4.1.6"
 
-jsplumb@^2.9.2:
-  version "2.13.3"
-  resolved "https://registry.yarnpkg.com/jsplumb/-/jsplumb-2.13.3.tgz#e25ad40e8c06b56166f7445b093386b9ca3be13c"
-  integrity sha512-R2PrWnhUy8wzV+Ut9z8FGZNHGISjYm5Vd3RHgwPz7GqRUtA8X0+Kaym+MFGBlcPx8x2W36plTRy+8pHYZlAq8Q==
+jsplumb@^2.14.2:
+  version "2.14.2"
+  resolved "https://registry.yarnpkg.com/jsplumb/-/jsplumb-2.14.2.tgz#f06d198fcc9072e7d9deaa7c6a8f4e5b846954e0"
+  integrity sha512-PBNHzqxxWOJ2df0gNJJTkD6vVBlojzrdLoCn/TkT9fAyQg5U9Ui00mksqgQHiDZlCqxB+gU7Y/GhTq7X2Pwa+A==
 
 jsprim@^1.2.2:
   version "1.4.1"
