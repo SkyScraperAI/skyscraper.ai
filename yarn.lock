@@ -1648,10 +1648,10 @@
   dependencies:
     vue-scrollto "*"
 
-"@types/wavesurfer.js@^3.3.2":
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/@types/wavesurfer.js/-/wavesurfer.js-3.3.2.tgz#e916456691586b07004f40d56c22dc7138509eae"
-  integrity sha512-bujQxJR+2TDXe5hc2kG36n38rJtdTbCafQddWaNJwgdNDVqMVxCCKAFYRQWq1aXnN/h9BTHLIVwi4gM8IwRt5A==
+"@types/wavesurfer.js@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@types/wavesurfer.js/-/wavesurfer.js-5.0.0.tgz#030f0a7a49c037bd73c513c2af27e95d56f07b31"
+  integrity sha512-J8fAhXb0abWMV3GDdrCfubLzXBk/m9xP1CeGI9gFlsm5zmX0kncz05pkbQ+J9bMjz05uBlP+mksos47Y9U5V+A==
 
 "@types/webpack-bundle-analyzer@^3.8.0":
   version "3.8.0"
